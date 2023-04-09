@@ -1,0 +1,535 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+   <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+   <META NAME="GENERATOR" CONTENT="Mozilla/4.07 [en] (WinNT; U) [Netscape]">
+   <TITLE>Design case history: the Atari Video Computer System</TITLE>
+</HEAD>
+<BODY TEXT="#FFFFFF" BGCOLOR="#000000" LINK="#0000EE" VLINK="#FF0000" ALINK="#0000EE">
+<FONT FACE="Arial,Helvetica"></FONT>&nbsp;
+<CENTER>
+<H1>
+<FONT FACE="Arial,Helvetica">Design case history: the Atari Video Computer
+System</FONT></H1></CENTER>
+<FONT FACE="Arial,Helvetica"></FONT>
+<CENTER>
+<H2>
+<FONT FACE="Arial,Helvetica">By omitting lots of hardware, designers added
+flexibility and gave video-game programmers room to be creative</FONT></H2></CENTER>
+<FONT FACE="Arial,Helvetica"></FONT>
+<CENTER>
+<H3>
+<FONT FACE="Arial,Helvetica">By Tekla E. Perry and Paul Wallich<BR>
+Associate Editors, <I>IEEE Spectrum<BR>
+<BR>
+</I>Originally in <I>IEEE Spectrum</I>, March 1983, pp. 45-51&nbsp;</FONT><BR>
+<BR>
+<BR>
+<BR></H3></CENTER>
+<FONT FACE="Arial,Helvetica">In late 1975, sales of devices that made it
+possible for consumers to play Pong on home television sets were booming.
+At Atari Inc., which had first introduced Pong as an arcade game and had
+manufactured one of the most popular home versions of Pong, engineers began
+looking for the next arcade game to put in consumer hands, anticipating
+that people would grow tired of two paddles and a ball.</FONT><FONT FACE="Arial,Helvetica"></FONT>
+<P><FONT FACE="Arial,Helvetica">They saw Jet Fighter and Tank, but instead
+of designing a custom chip for each game, as was done for Pong, they planned
+a system that would play both games, four-player Pong if anyone was interested,
+and possibly a few other, as yet unknown games. The system was to be based
+on a microprocessor.</FONT><FONT FACE="Arial,Helvetica"></FONT>
+<P><FONT FACE="Arial,Helvetica">In a few months, Atari's designers in Grass
+Valley, Calif., had made a working prototype, and over the next year, designers
+from Grass Valley and from Sunnyvale, Calif., refined what was to be the
+Atari Video Computer System (VCS). It was released in 1977, and six years
+later ranks as one of the most successful microprocessor-based products
+ever built, with over 12 million sold at about $140 apiece.</FONT><FONT FACE="Arial,Helvetica"></FONT>
+<P><FONT FACE="Arial,Helvetica">Success did not come without problems.
+Production problems in the first two years caused Atari losses estimated
+near $25 million. But once these problems were solved and enough software
+was developed, the VCS took off.</FONT><FONT FACE="Arial,Helvetica"></FONT>
+<P><FONT FACE="Arial,Helvetica">It is popular today, not because it does
+an admirable job of playing Jet Fighter and Tank, but because its flexible
+design also allows it to play chess and baseball, as well as Space Invaders,
+Pac-Man and many of the other arcade games that have been i nvented since
+the VCS came on the market. More than 200 different game cartridges - the
+read-only memories (ROMs) containing VCS software - are now on the market,
+manufactured by about 40 companies, and new games are constantly being
+developed. An estim ated 120 million cartridges have been sold at prices
+from $12 to $35, and the demand is such that, in addition to buying more
+6502 microcomputers than anyone else in the world, Atari's purchases of
+ROMs for its various divisions is greater than that of al l other companies
+in the world combined.</FONT><FONT FACE="Arial,Helvetica"></FONT>
+<P><FONT FACE="Arial,Helvetica">Atari and other video-game companies had
+been making microprocessor-based arcade games for some time before the
+VCS was developed, but the cost of then-available processors - $100 or
+more each - made the idea of a home consumer product based on a micro processor
+impractical. Then came Chuck Peddle and the 6502.</FONT><FONT FACE="Arial,Helvetica"></FONT>
+<P><FONT FACE="Arial,Helvetica">Mr. Peddle, who had left Motorola for MOS
+Technology after designing the MC6800 microprocessor, appeared at Wescon
+- the annual West Coast electronics show - in September 1975, offering
+to sell his new microprocessor by the barrel at $8 apiece. "Of co urse,
+no one knew that he only had one barrel to his name," recalls Steve Mayer,
+cofounder of Cyan Engineering, Atari's private consulting company in Grass
+Valley, and now senior vice president for R&amp;D at Atari.</FONT><FONT FACE="Arial,Helvetica"></FONT>
+<P><FONT FACE="Arial,Helvetica">Mr. Mayer and Ron Milner, his colleague
+at Cyan, went to see Mr. Peddle at Wescon and found that the 6502 matched
+precisely the minimum specifications that they had laid out some time before
+in a blue-sky design for a programmable video game. The thre e went into
+the back of the MOS Technology suite, Mr. Mayer recalls, and in an hour
+the deal was struck. It started a revolution in home video games.</FONT>
+<H3>
+<FONT FACE="Arial,Helvetica">'Trying to survive'</FONT></H3>
+<FONT FACE="Arial,Helvetica">No one saw it that way at the time. "We were
+just trying to survive," Mr. Mayer told <I>Spectrum</I>. Atari had entered
+the home video market with a one-chip version of its Pong arcade game,
+and it was developing other home video games, but each was based on a single
+custom chip that took a year or more and over $100,000 to develop - by
+the time an arcade game reached the home market, consumers would have forgotten
+about it. A programmable home video game seemed a desirable alternative.</FONT><FONT FACE="Arial,Helvetica"></FONT>
+<P><FONT FACE="Arial,Helvetica">The key to the design was simplicity: making
+the software do as much of the work as possible, so that the hardware could
+be cheaper - silicon was very expensive in those days. The microprocessor
+was synchronized to the television scan rate and created the display one
+or two lines at a time. This synchronization reduces memory requirements
+for the television interface considerable, but the processor must continually
+update the registers in the interface to get any display at all. The program
+that fee ds information to the video chip (called Stella, after its designer's
+bicycle) is known as a kernel.</FONT><FONT FACE="Arial,Helvetica"></FONT>
+<P><FONT FACE="Arial,Helvetica">To further reduce memory requirements,
+Mr. Mayer and Mr. Milner decided to display the background of the screen
+at relatively low resolution, while displaying moving objects with higher
+resolution - low-resolution playfield, high-resolution players. T hey also
+eliminated any provision for vertical synchronization and gave that task
+to the programmer. A VCS kernel must count the number of lines displayed
+on the television screen and must finish displaying a single frame in exactly
+the same time - 15.24 milliseconds - that it takes the TV set's electron
+gun to make a single top-to-bottom sweep.</FONT><FONT FACE="Arial,Helvetica"></FONT>
+<P><FONT FACE="Arial,Helvetica">Two prototypes of the Stella were built:
+a functional prototype built by Mr. Milner to test the concept, and a gate-level
+prototype built by Joe Decuir, who was hired by Cyan in late 1975. The
+gate-level prototype was designed to mimic as closely as p ossible the
+intended final chip, using circuit-design techniques specific to MOS integrated
+circuits.</FONT><FONT FACE="Arial,Helvetica"></FONT>
+<P><FONT FACE="Arial,Helvetica">One critical MOS-dependent feature was
+the use of a special counter - called a polynomial counter, or pseudorandom
+shift register - instead of a true binary counter to determine object positions
+on the screen. A polynomial counter occupies one-fourth the silicon area
+of an equivalent binary counter, but, unlike a binary counter, it does
+not count in any simple order. Thus, a programmer cannot calculate a screen
+position for an object and load it into the position counter.</FONT><FONT FACE="Arial,Helvetica"></FONT>
+<P><FONT FACE="Arial,Helvetica">The original Stella prototype had only
+one signal to the position counter: a reset that would trigger the immediate
+display of an object. Mr. Decuir and Jay Miner, who designed the production
+version of the Stella chip, used this same concept in their design. As
+a result, displaying an object in a given position on the screen requires
+that the programmer count the number of clock cycles taken by a given set
+of instruction, figure out how far across the screen the electron beam
+would be after the inst ructions had been executed, and act accordingly.
+Once the position counter for an object is reset at the proper point, it
+continues to display the object at that spot on succeeding lines.</FONT><FONT FACE="Arial,Helvetica"></FONT>
+<P><FONT FACE="Arial,Helvetica">To move objects, the prototype blocked
+out four clock pulses from the position counters during the vertical blanking
+interval; a programmer could then add pulses to move an object left or
+right - four pulses had to be added to keep the object in the s ame place.
+Mr. Miner added a set of motion registers, which add or subtract pulses
+automatically when a signal - called H-move - is sent by the microprocessor.
+The H-move can be sent during the vertical blanking interval, or during
+the horizontal blanki ng interval at the beginning of each line.</FONT><FONT FACE="Arial,Helvetica"></FONT>
+<P><FONT FACE="Arial,Helvetica">"This seemed innocuous enough," said Larry
+Kaplan, the first software designer hired to develop games for the Stella
+project. "But I discovered early that it was possible to reposition player
+objects during a screen [a frame of the TV picture], though that was not
+a consideration of the design."</FONT><FONT FACE="Arial,Helvetica"></FONT>
+<P><FONT FACE="Arial,Helvetica">So Mr. Kaplan designed Air-Sea Battle,
+which has horizontal bands of player objects, a technique used in countless
+VCS games, including Space Invaders, Freeway, Asteroids, and Football.
+"Without that single strobe, H-move, the VCS would have died a qu ick death
+five years ago," said Mr. Kaplan, now vice president of product development
+at Atari.</FONT><FONT FACE="Arial,Helvetica"></FONT>
+<P><FONT FACE="Arial,Helvetica">H-move and a feature that allowed two or
+three copies of an object to be placed on the screen let another VCS programmer,
+Rick Mauer, design a home version of the arcade hit, Space Invaders. That
+game hit the arcades in 1979, when the VCS was going do wnhill after losing
+money in 1977 and 1978.</FONT><FONT FACE="Arial,Helvetica"></FONT>
+<P><FONT FACE="Arial,Helvetica">"The VCS was not doing that well - there
+were only a few million in the field, and it looked like it was dying -
+then Space Invaders came out, and bam! it exploded," Mr. Kaplan said. Space
+Invaders was the most popular game in the arcades, and the VCS , with rows
+of six objects across the screen (two player-objects, copied three times
+each) could recreate it in the home.</FONT><FONT FACE="Arial,Helvetica"></FONT>
+<P><FONT FACE="Arial,Helvetica">Another hardware feature, one that actually
+cost a fair amount of silicon, was vertical delay, or VDEL. The VCS writes
+two television lines at a time, explained Mr. Miner, but shifting objects
+by two lines between frames leads to jerky motion. A way had to be found
+to shift objects by only one line, and that way was VDEL. Two registers
+are used to hold the graphics information for each player-object, and VDEL
+selects which register will be displayed on the screen.</FONT><FONT FACE="Arial,Helvetica"></FONT>
+<P><FONT FACE="Arial,Helvetica">The sequence of events is as follows: information
+sent to the display registers for one player object is loaded into its
+primary register; when information is written to the other player object,
+the contents of the primary register for the first objec t are automatically
+duplicated in its secondary register; if information for each player object
+is written every other scan line, the secondary register selected by VDEL
+will display the same shape as the primary register, but one line later.
+This technique is now being used to load different information into the
+primary and secondary registers of each player object, thus yielding single-line
+resolution and other unintended bonuses.</FONT><FONT FACE="Arial,Helvetica"></FONT>
+<P><FONT FACE="Arial,Helvetica">In addition to being able to determine
+the shape of an object, programmers can also determine its color and luminance.
+The decision to go with both color and luminance registers probably would
+not have been made but for the simplicity of the color con trol. Television
+color is determined by the difference in phase between the color signal
+and a reference signal, or color burst, that is transmitted at the beginning
+of each line. The VCS's phase shifter is nothing more than a delay line
+tapped at appro priate intervals, and so it occupies fairly little chip
+space.</FONT><FONT FACE="Arial,Helvetica"></FONT>
+<P><FONT FACE="Arial,Helvetica">An example of extensive color manipulation
+is a subroutine developed by Mr. Decuir to avoid burning game patterns
+onto the TV screen if the VCS is left unattended. The routine, which cycled
+through all possible color-luminance combinations, used only a dozen bytes,
+a great advantage in early game cartridges, which held only 2 kilobytes
+of ROM. "In 2K, you barely have room to brush your teeth," Mr. Decuir said.</FONT><FONT FACE="Arial,Helvetica"></FONT>
+<P><FONT FACE="Arial,Helvetica">A similar variety of effects was produced
+with a minimum of chip space in the sound generator; it contains simply
+a few dividers and polynomial counters that can be interconnected in a
+number of ways under program control. A 5-bit polynomial counter, Mr. Decuir
+noted, produces a low, grumbling sound (used in Tank), and a 9-bit counter
+produces a whooshing sound (used in Jet Fighter). The rest of the sounds
+that the programmers have made the VCS produce come essentially free, and
+they have been extens ive - Mr. Mayer said he has even heard the VCS reproduce
+the words "E.T. phone home."</FONT>
+<H3>
+<FONT FACE="Arial,Helvetica">Exploiting the hardware</FONT></H3>
+<FONT FACE="Arial,Helvetica">Because the VCS hardware does so little on
+its own, a heavy burden is placed on the programmer. But though programming
+is arduous, few walls hold back software creativity.</FONT><FONT FACE="Arial,Helvetica"></FONT>
+<P><FONT FACE="Arial,Helvetica">"Writing the kernels that make up the game
+programs," Mr. Mayer said, "is like solving acrostic puzzles with lots
+and lots of possibilities. There's a certain class of programmer that can
+deal in the microcode like that. If it were easier to program, we wouldn't
+have these programmers, because they'd be bored. The VCS is an absolute
+challenge."</FONT><FONT FACE="Arial,Helvetica"></FONT>
+<P><FONT FACE="Arial,Helvetica">"Another way of saying it is that to deal
+with a VCS you have to unlearn every good programming practice you've learned,"
+said Mr. Mauer, who designed Space Invaders.</FONT><FONT FACE="Arial,Helvetica"></FONT>
+<P><FONT FACE="Arial,Helvetica">Bob Whitehead, senior designer and cofounder
+of Activision Inc. in Mountain View, Calif., may be the most innovative
+VCS designer - he is credited with the most firsts in using a new trick.
+But he is philosophical about his innovations. "A computer i s a computer,"
+he said, "and it only works in one way. If something new comes up, it's
+cute, but no more than that, because it's something the computer has always
+been able to do; you just didn't discover it before. It's like finding
+a penny under the c ouch - it's always been there, but it's cute to discover."</FONT><FONT FACE="Arial,Helvetica"></FONT>
+<P><FONT FACE="Arial,Helvetica">Once a trick is discovered and is implemented
+in a game, it becomes obvious to experienced VCS programmers, Mr. Whitehead
+noted, and soon the trick is copied in other games. Less experienced programmers
+look at a program listing or pick up tricks by w ord of mouth.</FONT><FONT FACE="Arial,Helvetica"></FONT>
+<P><FONT FACE="Arial,Helvetica">Today, however, designers estimate that
+the hardware has been 70 to 80 percent exploited. "More and more the cute
+things aren't showing up," Mr. Whitehead said, "but then every time we
+discover something new, we think that it is the last thing."</FONT>
+<H3>
+<FONT FACE="Arial,Helvetica">Changing displays 'on the fly'</FONT></H3>
+<FONT FACE="Arial,Helvetica">The first trick popped up when Mr. Whitehead
+designed Blackjack, and it is now used in nearly every VCS game. It is
+the capability to rewrite player objects "on the fly." Because the microprocessor
+must feed information every line to the "Stella" chi p to make a display,
+it can change the information even during a line to change the appearance
+of objects. The hardware can produce multiple copies of a player object
+- a feature added so that groups of biplanes could fight each other - and
+Mr. Whitehead discovered that he could change the displayed player object
+between copies. Instead of putting up three copies of the same object,
+the VCS then displays three different objects: three different cards in
+the case of Blackjack.</FONT><FONT FACE="Arial,Helvetica"></FONT>
+<P><FONT FACE="Arial,Helvetica">Objects can also be rewritten as they are
+repositioned vertically, so the different rows of aliens in Space Invaders
+look different. This capability was carried to an extreme in Activision's
+Freeway, with 10 lanes of traffic and different cars and tru cks all over
+the screen. It was also used very successfully in Asteroids, in which the
+rocks that appear to be careening all over the screen are in two rows,
+half moving up and half moving down.</FONT><FONT FACE="Arial,Helvetica"></FONT>
+<P><FONT FACE="Arial,Helvetica">But an initial limitation of rewriting
+player objects on the fly was that the copied objects had to move together,
+because the VCS produces multiple images only at set spacings. A trick
+developed by Mr. Whitehead to allow many graphically different ob jects
+to move independently is called flicker.</FONT><FONT FACE="Arial,Helvetica"></FONT>
+<P><FONT FACE="Arial,Helvetica">Flickering displays create the illusion
+of extra independent player objects by showing the objects only every other
+frame, or every third or fourth frame. The problem with this technique
+is that pronounced flicker can make a game difficult or even unp leasant
+to play. Judiciously used, this tradeoff can make games possible that the
+VCS otherwise could not handle: Starship, in which the stars are made of
+player objects that flicker; Adventure, in which flicker occurs only when
+there are more than two objects on the screen; baseball and football games;
+and Defender, to name a few.</FONT><FONT FACE="Arial,Helvetica"></FONT>
+<P><FONT FACE="Arial,Helvetica">Ironically, flicker has never been used
+at Activision, the software company that Mr. Whitehead helped start when
+he left Atari in 1979. Mr. Whitehead did not say Activision will never
+use the technique in a game, but he noted that the company's progra mmers
+will rethink the philosophy of a game to avoid it. "It is a tradeoff that
+is not acceptable," he said.</FONT><FONT FACE="Arial,Helvetica"></FONT>
+<P><FONT FACE="Arial,Helvetica">Flicker can be avoided if the motion of
+objects is restricted to keep them vertically separated, or by use of more
+recent tricks. One of those tricks is "venetian blinds," and it was first
+used in Atari's Chess game.</FONT>
+<H3>
+<FONT FACE="Arial,Helvetica">Doing the 'impossible': chess</FONT></H3>
+<FONT FACE="Arial,Helvetica">"When the VCS was first manufactured," Mr.
+Kaplan recalled, "the box had a chess piece on it. 'Those marketing guys!
+Come on,' we said. 'It'll never do chess.' Well, some guy in Florida sued
+because there was a chess piece on the cover and we didn' t have a chess
+game."</FONT><FONT FACE="Arial,Helvetica"></FONT>
+<P><FONT FACE="Arial,Helvetica">A year later Atari's designers began devloping
+Chess. "The guys were playing around," Allan Alcorn, then head of engineering
+at Atari, recalled, "and one guy said, 'I could write an algorithm, but
+I couldn't get a playfield on the screen.' Another gu y said, 'That's easy.'
+" Larry Wagner wrote the algorithm; it took him two years with the help
+of national chess champion Julio Kaplan. Mr. Whitehead did the display
+in two days, developing the trick now known as venetian blinds [Fig.2].</FONT><FONT FACE="Arial,Helvetica"></FONT>
+<P><FONT FACE="Arial,Helvetica">To display eight chess pieces across the
+screen (instead of the maximum six possible with triple copies), Mr. Whitehead
+displayed each object on every other scan line. On the first sweep across
+the screen, graphics for four objects were displayed; on the next sweep,
+graphics for the other four were shown. The gaps were obvious, but the
+chess pieces were recognizable.</FONT><FONT FACE="Arial,Helvetica"></FONT>
+<P><FONT FACE="Arial,Helvetica">While primitive in comparison with today's
+chess machines, the Wagner-Whitehead chess game, using 4 kilobytes of ROM
+and 138 bytes of random-access memory, was as good as the chess machines
+then on the market. There was only one problem: the TV screen displayed
+random colors while the VCS calculated the next move; no processor time
+was left for the screen.</FONT><FONT FACE="Arial,Helvetica"></FONT>
+<P><FONT FACE="Arial,Helvetica">The venetian-blind technique has appeared
+in many games since Chess. It was used for horses in Polo, a game by Carol
+Shaw that was never released, and in Basic Programming to get 12 characters
+on a line. It was also used in Stampede, by Mr. Whitehead , to animate
+the animals' legs, and most recently, in Sky Jinks, also by Mr. Whitehead,
+where parts of the balloon baskets are displayed on alternate lines. If
+used subtly, Mr. Whitehead noted, the technique is hardly noticeable.</FONT><FONT FACE="Arial,Helvetica"></FONT>
+<P><FONT FACE="Arial,Helvetica">After they had exploited variations on
+player graphics, programmers turned to other areas of the Stella chip to
+look for tricks. One early discovery was that they could write the playfield
+- a low resolution background 40 bits across - on the fly. Al Miller did
+this in Surround, where each block in a 40 by 24 grid can be turned on
+or off independently. The technique was used by Mr. Whitehead in Chopper
+Command to create an extra player object - the chopper the player commands
+[Fig. 3].</FONT><FONT FACE="Arial,Helvetica"></FONT>
+<P><FONT FACE="Arial,Helvetica">Mr. Kaplan first rewrote color on the fly,
+changing color line by line to get a figure in his bowling game that has
+a flesh-colored head, a blue shirt, gray trousers, and black shoes. That
+technique was picked up in Superman to make the cartoon hero's costume
+red and blue, and it is used widely to display brightly colored alien attackers,
+as well as scenery that appears to recede as the colors deepen - including
+sunsets and oceans with rolling waves.</FONT><FONT FACE="Arial,Helvetica"></FONT>
+<P><FONT FACE="Arial,Helvetica">Mr. Whitehead indicated that once a game
+is on the market any new tricks used are apparent to experienced programmers.
+This thesis was confirmed by <I>Spectrum</I>'s discovery that two techniques
+considered trade secrets by Activision at the time of w riting were widely
+known and, indeed, used by designers at other video-game companies.</FONT>
+<H3>
+<FONT FACE="Arial,Helvetica">Objects that change their size</FONT></H3>
+<FONT FACE="Arial,Helvetica">One of the tricks designers have pointed out
+exploits the capability of the VCS to display an object in normal, double,
+or quad width depending upon the rate at which the player register is scanned.
+The trick comes in changing the size of the player o bject on the fly.
+In Mr. Whitehead's Boxing [Fig. 4], the game in which it is believed this
+technique was first used, a change in player size extends the boxer's arm
+into a punch. Mr. Whitehead also used the technique in Skiing, and Brad
+Stewart at Imag ic has included the trick in his newest game, Sky Patrol.</FONT><FONT FACE="Arial,Helvetica"></FONT>
+<P><FONT FACE="Arial,Helvetica">Another trick first appeared in the game
+Dragster. Designer David Crane, known in the industry as "a coding machine,"
+wrote an entire kernel on the fly. The code, of course, does not move physically,
+but rather moves in time, so that the program is n o longer in synch with
+the television set, and what would otherwise be a static display scrolls
+horizontally. When Dragster first appeared, the trick was considered impossible
+to repeat, but it is now understood throughout the industry. One designer
+usi ng it is Imagic's Bob Smith in the game Dragonfire.</FONT><FONT FACE="Arial,Helvetica"></FONT>
+<P><FONT FACE="Arial,Helvetica">Perhaps the ultimate trick is being marketed
+by a company called Starpath, in Santa Clara, Calif.: a 6-kilobyte RAM
+module that fits into the VCS in place of a cartridge and accepts software
+from cassette tapes. (This option had been considered for th e original
+VCS but was discarded.) The extended RAM allows programmers to use graphics
+tricks that would not fit in the VCS's 128 bytes - consistently finer resolution
+and sophisticated rewrite-on-the-fly techniques. Adding RAM to the VCS
+is not easy, n or is making cartridges with more than 4 kilobytes of memory.
+In order to save money, Atari limited the cartridge connector to 24 pins,
+omitting read-write and clock lines for RAM, as well as lines for addresses
+greater than 4096. Mr. Miner and Mr. Decu ir agreed in retrospect that
+this decision was a mistake, since a 30-pin connector would have cost only
+50 cents for each VCS and 10 cents a cartridge and would have allowed both
+RAM and a 64-kilobyte address space.</FONT><FONT FACE="Arial,Helvetica"></FONT>
+<P><FONT FACE="Arial,Helvetica">Many companies now use 8-kilobyte cartridges
+by means of a technique called bank switching, where a read from a certain
+address triggers a flip-flop, directing all subsequent addresses to a different
+section of memory. The first bank-switched cartridg e was a 6-kilobyte
+chess game by Larry Wagner; the game was "scrunched" to kilobytes by Bob
+Whitehead, eliminating the need for bank switching, before it was marketed.</FONT><FONT FACE="Arial,Helvetica"></FONT>
+<P><FONT FACE="Arial,Helvetica">RAM in cartridges is made possible by resynthesizing
+clock signals for RAM from those timing lines that do find their way to
+the cartridge port. The increased speed of instructions dealing with the
+first 256 bytes of memory by the 6502 is all that mak es the VCS possible,
+and so the VCS uses similar techniques internally to conserve address space.
+A read and a write call to the same address may deal with two completely
+separate registers, Mr. Miner noted: the read-write line is actually being
+used as another address line, in addition to its intended purpose.</FONT>
+<H3>
+<FONT FACE="Arial,Helvetica">Making the hardware work</FONT></H3>
+<FONT FACE="Arial,Helvetica">The VCS design, it sometimes seems, affords
+nearly limitless possibilities for programmers. But the basic design of
+the machine did not come easy. The MOS layout was done directly on the
+screen of an automated IC drafting system, and circuit analysis was performed
+without sophisticated tools. Mr. Miner recalled simply counting the maximum
+number of gate delays in any line, adding the line delays, and multiplying
+by two for a safety factor. The first pass of silicon failed, he noted,
+because "there was one line that didn't go into the flip-flop I thought
+it did; it went around it through 12 more gates. That was twice as many
+gates as any other line."</FONT><FONT FACE="Arial,Helvetica"></FONT>
+<P><FONT FACE="Arial,Helvetica">The VCS was also a near nightmare to produce,
+according to the people involved. For example, the mechanical design specified
+two sizes of self-tapping screw, and few workers on the production line
+could distinguish between the two. If the wrong screw was used, it shaved
+out myriad metal filings that raised havoc with the interior circuitry.
+Further, when unassembled cases were stored for a time, the plastic would
+warp, and the two halves would not longer fit together. Production workers
+learned the "VCS karate chop" to pop the cases together.</FONT><FONT FACE="Arial,Helvetica"></FONT>
+<P><FONT FACE="Arial,Helvetica">But if production problems were not enough,
+the VCS also had testing problems because so few of its internal states
+were accessible: instructions came in from the cartridge, and composite
+video came out through the television jack. Digital testers cou ld not
+deal with the video signals, and analog testers were not sufficiently programmable,
+recalled Mr. Mayer, noting that Atari had not faced such problems before,
+because "we'd never built anything with more than one custom IC in it."</FONT><FONT FACE="Arial,Helvetica"></FONT>
+<P><FONT FACE="Arial,Helvetica">The inability to test sufficiently cost
+Atari millions of dollars in the first year of production when one of its
+suppliers had process problems but the chips still passed incoming inspection.
+The chips were fast enough to make Atari's test software r ate them as
+acceptable, but not fast enough to function properly when placed in an
+assembled VCS.</FONT><FONT FACE="Arial,Helvetica"></FONT>
+<P><FONT FACE="Arial,Helvetica">While the process problems were being resolved,
+Atari instituted a test program based on visual inspection of the final
+product: a test cartridge was developed, and inspectors would plug it in,
+plug in simulated controllers, and watch 20 seconds or so of "game" on
+a TV set to determine if each VCS were working.</FONT>
+<H3>
+<FONT FACE="Arial,Helvetica">Market acceptance</FONT></H3>
+<FONT FACE="Arial,Helvetica">Even though Atari was late delivering the
+VCS to retailers for the 1977 Christmas season, its sales volume went from
+$60 million to $120 million that year. Still, the company lost money. In
+1978 Atari decided to build 800,000 VCS machines, more than twice as many
+as the year before. A total of 500,000 orders came in by late summer, and
+after fall shipments went out, they disappeared from retailers' shelves
+in a few weeks. But few additional orders came, and Atari was left with
+300,000 unsold machin es; the company had doubled its sales volume for
+the second year in a row, Mr. Decuir recalls, and still it lost money.</FONT><FONT FACE="Arial,Helvetica"></FONT>
+<P><FONT FACE="Arial,Helvetica">Warner Communications Inc., New York, had
+bought Atari for $28 million in 1976, largely on the strength of expectations
+for the VCS. But "for two years," Mr. Mayer recalled, "Atari managed to
+single-handedly drag down the return on equity of Warner st ock by a significant
+amount." Today, thanks largely to the success of the VCS, Atari is responsible
+for over half of Warner's total profit.</FONT><FONT FACE="Arial,Helvetica"></FONT>
+<P><FONT FACE="Arial,Helvetica">Messrs. Mayer, Milner, Miner, and Decuir
+set out to make a simple consumer product that would sell for two or three
+years - slightly longer than a dedicated game. By creating a machine with
+an elegant architecture that left all its inner workings acce ssible to
+the programmer, they ended up - as did early manufacturers of phonographs
+- creating an industry, one that today has over 70 companies competing
+for a share of the video-game software market, estimated this year at $2.4
+billion.</FONT>
+<BR><FONT FACE="Arial,Helvetica"></FONT>&nbsp;
+<BR><FONT FACE="Arial,Helvetica"></FONT>&nbsp;<FONT FACE="Arial,Helvetica"></FONT>
+<P>
+<HR><FONT FACE="Arial,Helvetica">Inset:</FONT>
+<H3>
+<FONT FACE="Arial,Helvetica">Comparing the hardware</FONT></H3>
+<FONT FACE="Arial,Helvetica">Many companies have tried to market programmable
+video-game machines, starting with Fairchild's Channel F in 1976. Most
+of these machines - including the Fairchild - have sold poorly. The four
+programmable video-game units currently in demand are Ata ri Inc.'s Video
+Computer System (VCS), Mattel Electronics' Intellivision, Magnavox's Odyssey
+2, and ColecoVision, from Coleco Industries.</FONT><FONT FACE="Arial,Helvetica"></FONT>
+<P><FONT FACE="Arial,Helvetica">The Intellivision is the VCS's major competitor.
+Because it has far more random-access memory than the VCS, it can display
+an entire television frame without help from its processor - in fact, it
+must do so, because the processor can communicate with the video chip only
+during the vertical blanking interval.</FONT><FONT FACE="Arial,Helvetica"></FONT>
+<P><FONT FACE="Arial,Helvetica">The Intellivision display has a background
+made up of a 20-by-12-"card" array, with the cards' content specified by
+the programmer. With a "character set" of different shapes, a designer
+can build up quite detailed scenes. However, because the proces sor cannot
+talk to the video chip while the display is being formed, line-by-line
+changes of background or moving objects are impossible. Two or more of
+the Intellivision's eight moving objects must be superimposed to get multiple
+colors. Furthermore, p layer objects cannot be used again in the same frame,
+thus lessening the advantage that eight player objects give the Intellivision
+over the VCS, which has only two.</FONT><FONT FACE="Arial,Helvetica"></FONT>
+<P><FONT FACE="Arial,Helvetica">The Intellivision's forte, according to
+industry observers, is games with detailed but static displays. However,
+the speed of moving objects is entirely under the control of the programmer,
+since the hardware supports fast motion as least as well as t he VCS.</FONT><FONT FACE="Arial,Helvetica"></FONT>
+<P><FONT FACE="Arial,Helvetica">"Mattel is the victim of realism," said
+one hardware designer at Mattel. "Its games are slow because people try
+to make them like the real world, and it takes time to move from one end
+of a football field to the other."</FONT><FONT FACE="Arial,Helvetica"></FONT>
+<P><FONT FACE="Arial,Helvetica">Sports and strategy games are well served
+by the Intellivision controller, which combines a keypad with directional
+controls and action buttons, as opposed to Atari's one-button joystick.
+On the other hand, some contend that the controller may be diff icult to
+use.</FONT><FONT FACE="Arial,Helvetica"></FONT>
+<P><FONT FACE="Arial,Helvetica">Although the Intellivision's inflexibility
+is counterbalanced by its great power, the Odyssey 2 does not fare as well
+in the estimation of those who have examined it: "It is weak in everything,"
+said Rober Ogden, president of Action Graphics, a freelan ce game company
+in Carey, Ill. David Johnson, an Imagic game designer who works with the
+Odyssey 2, said that it was a more primitive game machine. It has only
+eight colors, compared with Intellivision's 16 and the VCS's 128 (16 colors
+and eight luminan ces). Its four movable objects have only half the resolution
+of objects on either the VCS or the Intellivision. The objects have only
+a single color, as do Intellivision objects, and can be reused only if
+the display is blanked completely while they are being rewritten.</FONT><FONT FACE="Arial,Helvetica"></FONT>
+<P><FONT FACE="Arial,Helvetica">One advantage that the Odyssey 2 has over
+other machines is its full keyboard and character generator, so that letters
+or parts of them can be placed anywhere on the screen. However, it makes
+no other provision for background, except for a very low-re solution grid,
+not used by most designers. The microprocessor, an 8048, is described by
+Mr. Johnson as not well suited to videogames because it is slow and has
+an inefficient instruction set.</FONT><FONT FACE="Arial,Helvetica"></FONT>
+<P><FONT FACE="Arial,Helvetica">Sound generation is very difficult on the
+Odyssey 2, and very crude, since it has only one sound channel. The VCS
+has two sound channels, which programmers have pushed to get a wide variety
+of sounds. And far more complex sound can be generated with the Intellivision,
+which has three sound channels in a separate, programmable chip. The overall
+Odyssey 2 system, said Mr. Johnson, "has a number of unusual features,
+almost all of them disadvantageous." However, a fair number of the machines
+have been sold, and the production of games for the Odyssey 2 by independent
+software companies indicates that the machine is established.</FONT><FONT FACE="Arial,Helvetica"></FONT>
+<P><FONT FACE="Arial,Helvetica">The VCS and Odyssey 2 are considered first-generation
+machines, the Intellivision a second-generation unit. ColecoVision marks
+the third generation of programmable video games. Its background display
+has better resolution than do the moving objects o f the other systems
+and both objects and background can change color on a pixel-by-pixel as
+well as line-by-line basis. To do this, the machine uses 16 kilobytes of
+RAM devoted to the display, and game play uses another kilobyte, compared
+with 128 bytes of RAM for the VCS and about 3 kilobytes for the Intellivision.</FONT><FONT FACE="Arial,Helvetica"></FONT>
+<P><FONT FACE="Arial,Helvetica">Coleco also sells an adapter to allow its
+unit to play Atari-compatible cartridges. A lawsuit is pending over this,
+as Atari holds patents it claims cover certain parts of the VCS, including
+the polynomial counters used to position players on the scre en, and certain
+elements of the VCS's sound generator. Coleco said it "does not infringe
+any valid patent."</FONT><FONT FACE="Arial,Helvetica"></FONT>
+<P><FONT FACE="Arial,Helvetica">Other third-generation machines may be
+on the way. Mattel has shown its distributors prototypes of the Intellivision
+III, which has vastly improved graphics and sound, as well as wireless
+controllers that use infrared-emitting diodes. Commodore is st ill promising
+to release its Max game machine, which could theoretically put more than
+256 moving objects on the screen at the same time.</FONT>
+<BR><FONT FACE="Arial,Helvetica">-T.S.P. and P.W.</FONT>
+<BR><FONT FACE="Arial,Helvetica"></FONT>&nbsp;<FONT FACE="Arial,Helvetica"></FONT>
+<P>
+<HR WIDTH="100%">
+<CENTER>
+<P><FONT FACE="Arial,Helvetica"><FONT SIZE=+2><A HREF="javascript:back()">BACK</A>
+| <A HREF="../../mainmenu.html">MAIN MENU</A></FONT></FONT></CENTER>
+
+<P><BR>
+<BR>
+</BODY>
+</HTML>

@@ -1,0 +1,219 @@
+<HTML>
+<HEAD>
+   <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+   <META NAME="Author" CONTENT="Curt Vendel">
+   <META NAME="GENERATOR" CONTENT="Mozilla/4.01 [en] (WinNT; I) [Netscape]">
+   <TITLE>Using 2600 Joysticks on a 5200</TITLE>
+</HEAD>
+<BODY TEXT="#FFFFFF" BGCOLOR="#000000" LINK="#0000EE" VLINK="#551A8B" ALINK="#FF0000">
+From: jtilton@vt.edu (Jay Tilton)
+<BR>Newsgroups: rec.games.video.classic
+<BR>Subject: DIY Masterplay Clone - 2600 stick on a 5200
+<BR>Date: Mon, 1 Apr 1996 02:05:33
+
+<P>The latest incarnation of the Vandervort/Tilton Masterplay clone.
+<BR>*** 100% 2600 stick comatibility achieved&nbsp; ***
+
+<P>Mark Vandervort (hy648@cleveland.Freenet.Edu) came up with a clever
+<BR>idea to allow you to connect a regular 2600 stick to a 5200.&nbsp;
+I
+<BR>massaged it a little to come up with what's presented here, but Mark's
+<BR>original idea was the inspiration.&nbsp; There's still a lot of the
+original
+<BR>in the current design.
+
+<P>If you recall the last revision that I posted, there was a small
+<BR>incompatibility problem with a couple 2600 sticks.&nbsp; No more!
+<BR>Adding two diodes makes it 100% compatible!&nbsp; Works great with
+every
+<BR>stick I could drag out of the closet, including the 2600 remote
+<BR>control joysticks and my Gensis-to-7800 pad.&nbsp; I've been using
+it
+<BR>for some time now with dynamite results.
+
+<P>Build one for yourself and try it out.&nbsp; You'll love it!
+<BR>If you can't get it to work, send me (Jay Tilton / jtilton@vt.edu)
+your
+<BR>questions.
+
+<P>Materials needed
+<BR>* (2) 1 megohm potentiometer, Radio Shark #271-211
+<BR>* (2) 1 kohm resistor, Radio Shark #271-1321 (includes 5)
+<BR>* (2) PNP 3906 transistor or similiar, Radio Shark #276-1604 (includes
+15)
+<BR>* (2) 1N4001 diode, Radio Shark #276-1101 (includes 2)
+<BR>* (1) 9-position male D-sub connector, Radio Shark #276-1537
+<BR>* Some way to connect to the 5200 controller port.&nbsp; Radio Shark
+<BR>&nbsp; doesn't have any 15-position female D-sub connectors, but it's
+come to
+<BR>&nbsp; my attention (thanks, Ted) that Best Electronics does.&nbsp;
+In a real
+<BR>&nbsp; pinch, you can take 25-pin connectors and cut them down with
+a hacksaw
+<BR>&nbsp; to 15-pins to make a Y-adapter that pipes the keypad/function
+key stuff
+<BR>&nbsp; (pins 1-8) to a regular controller, and the joystick-related
+stuff
+<BR>&nbsp; (pins 9-15) to this thing.
+<BR>* Tiny wires, and lots of them.
+<BR>* Beer, preferably something good.&nbsp; Real beer isn't trasparent.&nbsp;
+Real
+<BR>&nbsp; good beer isn't even translucent.
+
+<P>Schematic
+
+<P>5200 port&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+2600 stick
+<BR>---------&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+----------
+<BR>pin 12 +5V------------------------pin 7 +5V&nbsp;&nbsp;&nbsp; ]Not
+entirely necessary
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+] unless you're using a
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+] rapid-fire stick/adapter.
+<BR>pin 15 Ground---------------------pin 8 Ground
+<BR>pin 13 Bottom Fire----------------pin 6 Fire
+<BR>pin 10 H-pot----------->|---------pin 4 East&nbsp;&nbsp; ]
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1N4001&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+]
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+]
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1M pot&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+]Duplicate all this
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|-----------\/\/\/--&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+] for the vertical
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+^&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+] control circuit.
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|&nbsp; Pin 9&nbsp; Pot_|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+] Mentally substitute
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Common&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+] the following pin
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+] numbers:
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|______&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+] Port pin 10-->11
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+\&nbsp;&nbsp;&nbsp;&nbsp; 1 kohm&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+] Stick pin 3-->1
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+PNP&nbsp; \|___/\/\/\__pin 3 West&nbsp;&nbsp; ] Stick pin 4-->2
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+3906 ^|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+]
+<BR>Pin 9&nbsp; Pot__________/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+]
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Common&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+]
+
+<P>Function
+<BR>* Pushing east on the stick shunts the horizontal circuit to ground,
+<BR>&nbsp; mimicking the effect of infinite resistance between pot common
+and
+<BR>&nbsp; H-pot.
+<BR>* Pushing west causes a short circuit between pot common and H-pot,
+<BR>&nbsp; i.e. zero resistance.
+<BR>* The potentiometers let you adjust the center position. Additionally,
+<BR>&nbsp; the potentiometer in the horizontal circuit can be used quite
+<BR>&nbsp; effectively as a paddle controller for games like Super Breakout.
+<BR>* The fire button works exactly like it does on the regular 5200 controller.
+
+<P>Good Things
+<BR>* No more problems with games that were unplayable with your crummy
+<BR>&nbsp; non-centering 5200 sticks.
+<BR>* Cheap! Figure buying everything you need from Radio Shark, including
+<BR>&nbsp; a nice project case to stuff it all into, would cost less than
+eight
+<BR>&nbsp; dollars.
+<BR>* It should work with every 2600 joystick under the sun. I've tested
+it
+<BR>&nbsp; with my regular mechanical switch sticks, my Genesis-to-7800
+pad,
+<BR>&nbsp; my NES-to-7800 pad, and my 2600 remote control sticks, and they
+all
+<BR>&nbsp; work peachy-keen.
+
+<P>Bad Things
+<BR>* No second fire button.&nbsp; If you want, you can glue an extra fire
+button
+<BR>&nbsp; onto your 2600-compatible stick of choice. Just wire it up between
+<BR>&nbsp; port pins 14 and 15.
+<BR>* Won't work with games that require the analog capabilities of the
+<BR>&nbsp; 5200 stick, like Missile Command.&nbsp; A few other games like
+Centipede
+<BR>&nbsp; and Galaxian make limited use of the analog-osity of the regular
+<BR>&nbsp; stick by giving two movement speeds depending on how far you
+push the
+<BR>&nbsp; stick.&nbsp; With the adapter, you can only get the fastest
+speed. It's
+<BR>&nbsp; not a huge handicap, but it's probably worth mentioning.
+<BR>* Neither this adapter nor the Masterplay interface gets along well
+with
+<BR>&nbsp; three particular games:&nbsp; Qix, Vanguard, and Ms. Pac-Man.&nbsp;
+There could
+<BR>&nbsp; be others, but I only own a third of the released 5200 library.&nbsp;
+They
+<BR>&nbsp; will respond to pushing east (or south) on the stick as if you're
+<BR>&nbsp; pushing west (or north).&nbsp; No real clue exactly why this
+happens, but
+<BR>&nbsp; there is a way to work around it. Start up a game, slowly rotate
+the
+<BR>&nbsp; two potentiometers through their full range a few times while
+<BR>&nbsp; thrashing the stick around, recenter the potentiometers, then
+start
+<BR>&nbsp; a new game.
+
+<P>Possible enhancements not yet implemented
+<BR>* 7800 stick compatibility (i.e. with two built-in fire buttons)
+<BR>* Genesis pad compatibility
+<BR>* Jaguar controller compatibility (Using the built-in keypad.&nbsp;
+Tricky.)
+<BR>* 2600 paddle compatibility
+<BR>* Selectable/adjustable rapid fire
+
+<P>I've received a question wondering whether there are any plans to put
+<BR>this device into a limited-production run for sale to netters.&nbsp;
+If
+<BR>there's a large enough calling for it, I can certainly investigate
+<BR>the possibility.
+
+<P>If it were to go into any sort of production, it would have to be a
+<BR>nicely done unit, meaning the tangle of wires would be replaced with
+<BR>a printed circuit board, the correct plugs and jacks, no-brainer
+<BR>plug-n-play operation, and a nice case.&nbsp; My personal vision of
+the
+<BR>final product would be functionally *identical* to the coveted
+<BR>Masterplay, except it wouldn't have the slide switch that lets you
+<BR>use the joystick fire button as the "start" button.&nbsp; (Pah!&nbsp;
+Who needs
+<BR>that bit of featurism?)&nbsp; A wild-ass-guestimate of the cost would
+be
+<BR>less than $20.&nbsp; Maybe it could be done for even less in kit form.
+
+<P>If you're interested in this, drop me a line.&nbsp; I ain't promising
+it
+<BR>will happen any time soon, or that it will happen at all.&nbsp; I'm
+just
+<BR>looking to guage initial interest in such a thing before I invest my
+<BR>time in scoping it out.
+
+<P>Skoal!
+<BR>--
+<BR>Jay Tilton&nbsp; |&nbsp; jtilton@vt.edu&nbsp; | Virginia Tech
+<BR>http://fbox.vt.edu:10021/J/jtilton/index.html
+<BR>&nbsp;
+<BR>&nbsp;
+<BR>&nbsp;
+<BR>&nbsp;
+</BODY>
+</HTML>

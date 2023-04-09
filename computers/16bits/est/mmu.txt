@@ -1,0 +1,396 @@
+
+
+
+
+        EST MMU                April 11, 1986                      1
+
+
+                           EST Memory Controller
+                        Memory Management Operations
+
+
+
+        INTRODUCTION
+        This document outlines the MMU functions implemented in  the
+        EST  memory  controller.   It  does  not  fully describe the
+        memory controller or the EST system.  A comprehensive  docu-
+        ment will follow.
+
+        The  EST  MCU  is  capable  of  rudimentary  MMU  functions.
+        Address translation is accomplished by MUXing selected upper
+        address lines from a latch, independent of the state as out-
+        put by the CPU.  Address protection is accomplished by inhi-
+        biting RAM accesses when certain address lines are high (for
+        instruction-space  accesses)  or unequal (for data and stack
+        space accesses).
+
+        ADDRESS TRANSLATION
+        Translation is only performed for user-mode accesses to log-
+        ical  addresses  between  0x000000  and 0x7FFFFF (inclusive)
+        when the appropriate protection register nibble is  nonzero.
+        Memory  between  0x800000  and  0xFFFFFF  (inclusive) is not
+        translated.  Supervisor mode accesses are never translated.
+
+        If A23 is 1, the MCU does nothing (some other  part  of  the
+        system  would  have to respond to the memory access in order
+        to prevent a bus error).
+
+        Zero to fourteen upper address lines (A9 through A22) may be
+        replaced by corresponding bits from the fourteen bit reloca-
+        tion latches.  Program and data space accesses use different
+        latches  so  that  each  type  of  access  can  be relocated
+        independently.  The number of address bits replaced  by  the
+        latch  depends on the protection segment size.  Address bits
+        are always replaced starting with  A22,  extending  contigu-
+        ously to lower address bits.
+
+        Segments of size 2**N may be relocated to  any  location  in
+        memory  on  a  2**N boundary.  The only exception to this is
+        physical RAM from 0x000000 to 0x0007FF (inclusive), which is
+        protected  against any user-mode access, therefore full map-
+        ping of a user segment to physical 0x000000 is not possible.
+        This  prevents  the  system from having more than one full 4
+        megabyte segment.
+
+
+
+
+
+
+
+
+
+        Atari Confidential                Copyright 1986 Atari Corp.
+
+
+
+
+
+
+
+        EST MMU                April 11, 1986                      2
+
+
+        PROTECTION
+        Address protection is accomplished by conditionally inhibit-
+        ing  RAM  accesses  based  on  the  values of selected upper
+        address bits, before any relocation takes place.  A  protec-
+        tion  exception will generate a bus error.  The address pro-
+        tection register (`mmuapr') contains two nibbles; the  upper
+        nibble  controls  instruction space protection and the lower
+        nibble controls data space protection.
+
+        Protection applies only to user-mode  accesses;  supervisor-
+        mode accesses are never checked.
+
+
+                 __________________________________________
+                | protection   protected       segment    |
+                |___nibble_______lines__________size______|
+                |     0        none        all of RAM     |
+                |     1        A22         4Mb            |
+                |     2        A21-A22     2Mb            |
+                |     3        A20-A22     1Mb            |
+                |     4        A19-A22     512K           |
+                |     5        A18-A22     256K           |
+                |     6        A17-A22     128K           |
+                |     7        A16-A22     64K            |
+                |     8        A15-A22     32K            |
+                |     9        A14-A22     16K            |
+                |     10       A13-A22     8K             |
+                |     11       A12-A22     4K             |
+                |     12       A11-A22     2K             |
+                |     13       A10-A22     1K             |
+                |     14       A9-A22      512 bytes      |
+                |     15       N/A         (not permitted)|
+                |_________________________________________|
+
+
+        If A23 is 0 the MMU checks protection.  If A23 is 1 the  MMU
+        does nothing; this allows data and program access to the ROM
+        (and other unprotected areas) located between  0x800000  and
+        0xFFFFFF.
+
+        The instruction space nibble is loaded with  the  number  of
+        upper  address bits that are not permitted to be high.  (The
+        same number of address bits are replaced with  the  contents
+        of  the  program  space relocation latch.) If an instruction
+        fetch is made outside the protected area a  bus  error  will
+        occur.
+
+        The data space nibble is loaded with  the  number  of  upper
+        address  bits  that  must be entirely 0 or entirely 1.  (The
+        same number of address bits are replaced with  the  contents
+        of  the  data  space  relocation latch.) This allows dynamic
+        stack and data segment growth.  For this scheme,  data  (and
+        BSS)  start  at  logical  location  0x000000,  and the stack
+
+
+        Atari Confidential                Copyright 1986 Atari Corp.
+
+
+
+
+
+
+
+        EST MMU                April 11, 1986                      3
+
+
+        starts at logical location 0x800000.  Data accesses are made
+        relative  to location 0, and stack references are made rela-
+        tive to location 0x800000.
+
+        TRANSLATED/PROTECTED
+          A23   A22 .... A22-N   A22-N-1        ...       A0
+        +-----+----------------+----------------------------+
+        |  0  | latch contents |  unchanged                 |
+        +-----+----------------+----------------------------+
+              .                .
+              .                .
+              +----------------+
+              | must be all 0  | for data and program access
+              +----------------+
+                      or
+              +----------------+
+              | must be all 1  | for data access
+              +----------------+
+
+
+        UNTRANSLATED/UNPROTECTED
+          A23  A22                                        A0
+        +-----+---------------------------------------------+
+        |  1  |                   unchanged                 |
+        +-----+---------------------------------------------+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        Atari Confidential                Copyright 1986 Atari Corp.
+
+
+
+
+
+
+
+        EST MMU                April 11, 1986                      4
+
+
+        OPERATION
+        User processes are linked  to  begin  at  0x000000  and  are
+        assigned a segment size in which they must remain.  The seg-
+        ment size determines the values of the protection  register.
+        For  example,  a  32K  segment requires 15 address lines, A0
+        through A14.  A15 through A22 must be zero (for  instruction
+        and  data  accesses)  or  all  1  (for stack accesses).  The
+        appropriate nibble in the protection register is loaded with
+        with 1000b; this value is constant for any 32K segment.
+
+        The segment is located in physical memory by translating the
+        upper  portion  of  the  address.   For  the 32K example A15
+        through A22 will be zero (or all 1) for valid accesses.   If
+        the segment is a data segment and the data relocation regis-
+        ters are loaded with high=0x1A and  low=0x00,  then  a  data
+        access  to  address  0x00003C  will actually access physical
+        address 0x1A003C, and a data access to address 0x7FFFFE will
+        actually access 0x1A7FFE.
+
+        Stack and data may be  dynamically  grown  with  appropriate
+        support  from  the  compiler  and the operating system.  The
+        basic idea is to widely seperate the top of  the  stack  and
+        the  bottom  of  the  data  in logical address space, and to
+        detect (in software) when the two are about  to  collide  in
+        physical address space.
+
+        The user stack starts at 0x800000;  since  the  first  items
+        pushed onto the stack will be located at addresses that have
+        their upper bits all ones,  the  stack  references  will  be
+        relocated to the top of the segment.
+
+        The standard procedure invocation should include a  test  if
+        the  stack has reached a "reasonable" limit.  When the stack
+        reaches the limit, an operating system call should  be  made
+        to increase the segment size.
+
+                LOGICAL                   PHYSICAL
+                  SPACE                   SPACE
+
+                 800000 _________________ 800000
+                 7FFFFF |      stack    | 2**N - 1 + BASE
+                        |       ||      |
+                        |      \||/     |
+                        |       \/      |
+                        /               /
+
+                        /               /
+                        |       /\      |
+                        |      /||\     |
+                        |       ||      |
+                 000000 |      data     | 0 + BASE
+                 FFFFFF ----------------- FFFFFF
+
+
+
+        Atari Confidential                Copyright 1986 Atari Corp.
+
+
+
+
+
+
+
+        EST MMU                April 11, 1986                      5
+
+
+        In assembler, of course, it is  the  responsibility  of  the
+        programmer to provide enough stack for the process.
+
+        Since addresses from 0x800000 to 0xFFFFFF are not  relocated
+        or  protected,  the  OS  ROMs  may be used to contain common
+        libraries (printf or whatever).
+
+
+        SYSTEM RESET
+        A system reset sets all bits in  the  `mmupro'  register  to
+        zero.   No  protection checking (other than 0x000000 through
+        0x0007FF) is performed.  The relocation  registers  are  not
+        initialized  and should be loaded before a non-zero value is
+        written to the protection control register.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        Atari Confidential                Copyright 1986 Atari Corp.
+
+
+
+
+
+
+
+        EST MMU                April 11, 1986                      6
+
+
+        MMU REGISTERS
+
+
+
+                    7     6     5     4     3     2     1     0
+        Data Relocation High
+        mmudrh   +-----+-----+-----+-----+-----+-----+-----+-----+
+        FF8003   |  0  | A22 | A21 | A20 | A19 | A18 | A17 | A16 |
+                 +-----+-----+-----+-----+-----+-----+-----+-----+
+
+        Data Relocation Low
+        mmudrl   +-----+-----+-----+-----+-----+-----+-----+-----+
+        FF8005   | A15 | A14 | A13 | A12 | A11 | A10 | A9  |  0  |
+                 +-----+-----+-----+-----+-----+-----+-----+-----+
+
+        Program Relocation High
+        mmuprh   +-----+-----+-----+-----+-----+-----+-----+-----+
+        FF8009   |  0  | A22 | A21 | A20 | A19 | A18 | A17 | A16 |
+                 +-----+-----+-----+-----+-----+-----+-----+-----+
+
+        Program Relocation Low
+        mmuprl   +-----+-----+-----+-----+-----+-----+-----+-----+
+        FF800B   | A15 | A14 | A13 | A12 | A11 | A10 | A9  |  0  |
+                 +-----+-----+-----+-----+-----+-----+-----+-----+
+
+        Protection Control
+        mmupro   +-----+-----+-----+-----+-----+-----+-----+-----+
+        FF800F   |      Program space    |      Data space       |
+                 +-----+-----+-----+-----+-----+-----+-----+-----+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        Atari Confidential                Copyright 1986 Atari Corp.
+
+
+

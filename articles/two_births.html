@@ -1,0 +1,228 @@
+<HTML>
+<HEAD>
+   <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+   <META NAME="GENERATOR" CONTENT="Microsoft FrontPage 4.0">
+   <TITLE>TWO BIRTHS</TITLE>
+</HEAD>
+<BODY TEXT="#FFFFFF" BGCOLOR="#000000" LINK="#EEEE00" VLINK="#009999">
+
+<CENTER><FONT SIZE=+2>TWO BIRTHS</FONT></CENTER>
+
+<CENTER><FONT SIZE=+2>"COLEEN" AND"CANDY"</FONT></CENTER>
+
+<CENTER><FONT SIZE=+2>The development of Atari Basic and Atari DOS</FONT></CENTER>
+
+<CENTER>
+<HR WIDTH="100%"></CENTER>
+
+<CENTER>&nbsp;</CENTER>
+
+
+<P><FONT SIZE=+1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; I don't know
+exactly when the concept of the Atari Computer was developed within the
+corporate mind of Atari, Inc., nor do I know all of the people responsible
+for nursing that concept into reality. The following history covers the
+relationship with Atari, Inc., during the evolution of the system software.</FONT>
+
+<P><FONT SIZE=+1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Sometime in
+early 1978, when the Atari 800 and 400 were still called "Coleen" and "Candy"
+and were still in the breadboard stages, Atari bought a copy of the source
+for Microsoft 8K BASIC. This version of BASIC was fundamentally the same
+product that was implemented by Commodore in the early PETs, was used by
+OSI, and was a close ancestor of Microsoft's Applesoft Basic. Six months
+and many, many Atari man-hours later, that 8K BASIC was almost functioning
+properly on the Atari prototypes. But buying source for a program buys
+you just that: source. Generally, you also receive little documentation,
+sometimes obscure code, no guide to modification, and no real support.
+What to do? The products were due to be shown in early January, 1979, at
+the Consumer Electronics Show (CES) in Las Vegas, Nevada.</FONT>
+
+<P><FONT SIZE=+1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Enter Shepardson
+Microsystems, Inc (SMI), my employer at that time. Though little known
+by the microcomputer public, SMI had already produced some very successful,
+private labeled microcomputer software. Among our better-known efforts
+were the original Apple DOS, Cromemco 16K Extended BASIC, and Cromemco
+32K Structured BASIC (just being completed at that time). Also, we had
+done some work for Atari on a custom game processor. (Which used a 12-bit
+ROM and 5-bit RAM configuration and was well received at Atari, but never
+produced.)</FONT>
+
+<P><FONT SIZE=+1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Coincidentally,
+about that same time SMI had also purchased source for Microsoft 6502 BASIC.
+After producing Apple's DOS, we had the bright idea of mating the Apple
+II peripheral bus with the KIM/SYM/AIM system bus (and it still seems like
+a good idea to us, but...). The idea was to provide a disk system (Apple's)
+to the Single Board Computer market. Needing a BASIC to sell with the system,
+we plunked down a few grand and purchased Microsoft's. Though it looked
+to us like it would be difficult to modify, we were intending to resell
+it with a minimum of changes, so it seemed appropriate.</FONT>
+<BR>&nbsp;
+<CENTER>&nbsp;</CENTER>
+
+<CENTER><B><FONT SIZE=+2>A New BASIC?</FONT></B></CENTER>
+<FONT SIZE=+1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Re-enter Atari,
+some time in the late summer of 1978, asking if SMI could help them. With
+Microsoft BASIC? Well ... we really didn't want to, but... Could we propose
+a new BASIC? We talked. And had meetings, and a study contract, and more
+meetings, and finally we wrote a specification for a 10K, ROM-based BASIC.
+(I still have a copy of that spec, and it's amazing how little the final
+version deviated from that original.)</FONT>
+
+<P><FONT SIZE=+1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Of course,
+in the middle of all these discussions, Atari naturally divulged how their
+(truly superb) ROM-based Operating System would interface both with BASIC
+and with various devices. Somewhere in here, my memory of the sequence
+of events and discussions becomes a little unclear, but suffice it to say
+that we found ourselves making a bid on producing not only a BASIC for
+Atari, but also the file Manager (disk device driver) which would change
+Atari OS to Atari DOS.</FONT>
+
+<P><FONT SIZE=+1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Sometime in
+late September, 1978, the final proposal was made to Atari, and it was
+accepted by them shortly thereafter. In mid-October, 1978, we received
+the go-ahead. The project leader was Paul Laughton, author of Apple DOS.
+The bulk of the work ended up being done by Paul and Kathleen O'Brien.
+Though I was still involved in the finishing touches on Cromemco BASIC,
+I take credit for designing the floating point scheme used in Atari BASIC.
+Paul Krasno implemented the math library routines following guidelines
+supplied to us by Fred Ruckdeschel (author of the acclaimed text, BASIC
+Scientific Subroutines). And, of course, much credit must go to Mike Peters,
+our combination keypuncher/computer operator/junior programmer/troubleshooter.</FONT>
+
+<P><FONT SIZE=+1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Since we obviously
+couldn't have the Atari machines to work on (they hadn't been built yet),
+the first step was to bring up an emulator for Atari's CIO ("Central Input-Output,"
+the true heart of Atari 's OS) on our Apple II systems. With Paul Laughton
+leading the way (and doing a lion's share of the work), the pieces fell
+together quickly, "Little" things had to be overcome: the cross-assembler
+was modified to handle the syntax table pseudo-ops, the 256-byte Apple
+disk sectors had to be made to look like 128-byte Atari sectors, the BASIC
+interpreter seemed to function, but was waiting for the floating point
+routines. And there are funny things to tell of, also. Like our cross-assembler,
+running on an IMP-16P (a 1973 vintage, 16-bit, bit-sliced PMOS microprocessor)
+that used keypunched cards for input, a floppy disk (with no DOS) as temporary
+storage, and a paper tape punch as output.</FONT>
+
+<P><FONT SIZE=+1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Somehow, Kathleen
+and Paul guided the two programs unerringly toward completion. On December
+28, 1978, Atari's purchasing department at last delivered a signed copy
+of the final purchase order. It called for delivery of both products by
+April 6, 1979. There was a clause which provided for a $1,000 per week
+incentive (if we finished early) and penalty (if we finished late). What
+is especially humorous about that December 28th date is that the first
+working versions of both BASIC and FMS had already been delivered to Atari
+over a week before! That is fast work.</FONT>
+
+<P><FONT SIZE=+1>Fortunately, then, Atari took their new Atari BASIC to
+CES. Unfortunately, there was a limit on the amount of incentive money
+collectible. Oh, well.</FONT>
+
+<P><FONT SIZE=+1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; In the months
+that followed, SMI fixed bugs, proofread manuals, and worked on other projects
+(including the Atari Assembler/Editor, which was mostly Kathleen's effort).
+The nastiest bugs in BASIC were fixed by December, 1979, but it was too
+late: Atari had already ordered tens of thousands of BASIC ROMs. The FMS
+bugs were easier to get fixed, since DOS is distributed on disk.</FONT>
+
+<P><FONT SIZE=+1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; In mid-1980,
+Paul Laughton once again tore into FMS. This time, he modified it to handle
+the ill-fated 815 double-density disk drive and added "burst I/O" (and
+there will be much more about both these subjects in the technical discussion
+that follows).</FONT>
+
+<P><FONT SIZE=+1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; In late 1980,
+and early 1981, Bob Shepardson, owner of Shepardson Microsystems, Inc.,
+decided that the pain and trouble of having employees wasn't justified
+by the amount of extra income (if any) that he derived. Though we still
+occasionally function in a loose, cooperative arrangement, the halcyon
+days of SMI seem to be over.</FONT>
+<BR>&nbsp;
+
+<P><FONT SIZE=+1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; I negotiated
+with Bob Shepardson for his rights to the Atari products (FMS, BASIC, and
+the Assembler/Editor) and their Apple II counterparts. Thankfully, Atari
+had purchased from SMI only a non-exclusive right to distribute these products.
+SMI had retained the rights to license other users on a similar non-exclusive
+basis (and, indeed, SMI sold a version for the Apple II during most of
+1980).</FONT>
+
+<P><FONT SIZE=+1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; So now it was
+frantic time again: this was February 25, 1981, and the West Coast Computer
+Faire was April 3rd. But our brand new company, Optimized Systems Software,
+arrived on time, bringing with it BASIC A +, OS/A + and EASMD. All three
+were enhanced, disk-based versions of the original Atari programs (and,
+in fact, derived some of their enhancements from the previous 055 Apple
+II products).</FONT>
+
+<P><FONT SIZE=+1>The products have been well received by the Atari user
+community, in part due to the fact that they are truly compatible, yet
+enhanced, versions of standard Atari software.</FONT>
+<CENTER>&nbsp;</CENTER>
+
+<CENTER><B><FONT SIZE=+2>Why This Book?</FONT></B></CENTER>
+
+
+<P><FONT SIZE=+1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The decision
+to publish these listings was not an easy one to make; and it is, in its
+own way, an historic occasion. After all, have you ever seen anyone offering
+source or listings of CP/M, the most popular of all computer operating
+systems? Since Atari, to their credit, has honored the original agreement
+with SMI and not released either source or listings without permission,
+the responsibility for doing so seemed to rest with OSS.</FONT>
+
+<P><FONT SIZE=+1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; But Atari has
+set a powerful precedent by publishing the listings of DUP (their portion
+of DOS 2.OS) and the OS ROMs. The clamor from Atari users for the source
+for FMS finally even reached us, so we have bowed to the inevitable, and
+honored the same commitment that Atari has made: to release as much information
+and aid as possible to the user community.</FONT>
+
+<P><FONT SIZE=+1>We hope that the users will appreciate these efforts and,
+in turn, respect our rights and Copyrights. As long as there is a mutual
+respect and benefit, you, the user, can expect continued support.</FONT>
+<BR>&nbsp;
+
+<P><FONT SIZE=+1>About This Book</FONT>
+
+<P><FONT SIZE=+1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; With the release
+of this book, the dedicated Atari enthusiast can examine all the the inner
+workings of Atari DOS and modify his (or her) system to his heart's delight
+Rather than simply publish listings, we have chosen also to provide a complete
+guide to the workings of FMS.</FONT>
+
+<P><FONT SIZE=+1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Although the
+listing itself is relatively clear and commented, all but the most expert
+would have trouble plowing through some of the tortuous logic necessary
+in such a program. The guide included here describes all aspects of the
+FMS, including the external view, the charts and tables, the various interfaces,
+and (in copious detail) the functions of the individual subroutines (including
+complete entry and exit parameters).</FONT>
+
+<P><FONT SIZE=+1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; There is much
+of value here even for the person who never intends to modify Atari DOS.
+We feel that FMS is a fairly well-structured, relatively sophisticated,
+system level assembly language program. We hope that most users will gain
+by the insights presented here.</FONT>
+
+<P><FONT SIZE=+1>We would welcome any notes you would care to send pointing
+out errors either in the DOS or in this book.</FONT>
+<BR>&nbsp;
+<BR>&nbsp;
+
+<P><FONT SIZE=+1>Bill Wilkinson</FONT>
+
+<P><FONT SIZE=+1>Optimized Systems Software</FONT>
+<BR><FONT SIZE=+1>Cupertino, California</FONT>
+<BR><FONT SIZE=+1>February, 1982</FONT>
+
+<P>
+<HR width="100%">
+<CENTER>If you would like to contact Bill, you can Email him at: <A HREF="mailto: junco@premier1.net">junco@premier1.net</A></CENTER>
+
+
+<P>
+<HR width="100%">
+<CENTER>&nbsp;</CENTER>
+
+</BODY>
+</HTML>

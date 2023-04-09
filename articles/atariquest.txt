@@ -1,0 +1,171 @@
+The Atari Quest
+                                                An Ultimate Gamer Exclusive
+                                                        by Chris Bieniak
+                                                From Ultimate Gamer, January 1996 
+
+                                           Pictures provided by Atari Gaming Headquarters 
+
+
+It all started just a few months ago as I was doing some research for a project involving classic video games. While sorting through some old magazines and press
+releases from the early '80s, I came across an Atari brochure that I picked up at the 1984 Summer Consumer Electronics Show in Chicago. The list of upcoming
+cartridges for Atari's Video Computer System (or VCS, also known as the Atari 2600) was fascinating -- given that several of the featured games were never
+released -- but the thing that really caught my eye was the back cover, which was devoted entirely to a seemingly revolutionary Atari peripheral called the MindLink.
+It appeared to be a sort of visor that -- when strapped to your forehead -- allowed you to control a video game with some type of electrical impulses from your
+brain, or possible your eyebrows. 
+
+By coincidence, Ultimate Gamer Executive Editor Jim Loftus was on his way to Atari for a press event just a few days later. When he asked me if there was any
+information I needed from Atari that he might be able to get on this trip, I showed him the MindLink brochure and jokingly asked if he could find someone who
+knew what it was, how it worked and why it was never released. 
+
+During his day at Atari's offices in Sunnyvale, Jim happened to wander outside for a cigarette and was soon drawn into an informal conversation with Jeff Minter and
+John Skrunch, both of whom were taking a break from the press event going on inside the building. Minter is the talented designer/programmer who developed the
+Jaguar's Tempest 2000 and Jag CD Virtual Light Machine, and Skrunch is Atari's director of software development -- he's also been an Atari employee for 13
+years. On a whim, Jim brought up the MindLink, fully expecting blank stares and shrugged shoulders, and was shocked when Skrunch revealed that he had a
+working MindLink prototype in his possession! 
+
+After further questioning, Skrunch admitted that many of Atari's top-secret projects and never-released games still exist today. He also thought that he might be able
+to dig up the legendary Atari 5200 version of Tempest, which was on Atari's release schedule for years but had never been seen outside of the company. Some
+game historians refer to this mysterious cartridge as the Holy Grail of video-game collecting; upon hearing that Skrunch might have a prototype copy, Minter -- who
+obviously has a great interest in Tempest -- coughed, "Ho, ho! I'd love to get my hands on that!" 
+
+We know that a lot of Ultimate Gamer readers feel the same way, so Jim and I packed our bags and returned to Sunnyvale where Skrunch was kind enough to
+share a few pieces of the long-lost legacy of Atari with the world for the very first time... 
+
+
+
+Chapter 1: The Quest Begins 
+
+Like most archaeological expeditions, The Atari Quest got off to a great start when the smog-bound rush-hour traffic of L.A.'s 405 freeway kepe me from the
+airport until 20 minutes after our flight took off -- with Loftus on board, naturally. When I finally arrived at Atari H.Q. on Borregas Avenue, John and Jim were
+already headed outside for their first cigarette break. 
+
+Surrounded by smoke, I asked Skrunch how he came to be Atari's unofficial museum curator. He explained that -- upon joining the company in 1982 -- his primary
+responsibilities involved the AtariSoft line of computer software, which consisted of games that Atari had created (or owned the rights to) and were being translated
+for play on home computers other than Atari's own. However, just after ex-Commodore kingpin Jack Tramiel bought the company in 1984, the collapse of the
+video-game industry triggered a reduction in Atari's staff; of its approximately 10,000 employees, only 150 remained at the end of the year. "There were a lot of
+'Black Fridays' back then," Skrunch admits. Given that there were dozens of products which were in development at the time of the "downsizing," Skrunch soon
+became involved with trying to identify and catalog the various projects and prototype cartridges that remained and determined if any of them could be completed. 
+
+The VCS version of Road Runner was a good example. The game's programmer, Bob Polaro, had been forced to abandon the project in 1984, but remained with
+the company and eventually worked on software for the hand-held Lynx when Atari purchased the rights to the machine from Epyx in 1988. One day, as Skrunch
+was testing an incomplete prototype copy of Road Runner that had been salvaged from the "crash" of 1984, Polaro saw the game and commented, "Hey, I
+programmed that!" In fact, he had a more complete version of the game at home. Polaro was asked to finish the game, and the result is considered in some circles to
+be one of the best VCS cartridges ever released. 
+
+
+
+Chapter 2: The State of the Art for the State of Your Mind 
+
+As promised, Skrunch produced not one, but two MindLink peripherals from his office. One was a worn-looking -- but supposedly functional -- prototype; the
+other a sleek, black plastic mock-up of the final production model. Of the latter, Skrunch recalls, "I distinctly remember a former Atari Vice-President standing in
+front of a group of third-party publishers at the CES and saying, 'You guys really should be developing games for this thing,' just as this headband came loose and
+slipped down over his eyes." Still, he insists that the project was canceled mainly due to its suggested retail price being too high (in the $70-$80 range), not because
+of the industry's lack of faith in Atari's claims of the MindLink's abilities. 
+
+What exactly were its abilities? Think of the MindLink as a high-tech version of the VCS "paddle" controller. Instead of a knob attached to a variable resistor, the
+MindLink could calculate a character's position on the screen by measuring the electrical resistance between three sensors which are in contact with the player's
+forehead while wearing the MindLink. That being the case, only "paddle"-type games were designed to be used with the peripheral, including a skiing game and a
+Breakout variation which Skrunch referred to as "Bionic Breakout" but is in fact identified as Bionic Breakthrough in Atari literature from 1984. 
+
+The MindLink headband was connected by a cable to an infrared transmitter box. Powered by a 9-volt battery, the transmitter sent information up to 20 feet away
+into a similar-sized "receiver" box which was connected by a standard controller cable to the joystick port on the VCS. The planned MindLink package was
+expected to include the headband, transmitter and receiver, as well as a Bionic Breakthrough cartridge. Two distinct packages were planned -- one for the Atari
+2600/7800 and one for Atari's 8-bit home computer line -- but we suspect that the only difference between the two would have been the pack-in game, which, in
+the latter, would obviously have been a version of Bionic Breakthrough for the computer. 
+
+Sadly, this revolutionary input device was never released, and all of the promising applications that it could have made possible have been lost in the halls of
+video-game lore for over ten years. 
+
+
+
+Chapter 3: The Lost 5200 Games 
+
+Looney Tunes Hotel
+By the mid-'80s, Atari had forged Acclaimlike licensing agreements with big-leaguers like Disney, Warner Bros., and the Children's Television Workshop to create
+games that featured recognizable cartoon characters. Looney Tunes Hotel is a puzzle/platform adventure that closely resembles the arcade game Elevator Action --
+which, incidentally, Atari had just licensed from Taito. You play as Bugs Bunny, and you must travel from door to door in the hotel, rushing from one elevator to the
+next as you avoid the bombs of Elmer Fudd and the misguided wrath of the Tasmanian Devil (inexplicably referred to as simply "Devil" on the game's title screen). 
+
+Microgammon SB
+This prototype cartridge is essentally an electronic version of the board game backgammon. It's not the greatest-looking one we've ever seen, either; the screen is
+drawn in the 5200's high-resolution mode, which unfortunately allows just two colors, black and white. Clever programmers knew how to exploit the find horizontal
+resolution of this particular mode to create artificial shades of gree and purple on the 5200 and Atari computers; the XL/XE versions of the early Ultima games were
+good examples of how to do this skillfully. Microgammon SB, on the other hand, is graphically unappealing. Hey, there are good reasons why some of these games
+were never released... 
+
+Meebzork
+A bizarre-looking shoot-'em-up that plays like a defective version of Sega's Buck Rogers coin-op. Instead of a sleek spacecraft, however, the cursed 5200 joystick
+is used to control what looks like a Galapagos turtle. This prototype cartridge is obviously unfinished, which is a good thing for former 5200 owners, who may have
+been swayed by the game's appealing title had it reached store shelves. (Yeah, right.) 
+
+Sport Goofy
+Atari's Disney license threated to bring this olympic-style contest to the 5200; unfortunately, the incomplete version Skrunch showed us seemed to have just two
+events: a rough high-diving scenario and a Q*Bert variation in which Goofy gets to pop a thousand Mickey-shaped balloons. Some clever animation is included -- a
+parachute pops out of Goofy's back just after he's crash-landed on a floating platform -- but the game just didn't measure up to its promising full-color title screen. 
+
+
+
+Chapter 4: The Lost 2600 Games 
+
+Donald Duck's Speed Boat
+Disney's marvelous mallard starred in this prototype racing game, which plays like a cross between a sideways River Raid and the original Pitfall! adventure. Copies
+of this unfinished cartridge have been circulated by collectors, but final packaged copies do not exist. 
+
+SwordQuest: Waterworld
+Final packaged copies of SwordQuest: Waterworld do exist, but they're extremely difficult to find; it's one of the most collectable VCS cartridges ever released. 
+
+We asked Scrunch about the famous four-part SwordQuest series of adventure games -- and the high-profile contest that offered valuable, jeweled prizes to those
+who were among the first to complete each chapter -- and he offered the following anecdotes. After the Tramiel takeover, many of the company's loose ends were
+simply left hanging. The ongoing SwordQuest contest was immediately deemed to be the responsibility of "Old Atari," a company so carefree with its expenditures
+that it actually had a psychic on retainer. Only the first two games in the series (Earthworld and Fireworld) had been published -- and the contest prizes related to
+those titles had been awarded at the time of the takeover -- so, as a gesture of good will to its customers, "New Atari" closed the door on the SwordQuest
+promotion by sponsoring an event in which players competed for less valuable prizes by playing prototype copies of Waterworld. Skrunch also hinted that Atari
+never even started to develop the fourth and final game in the series, SwordQuest: Airworld. 
+
+Dumbo's Flying Circus
+Yet another by-product of the Atari/Disney licensing agreement, Dumbo's Flying Circus is actually a very challenging action game in which Dumbo must fly around
+and collect balloons, saving friendly clowns from falling to the ground and avoiding the projectiles fired by evil clowns which ride unicycles across the
+even-descending high wire. This prototype game seems to be complete, and it's a shame that it was never released; we were pleasantly surprised by the excellent
+controls, the fluid animation of Dumbo's flapping ears and the variety of different clowns that appear as you progress through the game. 
+
+Rabbit Transit
+Hello, what's this? This incredibly fun and playable prototype cartridge seemed familiar, and for a good reason. The game was released for use with the
+Arcadia/Starpath Supercharger, a VCS peripheral that added extra RAM to the machine's internal limit and read games that were stored on standard audio cassette
+tapes. Skrunch seemed genuinely baffled when we identified this one. What was Atari doing with a prototype version of a non-Atari game, particularly one that has
+never previously been seen in cartridge form? The world may never know. 
+
+
+
+Chapter 5 
+
+(Sorry, folks -- I didn't get a copy of Chapter 5. I wish I did; the rest of the article hints that it discusses Tempest for the Atari 2600, as well as other rare
+games. If someone has a copy of the missing article, please send me mail.    --R.J.) 
+
+
+
+Chapter 6: Everything Old is New Again 
+
+On our way out, Skrunch introduced us to Dave Staugas, an Atari engineer who also happens to have been the programmer of two noteworthy VCS cartridges,
+Millipede and Krull. As fate would have it, Dave was hard at work on a software emutor that will allow the Atari Jaguar to play 2600 games stored on CD, just as
+Activision's popular Action Pack series does for PC CD-ROM systems. Yes, Atari plans to release collections of classic VCS titles on Jaguar CD; however,
+Skrunch unofficially mentioned the possibility of putting "six or seven" games on each disc, which seems ludicrous when you consider that the entire VCS library of
+500-odd games could easily fit on a single CD. 
+
+Regardless of Atari's marketing plans, we think the VCS collections will be a perfect complement to the company's 2000 series of classic game upgrades for the
+Jaguar. Hey, wouldn't it be great if each disc included an unreleased VCS gem like Tempest, Donald Duck's Speed Boat or any other lost title -- Elevator Action,
+Zookeeper, Garfield, Sinistar, Honker Bonk or even Save Mary? 
+
+
+
+Epilogue 
+
+At the end of the day, Jim sat down on the cement planter in front of the Atari building to enjoy another (cough) cigarette. I was too excited to sit; after all, how
+many people in this world can say that they have actually had an Atari MindLink controller strapped to their heads? Waiting for the cab to pick us up and return us
+to the San Jose airport, we were both lost in nostalgic thought, and Jum didn't even see the very short, bald-headed man who quietly walked out of the building,
+carrying a satchel in both hands as he climbed into a modest-looking burgundy-colored car and drove off. We never made eye contact, but he just looked so familiar
+that I had to step inside and speak to the receptionist. She confirmed that it was indeed Jack Tramielwho had just walked between us. The elder Tramiel is retired
+now, and it's said that he only comes into the office about once a month. His cameo appearance at the end of Ultimate Gamer's Atari Quest came as a fitting end to
+a very strange day; I saw it as a sign, but I'm not sure of what. 
+
+
+                                                   [ Back to the Atari Archives ]

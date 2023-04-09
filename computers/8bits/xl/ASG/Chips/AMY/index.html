@@ -1,0 +1,250 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>The Atari AMY Sound Processor</title>
+<meta name="keywords" content="Atari, Xl, 600xl, 800xl, 1200xl, 1400xl, 1450xld, 1600xl, 1850xl, AMY, IC">
+<meta name="description" content="Atari AMY Sound Processor Chip">
+</head>
+
+<body bgcolor="#000000" text="#000000">
+
+<table border="0" width="98%" cellspacing="0" cellpadding="0">
+	<tr>
+		<td align="left" width="614">
+        <img border="0" src="../../../../../aed/headerleft.gif" width="265" height="132"><img border="0" src="../../../../../aed/headermiddle.gif" width="285" height="132"></td>
+		<td align="center"><font face="Arial" size="5" color="#FFFFFF">Atari AMY 
+		Sound Processor</font></td>
+		<td width="7">&nbsp;</td>
+	</tr>
+</table>
+<table border="0" width="98%" cellspacing="0" cellpadding="0">
+	<tr>
+		<td width="25%" align="left" valign="top">
+		<p>&nbsp;</p>
+		<p>
+		<b><font face="Arial">
+		<map name="FPMap1">
+		<area href="../../../../../../mainmenu/mainmenu.html" shape="rect" coords="111, 70, 366, 107">
+		<area href="../../../../../computers.html" shape="rect" coords="107, 121, 366, 153">
+		<area href="../../../../../16bits/AtariInc" shape="rect" coords="106, 165, 366, 197">
+		<area href="../../../../../aed/OMNI" shape="rect" coords="104, 209, 365, 241">
+		<area href="../../../../../aed/RAINBOW" shape="rect" coords="104, 255, 359, 285">
+		</map>
+		<img border="0" src="../../../../../aed/aed-buttons-main.gif" width="450" height="315" usemap="#FPMap1"></font></b></p>
+		<p align="center"><font face="Arial" size="5">p</font><font face="Arial,Helvetica"><img src="http://www.atarimuseum.com/computers/8BITS/XL/1450xld/chip-INFO-icon.gif" border="0" width="70" height="61"></font><font face="Arial" size="5">&nbsp; </font></p>
+		<p><font face="Arial" size="5">&nbsp;</font><b><font face="Arial" color="#FFFFFF">&nbsp;&nbsp;
+		<a href="AMY_1_spec_confidential_binder_ver_2.pdf" style="text-decoration: none">
+		<font color="#FFFFFF">AMY-1 Specifications - Version 2</font></a></font></b></p>
+		<p><b><font face="Arial" color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;
+		<a href="AMY_chip2_notes.pdf" style="text-decoration: none"><font color="#FFFFFF">AMY 2 - Chip Notes</font></a></font></b></p>
+		<p><b><font face="Arial" color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;
+		<a href="AMY_development_notes.pdf" style="text-decoration: none"><font color="#FFFFFF">AMY 
+		Development Notes</font></a></font></b></p>
+		<p><b><font face="Arial" color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;
+		<a href="AMY_formulas.pdf" style="text-decoration: none"><font color="#FFFFFF">AMY Formula's</font></a></font></b></p>
+		<p><b><font face="Arial" color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;
+		<a href="AMY_general_description.pdf" style="text-decoration: none"><font color="#FFFFFF">AMY General 
+		Description</font></a></font></b></p>
+		<p><b><font face="Arial" color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;
+		<a href="AMY_tech_manual.pdf" style="text-decoration: none"><font color="#FFFFFF">AMY Technical Manual</font></a></font></b></p>
+		<p><b><font face="Arial" color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;
+		<a href="amy11.wav" style="text-decoration: none"><font color="#FFFFFF">AMY Wav Demo 1</font></a></font></b></p>
+		<p><b><font face="Arial" color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;
+		<a href="amy22.wav" style="text-decoration: none"><font color="#FFFFFF">AMY Wav Demo 2</font></a></font></b></p>
+		<p><b><font face="Arial" color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;
+		<a href="AMY-DEMO-disks1983.zip" style="text-decoration: none"><font color="#FFFFFF">AMY Software 
+		development &amp; Demo disks</font></a></font></b></p>
+		<p><b><font face="Arial" color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;
+		<a href="AMY_Chip.zip" style="text-decoration: none"><font color="#FFFFFF">AMY IC Simulations, 
+		Netlists, drawings and data</font></a></font></b></p>
+		<p><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>
+		<font face="Arial">
+		<a href="amyerrcell.zip" style="text-decoration: none">
+		<font color="#FFFFFF">AMY ERRCELL GDSII Tape Out Chip Data</font></a></font></b></font></p>
+		<p>&nbsp;</p>
+			<p><b><font face="Arial" size="4">&nbsp;&nbsp;</font></b></p>
+			<p>&nbsp;</p>
+		<p>&nbsp;</td>
+		<td valign="top" width="75%">
+		<p align="left">&nbsp;<p align="left">
+		&nbsp;<div align="center">
+			<table border="0" width="70%" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+				<tr>
+					<td>
+					<p style="margin-left: 30; margin-right: 30" align="justify">&nbsp;</p>
+					<p style="margin-left: 30; margin-right: 30" align="center">
+					<b><font face="Arial" size="4">The Atari AMY Sound Processor 
+					Chip</font></b></p>
+					<p style="margin-left: 30; margin-right: 30" align="center">
+					<img border="0" src="AMY-IC.jpg" width="500" height="509"></p>
+					<blockquote>
+						<p style="margin-left: 30; margin-right: 30" align="justify">
+						<font face="Arial">The Atari AMY Sound Processor, like 
+						so many other projects within Atari,&nbsp; has been 
+						cloaked in some of the most deeply seeded Silicon Valley 
+						lore, rumor, innuendo to just outlandish conspiracy 
+						theories surrounding this highly advanced sound 
+						processor.&nbsp; A chip developed in August 1983 that 
+						had sound capabilities and quality that was 10 years 
+						ahead of its time.</font></p>
+						<p style="margin-left: 30; margin-right: 30" align="justify">
+						<font face="Arial">Yet the chip had numerous design 
+						issues, was slated for a new next generation line of 
+						16-bit Atari computer systems as part of the &quot;Rainbow 
+						chipset&quot; (Silver, Gold and AMY) and was being discussed 
+						throughout the company in various groups to be used in 
+						other proposed designs. It was being considered for use 
+						in next generation Atari game consoles and in the Atari 
+						Arcade division.</font></p>
+						<p style="margin-left: 30; margin-right: 30" align="justify">
+						<font face="Arial">When Atari was sold in July 1984 to 
+						Tramel Technologies Ltd, which renamed itself to Atari 
+						Corp, the AMY was examined by lead technologist Shiraz 
+						Shivja, the father of the Atari ST.&nbsp; It was 
+						considered for the new ST computer (codenamed RBP), but 
+						with more development needed and a very tight schedule 
+						and deadline, it would instead be considered for use in 
+						an Atari 65XE computer designated the Atari 65XEM.</font></p>
+						<p style="margin-left: 30; margin-right: 30" align="justify">
+						<font face="Arial">Issues continued with the AMY and it 
+						would never materialize and this is where the classic 
+						mystique of Atari lore kicks into high gear.&nbsp; Like 
+						a Cold War spy thriller with people being silenced, 
+						evidence being burned in a warehouse fire and spies 
+						lurking behind every corner... A tinfoil hat conspiracy 
+						theorists dream come true :-)&nbsp; </font></p><hr>
+						<p style="margin-left: 30; margin-right: 30" align="justify">
+						<font face="Arial">So, theories aside, lets focus on 
+						facts.&nbsp; So first things first.&nbsp; The credit for 
+                        finally locating an actual fully intact AMY IC chip goes 
+                        to John Hardie of the <b>
+                        <a href="http://nvmusa.org" style="text-decoration: none">
+                        <font color="#FF0000">National Videogame Museum</font></a></b>.&nbsp;&nbsp; 
+                        The Atari Musuem and the NVM work cooperatively with one 
+                        another and John was extremely gracious in donating the 
+                        AMY chip to the Atari Museum. </font></p>
+						<p style="margin-left: 30; margin-right: 30" align="justify">
+						&nbsp;</p>
+						<p style="margin-left: 30; margin-right: 30" align="justify">
+						<font face="Arial">To the Left are links to a mother load of 
+						technical documents, Chip simulation and design data, 
+						network lists, software, harmonics and music creation 
+						tools.&nbsp; So lets have at it, lets take all this data 
+						and start to delve into the AMY and lets look into how 
+						it functions, what issues it may have had so that they 
+						can be corrected and try to reconstruct the chip logic 
+						in Verilog and in Emulation.</font></p>
+						<p style="margin-left: 30; margin-right: 30" align="justify">
+						<font face="Arial">Lets look into the software more 
+						closely and lets see about the demo's and getting more 
+						of them working.&nbsp; 2 very short sample sounds are 
+						included on the Left side Menu Bar.</font></p>
+						<p style="margin-left: 30; margin-right: 30" align="justify">
+						<font face="Arial">Leonard Tramiel gives a good 
+                        historical recounting of some of the events regarding 
+                        AMY during the Atari Corp years from July 1984 onward:</font></p>
+						<blockquote>
+                          <blockquote>
+						<p style="margin-left: 30; margin-right: 30" align="justify">
+						<i><font size="2" face="Arial">&quot;</font><span dir="ltr"><span class="_3l3x _1n4g"><font size="2"><span>I 
+                        was deeply involved with virtually all of the AMY work 
+                        once we came to Atari. </span>To gi</font><span><font size="2">ve 
+                        people important background here's the basic story:</font></span></span></span></i></p>
+						<p style="margin-left: 30; margin-right: 30" align="justify">
+						<i><span dir="ltr"><span class="_3l3x _1n4g"><span>
+                        <font size="2"><br>
+                        <font color="#FF0000">AMY</font>, stands for <b>
+                        <font color="#FF0000">A</font>dditive
+                        <font color="#FF0000">M</font>usical s<font color="#FF0000">Y</font>nthesis</b> 
+                        which describes how the chip works. I won't go into 
+                        detail but it is very different from the way most 
+                        synthesis systems work and it is my favorite way to 
+                        synthesize sound.<br>
+                        <br>
+                        It was developed by Atari before we got there and they 
+                        had working TTL versions that sounded GREAT but no 
+                        working chips. Chips were due to arrive in weeks and we 
+                        kept the project alive to see if they worked. They 
+                        didn't. The designer didn't have a good explanation for 
+                        what went wrong and being a full custom chip it would be 
+                        quite expensive to continue. The project was shut down.<br>
+                        <br>
+                        A third party group that had done work with Atari, both 
+                        Inc and Corp, said they were interested. A deal was 
+                        reached where we would give them what we had and 
+                        permission for the designer to work with them. The deal 
+                        was that they could do whatever they liked with the 
+                        resulting chip as long as we able to use the chips in 
+                        our products. We would buy the chips from the 
+                        manufacturer and pay them a royalty.<br>
+                        <br>
+                        After lots of false starts and details the 3rd party 
+                        didn't share with us they eventually called me and 
+                        announced that they had working chips that they wanted 
+                        to demonstrate to us. I said great, let's get working on 
+                        setting a royalty rate. They said they wouldn't let us 
+                        use the chips for any price. This went back and forth 
+                        MANY times. I reminded than that there were obligated to 
+                        licence the chips to us and they agreed that was true 
+                        but wouldn't do it.<br>
+                        <br>
+                        We sued. I flew to give court testimony about how the 
+                        chip worked and why it was so unique. They agreed to 
+                        licence the chips. We said great but nothing happened. 
+                        We got word that they were going to demo the technology 
+                        we said &quot;Great, what's our royalty arrangement?&quot; They 
+                        said we couldn't use the chip. We filed a TRO to prevent 
+                        them from demoing the technology. We won. They agreed to 
+                        negotiate.<br>
+                        <br>
+                        More time passed and we flew out to meet with them but 
+                        they kept agreeing and then denying that they had 
+                        agreed. We refused to continue negotiations unless 
+                        everything was put down on paper (it was a LONG time 
+                        ago). We never got a deal, the technology never was 
+                        released.<br>
+                        <br>
+                        I never heard a working AMY chip but I think they did 
+                        exist because I worked with the head of the project at 
+                        their end on other things and found him to be honest. He 
+                        was not involved in any of the failed negotiations.<br>
+                        <br>
+                        This is a very high level synopsis with LOTS of detail 
+                        missing but it has all of the information needed to 
+                        understand the situation.&quot;</font></span></span></span></i></p>
+						  </blockquote>
+                        </blockquote>
+						<p style="margin-left: 30; margin-right: 30" align="justify">
+						<b>
+						<font face="Arial">If you are a former Atari or S&amp;S 
+                        employee who worked on the AMY or have additional 
+                        information, documents or other technical data/software, 
+                        materials, etc...&nbsp; Please: </font>
+						</b>
+						</p>
+						<p style="margin-left: 30; margin-right: 30" align="center">
+						<font face="Arial"><b><font size="5" color="#FF0000">
+						<a href="../../../../../../contact.html" style="text-decoration: none">
+						<font color="#FF0000">CONTACT US</font></a></font></b></font></p>
+					</blockquote>
+					<p>&nbsp;</td>
+				</tr>
+				<tr>
+					<td>
+					&nbsp;</td>
+				</tr>
+				<tr>
+					<td>
+					&nbsp;</td>
+				</tr>
+			</table>
+		</div>
+		</td>
+	</tr>
+</table>
+
+</body>
+
+</html>

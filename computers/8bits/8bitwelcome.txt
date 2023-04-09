@@ -1,0 +1,63 @@
+From - Wed Oct 29 17:16:52 1997
+Path: jusdnews.fir.fbc.com!pubxfer.news.psi.net!psinntp!newsrouter.icnc.com!europa.clark.net!144.212.95.13!nntprelay.mathworks.com!bloom-beacon.mit.edu!senator-bedfellow.mit.edu!faqserv
+From: Michael Current <mcurrent@carleton.edu>
+Newsgroups: comp.sys.atari.8bit,comp.answers,news.answers
+Subject: Welcome to comp.sys.atari.8bit!
+Supersedes: <atari-8-bit/welcome_877259298@rtfm.mit.edu>
+Followup-To: comp.sys.atari.8bit
+Date: 27 Oct 1997 10:29:08 GMT
+Organization: Carleton College
+Lines: 43
+Approved: news-answers-request@MIT.Edu
+Expires: 17 Nov 1997 10:27:51 GMT
+Message-ID: <atari-8-bit/welcome_877948071@rtfm.mit.edu>
+NNTP-Posting-Host: penguin-lust.mit.edu
+Summary: This posting contains a list of Periodic Informational Postings about
+        Atari 8-bit computers.
+X-Last-Updated: 1997/10/25
+Originator: faqserv@penguin-lust.MIT.EDU
+Xref: jusdnews.fir.fbc.com comp.sys.atari.8bit:14029 comp.answers:10282 news.answers:41943
+
+Archive-name: atari-8-bit/welcome
+Posting-Frequency: 7 days
+Last-modified: October 25, 1997
+
+Welcome to comp.sys.atari.8bit, the Usenet newsgroup for discussion about the
+Atari 8-bit family of computers!  These include the 400, 800, 1200XL, 600XL,
+800XL, 65XE, 130XE, 800XE, and the XE Game System.
+
+Many topics are covered over and over again.  To help alleviate this trend,
+several people volunteer their time and energies by maintaining Periodic
+Informational Postings for this newsgroup.  Please take a moment to refer to
+these documents before posting to comp.sys.atari.8bit.  The answer to your
+question may already be readily available!
+
+Users of comp.sys.atari.8bit actively maintain the following Periodic
+Informational Postings:
+
+Atari 8-Bit Computers: Frequently Asked Questions / Michael Current
+  mailto:mcurrent@carleton.edu
+  http://www.faqs.org/faqs/atari-8-bit/faq/
+
+Atari 8-Bit Computers: Vendors and Developers / Michael Current
+  mailto:mcurrent@carleton.edu
+  http://www.faqs.org/faqs/atari-8-bit/vendev/
+
+The Unofficial Atari 8-bit New User, Emulator Help FAQ / Bill Kendrick
+  mailto:kendrick@zippy.sonoma.edu
+  http://zippy.sonoma.edu/kendrick/nbs/new_and_emu.html        (English)
+  http://zippy.sonoma.edu/kendrick/nbs/new_and_emu.espanol.txt (Spanish)
+
+Atari 8bit Support BBS's / InfoMan (Trevor Holyoak)
+  mailto:infoman@poboxes.com
+  http://www.holyoak.com/atari/ATARIBBS.TXT
+
+Atari 8-bit Hardware Upgrade, Modification and Add-On FAQ / David A. Paterson
+  mailto:davepat@total.net
+  http://www.geocities.com/SunsetStrip/Alley/1878/hard_faq.htm
+
+Atari Computer User Groups / Rich Tietjens
+  mailto:atari@teleport.com
+  http://www.teleport.com/~atari/ugbbs.htm
+
+

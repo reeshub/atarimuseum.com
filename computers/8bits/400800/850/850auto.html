@@ -1,0 +1,47 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="Author" content="Curt Vendel">
+   <meta name="GENERATOR" content="Mozilla/4.75 [en] (Win98; U) [Netscape]">
+   <title>Atari 850 Autorun.sys modification</title>
+</head>
+<body text="#FFFFFF" bgcolor="#000000" link="#0000EE" vlink="#FF0000" alink="#0000EE">
+
+<center><font face="Arial,Helvetica"><font size=+2>This listing will allow
+your Atari computer to autoload the R: Device drivers</font></font>
+<br><font face="Arial,Helvetica"><font size=+2>necessary to use the RS-232-C
+interfaces on the rear of the Atari 850 Inteface Box</font></font>
+<br>
+<hr WIDTH="100%"></center>
+
+<p><br>
+<br>
+<p><font face="Arial,Helvetica">10 REM AUTO850:CREATE 850 AUTORUN</font>
+<br><font face="Arial,Helvetica">15 REM USE TO BOOT THE 850 RS 232</font>
+<br><font face="Arial,Helvetica">17 REM PORTS. USE WITH DOS 2.0S</font>
+<br><font face="Arial,Helvetica">20 OPEN #1,8,0,"D:AUTORUN.SYS"</font>
+<br><font face="Arial,Helvetica">30 FOR I=1 TO 88</font>
+<br><font face="Arial,Helvetica">40 READ D</font>
+<br><font face="Arial,Helvetica">50 PUT #1,D</font>
+<br><font face="Arial,Helvetica">52 ? D;" ";</font>
+<br><font face="Arial,Helvetica">60 NEXT I</font>
+<br><font face="Arial,Helvetica">70 CLOSE #1</font>
+<br><font face="Arial,Helvetica">80 END</font>
+<br><font face="Arial,Helvetica">90 REM WILL LOAD AT STEP 14336 IN DOS</font>
+<br><font face="Arial,Helvetica">100 DATA 255,255,0,56,75,56,169,80</font>
+<br><font face="Arial,Helvetica">110 DATA 141,0,3,169,1,141,1,3,169</font>
+<br><font face="Arial,Helvetica">120 DATA 63,141,2,3,169,64,141,3,3</font>
+<br><font face="Arial,Helvetica">130 DATA 169,5,141,6,3,141,5,3,169</font>
+<br><font face="Arial,Helvetica">140 DATA 0,141,4,3,141,9,3,141,10</font>
+<br><font face="Arial,Helvetica">150 DATA 3,141,11,3,169,12,141,8,3</font>
+<br><font face="Arial,Helvetica">160 DATA 32,89,228,16,1,96,162,11</font>
+<br><font face="Arial,Helvetica">170 DATA 189,0,5,157,0,3,202,16,247</font>
+<br><font face="Arial,Helvetica">180 DATA 32,89,228,48,6,32,6,5,108</font>
+<br><font face="Arial,Helvetica">190 DATA 12,0,96</font>
+<br><font face="Arial,Helvetica">200 DATA 226,2,227,2,0,56</font>
+<p>
+<hr WIDTH="100%">
+<br>&nbsp;
+</body>
+</html>

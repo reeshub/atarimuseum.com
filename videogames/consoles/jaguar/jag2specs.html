@@ -1,0 +1,189 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="Author" content="Curt Vendel">
+   <meta name="GENERATOR" content="Mozilla/4.75 [en] (Win98; U) [Netscape]">
+   <title>Atari Jaguar II specifications</title>
+</head>
+<body text="#FF0000" bgcolor="#000000" link="#FF0000" vlink="#FF6666" alink="#FF0000">
+<u><font face="Arial,Helvetica"><font size=+3>Atari
+Jaguar II Spec's</font></font></u>
+<p><i><font face="Arial,Helvetica">The following Information was provided
+to</font></i>
+<br><i><font face="Arial,Helvetica">the Atari History Site by: <a href="mailto:markus_kirschbaum@gmx.de">Markus
+Kirschbaum</a></font></i>
+<p><font face="Arial,Helvetica">Size:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+10.5" x 12" x 3.5"</font>
+<br><font face="Arial,Helvetica">Controls:&nbsp;&nbsp;&nbsp;&nbsp; Power
+on/off</font>
+<br><font face="Arial,Helvetica">Display:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Resolution up to 1600 x 600 pixels (50 Hz/interlace)</font>
+<br><font face="Arial,Helvetica">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+32-bit "Extended True Color" display with 16,777,216</font>
+<br><font face="Arial,Helvetica">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+colors simultaneously (additional 8 bits of supplimental</font>
+<br><font face="Arial,Helvetica">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+graphics data support possible)</font>
+<br><font face="Arial,Helvetica">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Multiple-resolution, multiple-color depth objects</font>
+<br><font face="Arial,Helvetica">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+(monochrome, 2-bit, 4-bit, 8-bit, 16-bit, 24-bit) can be</font>
+<br><font face="Arial,Helvetica">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+used simultaneously</font>
+<br><font face="Arial,Helvetica">Ports:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Cartridge slot/expansion port (64 bits)</font>
+<br><font face="Arial,Helvetica">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+RF video output</font>
+<br><font face="Arial,Helvetica">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Video edge connector (video/audio output)</font>
+<br><font face="Arial,Helvetica">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+(supports NTSC and PAL; provides S-Video, Composite, RGB</font>
+<br><font face="Arial,Helvetica">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+outputs, accessible by optional add-on connector)</font>
+<br><font face="Arial,Helvetica">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Four controller ports</font>
+<br><font face="Arial,Helvetica">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Digital Signal Processor port (includes high-speed</font>
+<br><font face="Arial,Helvetica">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+synchronous serial input/output)</font>
+<br><font face="Arial,Helvetica">Controllers:&nbsp; Eight-directional joypad</font>
+<br><font face="Arial,Helvetica">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Size 5" x 4.5" x 1.5", cord 7 feet</font>
+<br><font face="Arial,Helvetica">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Six fire buttons (A, B, C, D, E, F)</font>
+<br><font face="Arial,Helvetica">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Pause and Option buttons</font>
+<br><font face="Arial,Helvetica">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+12-key keypad (accepts game-specific overlays)</font>
+<p><font face="Arial,Helvetica">The Jaguar 2 has seven processors, which
+are contained in three chips.</font>
+<br><font face="Arial,Helvetica">Two of the chips are proprietary designs,
+nicknamed "Tom" and "Jerry".</font>
+<br><font face="Arial,Helvetica">The third chip is a standard Motorola
+68EC020 used as a coprocessor.</font>
+<br><font face="Arial,Helvetica">Tom and Jerry are built using an 0.3 micron
+silicon process.&nbsp; With</font>
+<br><font face="Arial,Helvetica">proper programming, all seven processors
+can run in parallel.</font>
+<p><font face="Arial,Helvetica">- "Tom"</font>
+<br><font face="Arial,Helvetica">&nbsp; - 1,250,000 transistors, 292 pins</font>
+<br><font face="Arial,Helvetica">&nbsp; - Graphics Processing Unit (processor
+#1)</font>
+<br><font face="Arial,Helvetica">&nbsp;&nbsp;&nbsp;&nbsp; - 64-bit RISC
+architecture (64/128 register processor)</font>
+<br><font face="Arial,Helvetica">&nbsp;&nbsp;&nbsp;&nbsp; - 64 registers
+of 128 bits wide (shadow-buffering)</font>
+<br><font face="Arial,Helvetica">&nbsp;&nbsp;&nbsp;&nbsp; - Has access
+to all 2 x 64 bits of the system bus</font>
+<br><font face="Arial,Helvetica">&nbsp;&nbsp;&nbsp;&nbsp; - Can read 128
+bits of data in one instruction</font>
+<br><font face="Arial,Helvetica">&nbsp;&nbsp;&nbsp;&nbsp; - Rated at 127.902
+MIPS (million instructions per second)</font>
+<br><font face="Arial,Helvetica">&nbsp;&nbsp;&nbsp;&nbsp; - Runs at 63.951
+MHz</font>
+<br><font face="Arial,Helvetica">&nbsp;&nbsp;&nbsp;&nbsp; - 2 x 32K bytes
+of zero wait-state internal SRAM (matrix)</font>
+<br><font face="Arial,Helvetica">&nbsp;&nbsp;&nbsp;&nbsp; - Performs a
+wide range of high-speed graphic effects</font>
+<br><font face="Arial,Helvetica">&nbsp;&nbsp;&nbsp;&nbsp; - Programmable</font>
+<br><font face="Arial,Helvetica">&nbsp;&nbsp; - Object processor (processor
+#2)</font>
+<br><font face="Arial,Helvetica">&nbsp;&nbsp;&nbsp;&nbsp; - 64-bit RISC
+architecture</font>
+<br><font face="Arial,Helvetica">&nbsp;&nbsp;&nbsp;&nbsp; - Programmable
+processor that can act as a variety of different</font>
+<br><font face="Arial,Helvetica">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; video
+architectures, such as a sprite engine, a pixel-mapped</font>
+<br><font face="Arial,Helvetica">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; display,
+a character-mapped system, and others.</font>
+<br><font face="Arial,Helvetica">&nbsp;&nbsp; - Blitter (processor #3)</font>
+<br><font face="Arial,Helvetica">&nbsp;&nbsp;&nbsp;&nbsp; - 64 bits read
+and write at the same time! (multibuffering!)</font>
+<br><font face="Arial,Helvetica">&nbsp;&nbsp;&nbsp;&nbsp; - 8K read buffer
+(fifo)</font>
+<br><font face="Arial,Helvetica">&nbsp;&nbsp;&nbsp;&nbsp; - 8K write buffer
+(lifo)</font>
+<br><font face="Arial,Helvetica">&nbsp;&nbsp;&nbsp;&nbsp; - Performs high-speed
+logical operations</font>
+<br><font face="Arial,Helvetica">&nbsp;&nbsp;&nbsp;&nbsp; - Hardware support
+for Z-buffering and Gouraud shading</font>
+<br><font face="Arial,Helvetica">&nbsp;&nbsp; - Texture Mapping Engine
+(processor #4)</font>
+<br><font face="Arial,Helvetica">&nbsp;&nbsp;&nbsp;&nbsp; - 64-bit RISC</font>
+<br><font face="Arial,Helvetica">&nbsp;&nbsp;&nbsp;&nbsp; - 64 bits</font>
+<br><font face="Arial,Helvetica">&nbsp;&nbsp;&nbsp;&nbsp; - Programmable
+risc processor</font>
+<br><font face="Arial,Helvetica">&nbsp;&nbsp;&nbsp;&nbsp; - 256K "texture-work-ram"
+of zero wait-state internal CACHE</font>
+<br><font face="Arial,Helvetica">&nbsp;&nbsp;&nbsp;&nbsp; - capable of
+doing about 900000 texture-mapped polyons,</font>
+<br><font face="Arial,Helvetica">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; without
+textures there can do 2500000 polyons.</font>
+<br><font face="Arial,Helvetica">&nbsp;&nbsp;&nbsp;&nbsp; - realtime Gouraud
+and Phong shading</font>
+<br><font face="Arial,Helvetica">&nbsp;&nbsp; - J/MPEG "COMBI" Chip (processor
+#5)</font>
+<br><font face="Arial,Helvetica">&nbsp;&nbsp;&nbsp;&nbsp; - 64 bits</font>
+<br><font face="Arial,Helvetica">&nbsp;&nbsp;&nbsp;&nbsp; - not programmable!</font>
+<br><font face="Arial,Helvetica">&nbsp;&nbsp;&nbsp;&nbsp; - 8K own data
+rom (with sinus) table</font>
+<br><font face="Arial,Helvetica">&nbsp;&nbsp;&nbsp;&nbsp; - 128K CACHE
+(fifo)</font>
+<br><font face="Arial,Helvetica">&nbsp;&nbsp;&nbsp;&nbsp; - realtime J/MPEG
+decompression via CACHE (fifo)</font>
+<br><font face="Arial,Helvetica">&nbsp;&nbsp; - DRAM memory controller</font>
+<br><font face="Arial,Helvetica">&nbsp;&nbsp;&nbsp;&nbsp; - 4 x 64 bits</font>
+<br><font face="Arial,Helvetica">&nbsp;&nbsp;&nbsp;&nbsp; - Accesses the
+DRAM directly</font>
+<p><font face="Arial,Helvetica">- "Jerry"</font>
+<br><font face="Arial,Helvetica">&nbsp;&nbsp; - 900,000 transistors, 196
+pins</font>
+<br><font face="Arial,Helvetica">&nbsp;&nbsp; - Digital Signal Processor
+(processor #6)</font>
+<br><font face="Arial,Helvetica">&nbsp;&nbsp;&nbsp;&nbsp; - 32 bits (32-bit
+registers)</font>
+<br><font face="Arial,Helvetica">&nbsp;&nbsp;&nbsp;&nbsp; - Rated at 53,3
+MIPS (million instructions per second)</font>
+<br><font face="Arial,Helvetica">&nbsp;&nbsp;&nbsp;&nbsp; - Runs at 53.3
+MHz</font>
+<br><font face="Arial,Helvetica">&nbsp;&nbsp;&nbsp;&nbsp; - Same RISC core
+as the Graphics Processing Unit</font>
+<br><font face="Arial,Helvetica">&nbsp;&nbsp;&nbsp;&nbsp; - Not limited
+to sound generation</font>
+<br><font face="Arial,Helvetica">&nbsp;&nbsp;&nbsp;&nbsp; - 96K bytes of
+zero wait-state internal SRAM</font>
+<br><font face="Arial,Helvetica">&nbsp;&nbsp;&nbsp;&nbsp; - CD-quality
+sound (16-bit stereo 50KHz)</font>
+<br><font face="Arial,Helvetica">&nbsp;&nbsp;&nbsp;&nbsp; - Number of sound
+channels limited by software (minimum 16!!)</font>
+<br><font face="Arial,Helvetica">&nbsp;&nbsp;&nbsp;&nbsp; - Two DACs (stereo)
+convert digital data to analog sound</font>
+<br><font face="Arial,Helvetica">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; signals</font>
+<br><font face="Arial,Helvetica">&nbsp;&nbsp;&nbsp;&nbsp; - Full stereo
+capabilities</font>
+<br><font face="Arial,Helvetica">&nbsp;&nbsp;&nbsp;&nbsp; - Wavetable synthesis,
+FM synthesis, FM Sample synthesis, and AM</font>
+<br><font face="Arial,Helvetica">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; synthesis</font>
+<br><font face="Arial,Helvetica">&nbsp;&nbsp;&nbsp;&nbsp; - A clock control
+block, incorporating timers, and a UART</font>
+<p><font face="Arial,Helvetica">- Motorola 68EC020 (processor #7)</font>
+<br><font face="Arial,Helvetica">&nbsp;&nbsp;&nbsp;&nbsp; - Runs at 26.590MHz</font>
+<br><font face="Arial,Helvetica">&nbsp;&nbsp;&nbsp;&nbsp; - perfect 68000
+emulation</font>
+<br><font face="Arial,Helvetica">&nbsp;&nbsp;&nbsp;&nbsp; - General purpose
+control processor</font>
+<p><font face="Arial,Helvetica">Communication is performed with a high
+speed 64-bit data bus, rated</font>
+<br><font face="Arial,Helvetica">at 2400 megabits/second.&nbsp; The 68000
+is only able to access 16 bits</font>
+<br><font face="Arial,Helvetica">of this bus at a time.</font>
+<p><font face="Arial,Helvetica">The Jaguar 2 contains eight megabytes (64
+megabits) of fast</font>
+<br><font face="Arial,Helvetica">page-mode DRAM, in eight chips with 1024
+K each.</font>
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+</body>
+</html>

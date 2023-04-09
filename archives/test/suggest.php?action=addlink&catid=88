@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="description" content="" />
+ <meta charset="utf-8">
+<noscript><link rel="stylesheet" href="http://www.atarimuseum.com/archives/test/uploader/css/jquery.fileupload-ui-noscript.css"></noscript>
+
+
+
+<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/dark-hive/jquery-ui.min.css" id="theme">
+
+ <script src="http://www.atarimuseum.com/archives/test/javascriptheader.js" type="text/javascript"></script> 
+ <script src="http://www.atarimuseum.com/archives/test/jquery/bootstrapdropdown.min.js" type="text/javascript"></script> 
+ <script src="https://www.google.com/recaptcha/api.js" type="text/javascript" async defer></script> 
+ <script src="http://www.atarimuseum.com/archives/test/ckeditor/ckeditor.js" type="text/javascript"></script> 
+ <script src="http://www.atarimuseum.com/archives/test/ckeditor/adapters/jquery.js" type="text/javascript"></script> 
+ <link rel="stylesheet" href="http://www.atarimuseum.com/archives/test/schemas/bootstrap_darkly.min.css" type="text/css" />
+ <link rel="stylesheet" href="http://www.atarimuseum.com/archives/test/schemas/bootstrapdark.min.css" type="text/css" />
+ <link rel="stylesheet" href="http://www.atarimuseum.com/archives/test/jquery/blueimp-gallery.min.css" type="text/css" />
+ <link rel="stylesheet" href="http://www.atarimuseum.com/archives/test/uploader/css/jquery.fileupload-ui.css" type="text/css" />
+ 
+<script type="text/javascript">
+//<![CDATA[
+
+jQuery(document).ready(function() {
+$("textarea[name=description]").bind("keypress", function() {
+ var maxlimit = $("[name=maxdesclen]").val();
+ var newval = $("textarea[name=description]").val();
+ if (newval.length > maxlimit) $("textarea[name=description]").val(newval.substring(0, maxlimit)); 
+ else $("[name=remLen]").val(maxlimit - newval.length); 
+
+});
+$("[name=country]").change(function() { wsn_updatestate($(this).val()); });
+if($("[name=state]").attr("selectedIndex") == 0) wsn_updatestate($("[name=country]").val());
+
+$("[name=zip]").change(function() { wsn_postalfill(); });
+ wsn_getnextlevel(88); $("[name=editormode]").bind("change", wsn_switcheditor);
+
+$("#mobilemenubutton").click(function(e) {
+$(".menuitems").toggle(500);
+if ($(".navbar-nav").length) $(".navbar-nav > li:not(:first-child)").toggle();
+});
+$(".memuitems a").click(function(e) { $(".menuitems").hide(500); });
+
+ $("#dismisscookienotice").click(function() { $("#cookienotice").hide(); wsn_makecookie("dismisscookienotice", "true", 365, "/"); });
+  $('.dropdown-toggle').dropdown(); 
+        $("#login").click(function(e){
+        e.preventDefault();
+            $("#loginmodal").css("display", "block").dialog({
+      height: 400,
+      width: 500,
+      modal: true,
+      closeText: '' });
+      
+        });
+        
+        $("#loginsubmit").click(function(e){ e.preventDefault(); wsn_modallogin("http://www.atarimuseum.com/archives/test/suggest.php?action=addlink&catid=88", e); });        
+    
+$("#sortableold tbody").sortable({
+ helper: fixHelper,
+ axis: "y",
+ stop: function(event, ui) {
+        var data = "";
+        $("#sortableold tr:visible").each(function(i, el){ wsn_doattsort(i, el, data); });
+    } 
+}); 
+
+$(".datepicker").datepicker({ dateFormat: "yy/mm/dd", dayNamesMin: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"], monthNames: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"], firstDay: 0 });
+$(".submenus").hide(0);
+
+if (!(CKEDITOR.env.isCompatible)) wsn_makecookie("ckeditorincompatible", "1", "30", "/");
+
+config = {
+ toolbar:
+ [
+['NewPage','-','Templates'],
+	['Cut','Copy','Paste','PasteText','PasteWord','-','SpellCheck','Scayt'],
+	['Undo','Redo','-','Find','Replace','-','SelectAll','RemoveFormat'],
+	['Bold','Italic','Underline','StrikeThrough','-','Subscript','Superscript'],
+	['Link','Unlink'],
+	['Image','HorizontalRule','Smiley','SpecialChar'],
+	['Styles','Format','Font','FontSize'],
+	['TextColor','BGColor']
+ ],
+ uiColor: '#222222',
+ entities: false,
+ smiley_path: '/archives/test/templates/images_default/smilies/',
+ smiley_images: ['banghead.gif','biggrin.gif','confused.gif','cool.gif','duh.gif','eek.gif','eyebrow.gif','facepalm.gif','frown.gif','hug.gif','mad.gif','neutral.gif','no.gif','nod.gif','nono.gif','rolleyes.gif','scream.gif','smile.gif','thumbsdown.gif','thumbsup.gif','tongue.gif','wink.gif','yawn.gif'],
+ smiley_descriptions: ['banghead','biggrin','confused','cool','duh','eek','eyebrow','facepalm','frown','hug','mad','neutral','no','nod','nono','rolleyes','scream','smile','thumbsdown','thumbsup','tongue','wink','yawn'],
+ filebrowserUploadUrl : '/archives/test/ckuploader.php?action=upload'
+};
+config.filebrowserUploadMethod = 'form';
+
+CKEDITOR.addCss(".cke_editable{background-color: #222222; color: #FFFFFF; }");
+$('.jquery_ckeditor').ckeditor(config);
+
+
+ 'use strict';
+ 
+    // Initialize the jQuery File Upload widget:   
+    $('.fileupload').each(function () {
+    $(this).fileupload({
+        dropZone: $('#dropzone')
+    });
+});
+
+        $('.fileupload').fileupload('option', {
+            url: 'uploader.php?objecttype=link&objectid=0&source=&userid=0&authcode=',
+            maxFileSize: 20000000,
+            acceptFileTypes: /(\.|\/)*/i,
+            maxNumberOfFiles: 5,
+            fileInput: $('#uploaderfiles'),
+
+fail: function (e, data) {
+        var errors = data.jqXHR.responseJSON;
+        $.each(errors, function (key, value) {
+            alert(value);
+        });
+    },
+            
+            autoUpload: true,
+            
+            process: [
+                {
+                    action: 'load',
+		    fileTypes: /^image\/(gif|jpeg|png)$/,
+		    maxFileSize: 20000000
+                },                
+                {
+                    action: 'save'
+                }
+            ]            
+            
+            
+        }).bind('fileuploadcompleted', function (e, data) { wsn_setnewsortable(); });
+
+  
+    
+ wsn_closeboxes(); 
+
+        if ($("#searchauto").length) { $("#searchauto").autocomplete({ source: "/archives/test/ajax.php?type=autocomplete&action=searchauto" }); }
+        else if ($("[name=searchauto]").length) { $("[name=searchauto]").autocomplete({ source: "/archives/test/ajax.php?type=autocomplete&action=searchauto" }); }
+
+        if ($("#reassignname").length) { $("#reassignname").autocomplete({ source: "/archives/test/ajax.php?type=autocomplete&action=reassignname" }); }
+        else if ($("[name=reassignname]").length) { $("[name=reassignname]").autocomplete({ source: "/archives/test/ajax.php?type=autocomplete&action=reassignname" }); }
+
+        if ($("#ownerid").length) { $("#ownerid").autocomplete({ source: "/archives/test/ajax.php?type=autocomplete&action=ownerid" }); }
+        else if ($("[name=ownerid]").length) { $("[name=ownerid]").autocomplete({ source: "/archives/test/ajax.php?type=autocomplete&action=ownerid" }); }
+
+$('a.ajaxlink').click(function(e) { wsn_doajaxlink(e, this.href); });
+$('a.ajaxdelete').click(function(e) { wsn_doajaxdelete(e, this.href, this.id); });
+ 
+});
+
+function wsn_updatestate(country)
+{
+ if (country == "United States") 
+ {
+  $("[name=state]").empty().append("<option value=\"\"></option><option value=\"Alabama\">Alabama</option><option value=\"Alaska\">Alaska</option><option value=\"American Samoa\">American Samoa</option><option value=\"Arizona\">Arizona</option><option value=\"Arkansas\">Arkansas</option><option value=\"California\">California</option><option value=\"Colorado\">Colorado</option><option value=\"Connecticut\">Connecticut</option><option value=\"Delaware\">Delaware</option><option value=\"District Of Columbia\">District Of Columbia</option><option value=\"Federated States Of Micronesia\">Federated States Of Micronesia</option><option value=\"Florida\">Florida</option><option value=\"Georgia\">Georgia</option><option value=\"Guam\">Guam</option><option value=\"Hawaii\">Hawaii</option><option value=\"Idaho\">Idaho</option><option value=\"Illinois\">Illinois</option><option value=\"Indiana\">Indiana</option><option value=\"Iowa\">Iowa</option><option value=\"Kansas\">Kansas</option><option value=\"Kentucky\">Kentucky</option><option value=\"Louisiana\">Louisiana</option><option value=\"Maine\">Maine</option><option value=\"Marshall Islands\">Marshall Islands</option><option value=\"Maryland\">Maryland</option><option value=\"Massachusetts\">Massachusetts</option><option value=\"Michigan\">Michigan</option><option value=\"Minnesota\">Minnesota</option><option value=\"Mississippi\">Mississippi</option><option value=\"Missouri\">Missouri</option><option value=\"Montana\">Montana</option><option value=\"Nebraska\">Nebraska</option><option value=\"Nevada\">Nevada</option><option value=\"New Hampshire\">New Hampshire</option><option value=\"New Jersey\">New Jersey</option><option value=\"New Mexico\">New Mexico</option><option value=\"New York\">New York</option><option value=\"North Carolina\">North Carolina</option><option value=\"North Dakota\">North Dakota</option><option value=\"Northern Mariana Islands\">Northern Mariana Islands</option><option value=\"Ohio\">Ohio</option><option value=\"Oklahoma\">Oklahoma</option><option value=\"Oregon\">Oregon</option><option value=\"Palau\">Palau</option><option value=\"Pennsylvania\">Pennsylvania</option><option value=\"Puerto Rico\">Puerto Rico</option><option value=\"Rhode Island\">Rhode Island</option><option value=\"South Carolina\">South Carolina</option><option value=\"South Dakota\">South Dakota</option><option value=\"Tennessee\">Tennessee</option><option value=\"Texas\">Texas</option><option value=\"Utah\">Utah</option><option value=\"Vermont\">Vermont</option><option value=\"Virgin Islands\">Virgin Islands</option><option value=\"Virginia\">Virginia</option><option value=\"Washington\">Washington</option><option value=\"West Virginia\">West Virginia</option><option value=\"Wisconsin\">Wisconsin</option><option value=\"Wyoming\">Wyoming</option>");
+  $("#americanstate").show();
+  $("#foreignstate").hide();
+ }
+ else
+ {
+  $("#americanstate").hide();
+  $("#foreignstate").show();
+ }
+}
+
+function wsn_postalfill()
+{
+ var zip = $("[name=zip]").val();
+ var country = $("[name=country]").val();
+ if (zip && $("[name=city]").val() == "" && $("[name=state]").val() == "")
+ {
+  $.post("/archives/test/ajax.php", { action: "getpostalinfo", postalcode: zip, country: country },
+  function(xml) 
+  {
+    var stuff = xml.split("|");
+    var city = stuff[0];
+    var state = stuff[1];
+    if (city) $("[name=city]").val(city);
+    if (state)
+    {
+     var toselect = "select[name=state] option[value=" + state + "]";
+     $(toselect).prop("selected", true); 
+    }
+  });
+ } 
+}
+
+function wsn_removelevelselector(secid)
+{
+ var ldiv = "#"+secid+"catlevels";
+ $(ldiv).html("");
+}
+
+function wsn_getnextaliaslevel(value, secid)
+{
+ var xmlhttp = false;
+ var tosend = "";
+ var message = value;
+ var aet = $("#addedittype").val();
+ $.post("/archives/test/ajax.php",{ action: 'multicatlevels', id: message, addedittype: aet, secid: secid, levelprefix: 'alias' },
+  function(xml) 
+  {
+   // ajax.php will return levelid[|||]html and we will split the array to use
+   var rarr = xml.split("[|||]");
+   var levelid = rarr[0];
+   var response = rarr[1];
+   if (response != "")
+   {
+    var levelboxid = "#alias" + secid + "levelbox" + levelid;
+    var start = parseInt(levelid) + 1;
+    for (x = start; x < 10; x++)
+    {
+     var higherlevel = "#alias" + secid + "levelbox" + x;
+     try { $(higherlevel).html(""); }
+     catch(error) { }
+    }
+    $(levelboxid).html(response); 
+   }
+   else
+   {
+    for (x = levelid; x < 10; x++)
+    {
+     var higherlevel = "#alias" + secid + "levelbox" + x;
+     try { $(higherlevel).html(""); }
+     catch(error) { }
+    }
+   }
+  });
+}
+
+var nextaliassecid = 0;
+function wsn_addaliaslevelselector()
+{
+ var newstuff = "<div id=\"SECIDcatlevels\"><div id=\"aliasSECIDlevelbox0\" class=\"floatleft\"><select name=\"aliascatlevelid[SECID][0]\" onchange=\"wsn_getnextaliaslevel(this.value, SECID)\"><option value=\"\">Choose Category</option><option value=\"172\">Business</option><option value=\"4\">Communications</option><option value=\"15\">DIsk Operating Systems</option><option value=\"7\">Education</option><option value=\"8\">Games & Entertainment</option><option value=\"9\">Graphic Apps</option><option value=\"10\">Home & Hobby</option><option value=\"11\">Network & Internet</option><option value=\"5\">Productivity</option><option value=\"171\">Programming Languages</option><option value=\"14\">System Utilities</option></select></div><div id=\"aliasSECIDlevelbox0\" class=\"floatleft\"></div><div id=\"aliasSECIDlevelbox1\" class=\"floatleft\"></div><div id=\"aliasSECIDlevelbox2\" class=\"floatleft\"></div><div class=\"clear\"></div><a onclick=\"wsn_removelevelselector(SECID)\">- Remove Secondary Category</a></div>"; 
+ newstuff = newstuff.replace(/SECID/g, nextaliassecid);
+ $("#alias").append(newstuff);
+ nextaliassecid++;
+}
+
+function wsn_switcheditor()
+{
+ var selection = $("[name=editormode]").val();
+ if (selection == "plain")
+ {  
+  if ($("textarea[name=message]").length)
+  {
+   text = $("textarea[name=message]").val();
+   editor = $("textarea[name=message]").ckeditorGet();
+   editor.destroy();
+   $.post("/archives/test/ajax.php", { action: "converttext", text: text, mode: "plain", userid: "0", authcode: "" },
+  function(xml) { $("textarea[name=message]").val(xml); });
+  }
+  
+  if ($("textarea[name=description]").length)
+  {
+   text = $("textarea[name=description]").val();
+   editor = $("textarea[name=description]").ckeditorGet();
+   editor.destroy();
+   $.post("/archives/test/ajax.php", { action: "converttext", text: text, mode: "plain", userid: "0", authcode: "" },
+  function(xml) { $("textarea[name=description]").val(xml); });
+  }
+  
+  if ($("textarea[name=text]").length)
+  {
+   text = $("textarea[name=text]").val();
+   editor = $("textarea[name=text]").ckeditorGet();
+   editor.destroy();
+   $.post("/archives/test/ajax.php", { action: "converttext", text: text, mode: "plain", userid: "0", authcode: "" },
+  function(xml) { $("textarea[name=text]").val(xml); });
+  }
+  wsn_makecookie("wysi", "plain");
+ }
+ else
+ {
+  if ($("textarea[name=message]").length)
+  {
+   $("textarea[name=message]").prop("required", false);
+   text = $("textarea[name=message]").val();
+   $.post("/archives/test/ajax.php", { action: "converttext", text: text, mode: "WYSIWYG", userid: "0", authcode: "" },
+   function(xml) 
+   { // create wysi box and place result in it
+    $("textarea[name=message]").addClass("jquery_ckeditor").ckeditor(function() { }, config);
+    $("textarea[name=message]").val(xml);
+   });
+  }
+  
+  if ($("textarea[name=description]").length)
+  {
+   $("textarea[name=description]").prop("required", false);
+   text = $("textarea[name=description]").val();
+   $.post("/archives/test/ajax.php", { action: "converttext", text: text, mode: "WYSIWYG", userid: "0", authcode: "" },
+   function(xml) 
+   { // create wysi box and place result in it
+    $("textarea[name=description]").addClass("jquery_ckeditor").ckeditor(function() { }, config);
+    $("textarea[name=description]").val(xml);
+   });
+  }
+  
+  if ($("textarea[name=text]").length)
+  {
+   $("textarea[name=text]").prop("required", false);
+   text = $("textarea[name=text]").val();
+   $.post("/archives/test/ajax.php", { action: "converttext", text: text, mode: "WYSIWYG", userid: "0", authcode: "" },
+   function(xml) 
+   { // create wysi box and place result in it
+    $("textarea[name=text]").addClass("jquery_ckeditor").ckeditor(function() { }, config);
+    $("textarea[name=text]").val(xml);
+   });
+  }
+  wsn_makecookie("wysi", "WYSIWYG");
+ }
+}
+
+var lengthtext = new Array;
+function wsn_checklength(field)
+{
+ if (typeof field === "undefined") field = "description";
+ var selector = "textarea[name="+field+"]";
+ var text = $(selector).val();
+ if (text != lengthtext[field])
+ { // save server/browser load by only checking when changed. we need ajax call because we have to figure out what the length with html stripped is.
+  lengthtext[field] = text;
+  $.post("/archives/test/ajax.php", { action: "checklength", text: text },
+  function(xml) 
+  {
+   var length = xml;
+   maxselector = "input[name=maxlen_"+field+"]";
+   if ($(maxselector).length) maxchars = $(maxselector).val();
+   else maxchars = $("input[name=maxdesclen]").val();
+   left = maxchars - length;
+   if (left < 0) left = 0;
+   var counterselector = "#counter_"+field;
+   var charsleftselector = ".charsleft_"+field;
+   if (field == "description" && !$(counterselector).length) { var counterselector = "#counter"; var charsleftselector = ".charsleft"; }    
+   $(counterselector).html(left);
+   // if too long, what do we do? removing characters could break wysi html. guess we will just highlight.
+   if (left == 0) $(charsleftselector).addClass("alert");
+   else $(charsleftselector).removeClass("alert");
+  });
+ }
+}
+window.setInterval(function() { wsn_checklength("description"); }, 3000);
+
+function wsn_manualattsort()
+{
+ var data = "";
+ $("#sortableold tr:visible").each(function(i, el){ wsn_doattsort(i, el, data); });
+ $("#sortablenew tr:visible").each(function(i, el){ 
+      var offset = $("#sortableold tr:visible").length;
+      if (offset == 0) offset = 1;
+      var sv = offset + i; // number if later than the old ones
+      wsn_doattsort(sv, el, data); 
+  });
+}
+
+function wsn_doattsort(i, el, data)
+{
+            var id = $(el).prop('id');
+            id = id.replace(/\D/g,'');
+            data = data + id + ",";
+            $("input[name='fileinfo_sortorder["+id+"]']").val(i); // update sortorder input box
+}
+
+var fixHelper = function(e, ui) { ui.children().each(function() { $(this).width($(this).width()); }); return ui; };
+function wsn_setnewsortable()
+{
+ $(".template-download").css("display", "table-row");
+ $("#sortablenew tbody").sortable({
+ helper: fixHelper,
+ axis: "y", 
+ stop: function(event, ui) {
+        var data = "";
+        $("#sortablenew tr:visible").each(function(i, el){ 
+            var offset = $("#sortableold tr:visible").length;
+            var sv = offset + i; // number if later than the old ones
+        wsn_doattsort(sv, el, data); 
+        });
+    } 
+ }); 
+}
+ var config; 
+var deletedhere = 0;
+function wsn_deleteattachment(attachid)
+{
+ var row = "#attachment"+attachid+"row";
+ $(row).hide(1);
+$.post("/archives/test/ajax.php",{ action: 'deleteattachment', id: attachid, userid: '0', userauthcode: '' }, function(xml) { });
+ // dynamically update maxNumberOfFiles on .fileupload so we can add another file now that we have deleted one
+ deletedhere++;
+ var maxfiles = 5 - $(".fileupload .template-download:not('.ui-state-error')").length + deletedhere; 
+ $(".fileupload").fileupload(
+    "option",
+    "maxNumberOfFiles",
+    maxfiles
+  ); 
+}
+
+//]]>
+</script>
+<title>Atari Museum Archives Database: Submit Listing</title>
+
+<link rel="stylesheet" href="http://www.atarimuseum.com/archives/test/templates/styles/production/default.css" type="text/css" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style type="text/css">
+   .cke_editable { background-color: #000000; } 
+  </style>
+</head>
+<body>
+
+<header>
+
+<div id="topcontainer" class="stickytop">
+
+<div class="floatleft">
+<div class="logobg"> </div>
+<div class="logo"><a href="http://www.atarimuseum.com/archives/test"><img src="http://www.atarimuseum.com/archives/test/templates/images_default/newlogo.png" alt="Atari Archival Database" /></a></div>
+</div>
+
+<div class="floatleft quicksearch largescreens">
+<form action="search.php?filled=1&amp;condition=like&amp;whichtype=links" name="quicksearchform" method="post">
+<span id="searchbox" class="searchboxcontainer">
+<input type="search" name="search" size="25" id="searchauto" class="searchbox" placeholder="search listings" />
+        <button class="btn btn-default btn-sm gobutton searchboxbutton" type="submit">Go</button>
+<br><a href="search.php">+ Advanced Search</a>
+</span>
+</form>
+</div>
+
+
+
+
+<div id="toprightad"></div>
+
+</div>
+
+<div class="clear"></div>
+
+<nav class="navbutton navbar navbar-default">
+<ul class="nav navbar-nav">
+<li><a id="mobilemenubutton">&#9776; Options</a></li>
+
+</ul>
+</nav>
+
+<div class="clear"></div>
+
+<div class="bigpad" id="loginmodal" style="display: none;" title="Login">
+<form action="index.php?action=userlogin&amp;filled=1&amp;bypassredirect=1" method="post">
+
+<div class="warning text-danger" id="loginproblem"></div>
+Username<br><input type="text" name="username" id="loginname" class="giantinput" /><br>
+Password<br><input type="password" name="userpassword" id="loginpassword" class="giantinput" /><br>
+<button type="submit" id="loginsubmit" class="btn btn-default btn-lg bigbutton halfwide">Login</button>
+<a href="index.php?action=userlogin">Forgot your password?</a>
+</form>
+</div>
+
+
+</header>
+
+<div class="main">
+
+
+
+
+<table class="leftmenusitecontainer">
+<tr>
+<td class="leftmenuleft">
+<nav class="categoryleftmenu">
+<div class="btn-group-vertical" role="group" aria-label="...">
+<a href="http://www.atarimuseum.com/archives/test/index.php?action=displaycat&amp;catid=172" class="btn btn-default">Business </a>
+<div id="submenu172"></div>
+<a href="http://www.atarimuseum.com/archives/test/index.php?action=displaycat&amp;catid=4" class="btn btn-default">Communications <span class="badge">2</span></a>
+<div id="submenu4"></div>
+<a href="http://www.atarimuseum.com/archives/test/index.php?action=displaycat&amp;catid=15" class="btn btn-default">DIsk Operating Systems <span class="badge">2</span></a>
+<div id="submenu15"></div>
+<a href="http://www.atarimuseum.com/archives/test/index.php?action=displaycat&amp;catid=7" class="btn btn-default">Education </a>
+<div id="submenu7"></div>
+<a href="http://www.atarimuseum.com/archives/test/index.php?action=displaycat&amp;catid=8" class="btn btn-default">Games & Entertainment <span class="badge">1</span></a><div class="btn-group-vertical" role="group" aria-label="...">
+<a href="http://www.atarimuseum.com/archives/test/index.php?action=displaycat&amp;catid=99" class="btn btn-default">Action </a>
+<a href="http://www.atarimuseum.com/archives/test/index.php?action=displaycat&amp;catid=86" class="btn btn-default">Adventure & Roleplay </a>
+<a href="http://www.atarimuseum.com/archives/test/index.php?action=displaycat&amp;catid=87" class="btn btn-default">Arcade </a>
+<a href="http://www.atarimuseum.com/archives/test/index.php?action=displaycat&amp;catid=88" class="btn btn-primary">Board </a>
+<a href="http://www.atarimuseum.com/archives/test/index.php?action=displaycat&amp;catid=89" class="btn btn-default">Card </a>
+<a href="http://www.atarimuseum.com/archives/test/index.php?action=displaycat&amp;catid=90" class="btn btn-default">Casino & Gambling </a>
+<a href="http://www.atarimuseum.com/archives/test/index.php?action=displaycat&amp;catid=91" class="btn btn-default">Kids </a>
+<a href="http://www.atarimuseum.com/archives/test/index.php?action=displaycat&amp;catid=92" class="btn btn-default">Online Gaming </a>
+<a href="http://www.atarimuseum.com/archives/test/index.php?action=displaycat&amp;catid=93" class="btn btn-default">Other </a>
+<a href="http://www.atarimuseum.com/archives/test/index.php?action=displaycat&amp;catid=94" class="btn btn-default">Puzzle & Word Games </a>
+<a href="http://www.atarimuseum.com/archives/test/index.php?action=displaycat&amp;catid=95" class="btn btn-default">Simulation </a>
+<a href="http://www.atarimuseum.com/archives/test/index.php?action=displaycat&amp;catid=96" class="btn btn-default">Sports </a>
+<a href="http://www.atarimuseum.com/archives/test/index.php?action=displaycat&amp;catid=97" class="btn btn-default">Strategy & War Games <span class="badge">1</span></a>
+<a href="http://www.atarimuseum.com/archives/test/index.php?action=displaycat&amp;catid=98" class="btn btn-default">Tools & Editors </a>
+</div>
+<a href="http://www.atarimuseum.com/archives/test/index.php?action=displaycat&amp;catid=9" class="btn btn-default">Graphic Apps </a>
+<div id="submenu9"></div>
+<a href="http://www.atarimuseum.com/archives/test/index.php?action=displaycat&amp;catid=10" class="btn btn-default">Home & Hobby </a>
+<div id="submenu10"></div>
+<a href="http://www.atarimuseum.com/archives/test/index.php?action=displaycat&amp;catid=11" class="btn btn-default">Network & Internet </a>
+<div id="submenu11"></div>
+<a href="http://www.atarimuseum.com/archives/test/index.php?action=displaycat&amp;catid=5" class="btn btn-default">Productivity <span class="badge">8</span></a>
+<div id="submenu5"></div>
+<a href="http://www.atarimuseum.com/archives/test/index.php?action=displaycat&amp;catid=171" class="btn btn-default">Programming Languages <span class="badge">2</span></a>
+<a href="http://www.atarimuseum.com/archives/test/index.php?action=displaycat&amp;catid=14" class="btn btn-default">System Utilities </a>
+<div id="submenu14"></div>
+</div>
+</nav>
+</td>
+<td>
+
+
+<div class="nav">
+<ol class="breadcrumb">  
+<li><a href="http://www.atarimuseum.com/archives/test">Atari Museum Archives Database</a> </li>
+
+<li><a href="http://www.atarimuseum.com/archives/test/index.php?action=displaycat&amp;catid=8">Games & Entertainment</a> </li>
+
+<li><a href="http://www.atarimuseum.com/archives/test/index.php?action=displaycat&amp;catid=88">Board</a> </li>
+
+<li class="active">Submit Listing</li>
+</ol>
+</div>
+
+
+
+
+
+<form name="submitform" class="fileupload" enctype="multipart/form-data" action="suggest.php?action=addlink&amp;filled=1" method="post" class="recaptchaform">
+
+
+
+<div class="panel panel-primary">
+<div class="panel-heading tableheader"><h3 class="panel-title">Submit Listing</h3></div>
+<div class="panel-body">
+
+<table class="standardtable submittable table table-striped">
+
+
+
+
+<tr class="fieldtype" >
+  <td class="labelscolumn">
+   <label class="labels" for="fieldtype">Type of Listing:</label>
+   <br><ul>
+
+</ul>
+  <p class="requiredlabel"><span class="required label label-warning"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> This field is required</span></p></td>
+  <td class="optionscolumn"><select name="type" required="required"><option value="regular" selected>regular</option><option value="recip">recip</option></select></td>
+</tr>
+
+<tr class="fieldcatid" >
+  <td class="labelscolumn">
+   <label class="labels" for="fieldcatid">Category:</label>
+   <br>Please select the most appropriate category.
+  <p class="requiredlabel"><span class="required label label-warning"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> This field is required</span></p></td>
+  <td class="optionscolumn"><div id="catlevels">
+<div id="levelbox0" class="floatleft">
+<select name="catlevelid[0]"  class="catlevelselectors" onchange="wsn_getnextlevel(this.value)"><option value="">Choose Category</option><option value="172">Business</option><option value="4">Communications</option><option value="15">DIsk Operating Systems</option><option value="7">Education</option><option value="8" selected="selected">Games & Entertainment</option><option value="9">Graphic Apps</option><option value="10">Home & Hobby</option><option value="11">Network & Internet</option><option value="5">Productivity</option><option value="171">Programming Languages</option><option value="14">System Utilities</option></select>
+</div><div id="levelbox1" class="floatleft">
+<select name="catlevelid[1]"  class="catlevelselectors" onchange="wsn_getnextlevel(this.value)"><option value="">Choose Category</option><option value="99">Action</option><option value="86">Adventure & Roleplay</option><option value="87">Arcade</option><option value="88" selected="selected">Board</option><option value="89">Card</option><option value="90">Casino & Gambling</option><option value="91">Kids</option><option value="92">Online Gaming</option><option value="93">Other</option><option value="94">Puzzle & Word Games</option><option value="95">Simulation</option><option value="96">Sports</option><option value="97">Strategy & War Games</option><option value="98">Tools & Editors</option></select>
+</div><div id="levelbox2" class="floatleft"></div>
+<div class="clear"></div>
+</div>
+</td>
+</tr>
+
+<tr class="fieldaliasids" >
+  <td class="labelscolumn">
+   <label class="labels" for="fieldaliasids">Secondary Categories:</label>
+   <br>You may select  appropriate additional categories if you wish to.
+  </td>
+  <td class="optionscolumn"><div id="alias"></div>
+<a onclick="wsn_addaliaslevelselector()">+ Add Secondary Category</a>
+
+<input type="hidden" name="aliassubmitted" value="1" /></td>
+</tr>
+
+<tr class="fieldtitle" >
+  <td class="labelscolumn">
+   <label class="labels" for="fieldtitle">Title:</label>
+   <br>
+  <p class="requiredlabel"><span class="required label label-warning"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> This field is required</span></p></td>
+  <td class="optionscolumn"><input type="text" name="title" required="required" class="standardinput" value="" minlength="1" maxlength="100" id="titleid"></td>
+</tr>
+
+<tr class="fieldsummary" >
+  <td class="labelscolumn">
+   <label class="labels" for="fieldsummary">Summary:</label>
+   <br>
+  </td>
+  <td class="optionscolumn"><input type="text" name="summary" class="standardinput" value="" maxlength="100" id="summaryid"></td>
+</tr>
+
+<tr class="fielddescription" >
+  <td class="labelscolumn">
+   <label class="labels" for="fielddescription">Description:</label>
+   <br><ul>
+<li>You may use <a onclick="window.open('http://www.atarimuseum.com/archives/test/index.php?action=codes', '', 'width=610,height=400,scrollbars=yes');">BB Codes</a>.</li>
+<li>You may use <a onclick="window.open('http://www.atarimuseum.com/archives/test/index.php?action=smilies', '', 'width=610,height=400,scrollbars=yes');">smilies</a>.</li>
+</ul>
+
+  </td>
+  <td class="optionscolumn"><textarea name="description" class="jquery_ckeditor submitdescription" id="description" ><p></p></textarea>
+<p class="charsleft"><span id="counter_description">1000</span> characters remaining</p>
+
+<p class="editormodeops"><select name="editormode"><option value="plain">plain text editor</option><option value="WYSIWYG" selected>WYSIWYG editor</option></select></p></td>
+</tr>
+
+<tr class="fieldprimary_download_url" >
+  <td class="labelscolumn">
+   <label class="labels" for="fieldprimary_download_url">Download URL:</label>
+   <br>
+  </td>
+  <td class="optionscolumn"><input type="text" name="primary_download_url" class="standardinput" value="http://" maxlength="1000" id="primary_download_urlid"></td>
+</tr>
+
+<tr class="fieldfilefield" >
+  <td class="labelscolumn">
+   <label class="labels" for="fieldfilefield">Attach Files:</label>
+   <br>You may attach 5 files. Allowed file types: all
+  </td>
+  <td class="optionscolumn"><noscript>Javascript must be enabled for file upload to work correctly.</noscript>
+   <div class="fileupload-buttonbar">
+        <div class="fileupload-buttons">
+            
+            <span class="fileinput-button bigbutton btn btn-default btn-lg">
+                <span><span class="glyphicon glyphicon-cloud-upload" aria-hidden="true"></span> Add files...</span>
+                <input type="file" name="files[]" id="uploaderfiles" multiple>
+            </span>
+            <span class="fileupload-process"></span>
+        </div>
+        <div class="fileupload-progress fade" style="display:none">
+            
+            <div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+            <div class="progress-extended">&nbsp;</div>
+        </div>
+    </div>
+    
+<table role="presentation" class="centercols vcentercols table">
+<thead>
+<tr class="template-download" style="display: none;">
+ <th class="uploadersortorder"></th>
+ <th>Thumbnail</th>
+ <th>File</th>
+ <th>Size</th>
+ <th class="uploadercaption">Description</th>
+ <th class="uploadersortorder">Sort</th>
+ <th>Delete</th>
+</tr>
+</thead>
+<tbody class="files" id="sortablenew">
+</tbody>
+</table>
+
+<script id="template-upload" type="text/x-tmpl">
+{% for (var i=0, file; file=o.files[i]; i++) { %}
+    <tr class="template-upload">
+        <td class="uploadersortorder"></td>
+        <td>
+            <span class="preview"></span>
+        </td>
+        <td>
+            <p class="name">{%=file.name%}</p>
+            <strong class="error"></strong>
+        </td>
+        <td>
+            <p class="size">Processing...</p>
+        </td>
+        <td>
+        {% if (!file.error) { %}
+            {% if (!i && !o.options.autoUpload) { %}
+                <button class="start" disabled>Start</button>
+            {% } %}
+            {% if (!i) { %}
+                <button class="cancel">Cancel</button>
+            {% } %}
+        {% } %}            
+        </td>
+    </tr>    
+{% } %}
+</script>
+
+<script id="template-download" type="text/x-tmpl">
+{% for (var i=0, file; file=o.files[i]; i++) { %}
+    <tr class="template-download" id="attachment{%=file.attachid%}row" style="display: block;">
+        <td class="uploadersortorder"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span></td>
+        <td>
+            <span class="preview">
+                {% if (file.thumbnailUrl) { %}
+                    <a href="{%=file.url%}" title="{%=file.name%}" download="{%=file.name%}" data-gallery><img src="{%=file.thumbnailUrl%}" id="thumb{%=file.attachid%}"></a>
+<br><a onclick="wsn_rotateimage(90, {%=file.attachid%})"><span class="glyphicon glyphicon-repeat flipglyph " aria-hidden="true" title="Rotate 90 Degrees Counterclockwise"></span></a> <a onclick="wsn_rotateimage(-90, {%=file.attachid%})"><span class="glyphicon glyphicon-repeat " aria-hidden="true" title="Rotate 90 Degrees Clockwise"></span></a>
+                {% } %}
+            </span>
+        </td>
+        <td>
+               <a {% if (file.url) { %}href="{%=file.url%}"{% } %} title="{%=file.name%}" download="{%=file.name%}" {%=file.thumbnailUrl?'data-gallery':''%}>{%=file.name%}</a>            
+            {% if (file.error) { %}
+                <div><strong class="error">{%=file.error%}</strong></div>
+            {% } %}
+        </td>
+        <td>{%=o.formatFileSize(file.size)%}</td>
+ {% if (!file.error) { %}        
+         <td class="uploadercaption"><span><input type="text" name="fileinfo_caption[{%=file.attachid%}]" value="" placeholder="Description" /></span></td>            
+         <td class="uploadersortorder"><span><input type="text" name="fileinfo_sortorder[{%=file.attachid%}]" size="7" value="" maxlength="2" pattern="([0-9]{1,2})?" placeholder="Sort #" /></span></td>
+        <td>
+            <a onclick="wsn_deleteattachment({%=file.attachid%})" class="filedelete" data-type="{%=file.delete_type%}" data-url="{%=file.delete_url%}"{% if (file.delete_with_credentials) { %} data-xhr-fields='{"withCredentials":true}'{% } %}>Delete</a>
+        </td>
+  {% } %}        
+    </tr>
+{% } %}
+</script>
+
+
+</td>
+</tr>
+
+<tr class="fieldfile_size_mb" >
+  <td class="labelscolumn">
+   <label class="labels" for="fieldfile_size_mb">File Size:</label>
+   <br>
+  </td>
+  <td class="optionscolumn"><input type="text" name="file_size_mb" size="4" value="" /> MB</td>
+</tr>
+
+<tr class="fieldprogram_system_requirements" >
+  <td class="labelscolumn">
+   <label class="labels" for="fieldprogram_system_requirements">System Requirements:</label>
+   <br>
+  </td>
+  <td class="optionscolumn"><input type="text" name="program_system_requirements" class="standardinput" value="" id="program_system_requirementsid"></td>
+</tr>
+
+<tr class="fieldprogram_os_support" >
+  <td class="labelscolumn">
+   <label class="labels" for="fieldprogram_os_support">Operating System Support:</label>
+   <br>
+  </td>
+  <td class="optionscolumn"><select multiple="multiple" size="8" name="program_os_support[]">
+<optgroup label="Atari 8bits">
+<option value="400/800">400/800</option>
+<option value="XL">XL</option>
+<option value="XE">XE</option>
+</optgroup>
+<optgroup label="Atari ST">
+<option value="520/1040ST">520/1040ST</option>
+<option value="Mega ST">Mega ST</option>
+<option value="STE">STE</option>
+<option value="TT030">TT030</option>
+<option value="Falcon030">Falcon030</option>
+</optgroup>
+</select></td>
+</tr>
+
+<tr class="fieldprogram_version" >
+  <td class="labelscolumn">
+   <label class="labels" for="fieldprogram_version">Program Version:</label>
+   <br>
+  </td>
+  <td class="optionscolumn"><input type="text" name="program_version" class="standardinput" value="" id="program_versionid"></td>
+</tr>
+
+<tr class="fieldreleasedate" >
+  <td class="labelscolumn">
+   <label class="labels" for="fieldreleasedate">Release Date:</label>
+   <br>
+  </td>
+  <td class="optionscolumn"><input type="text" name="releasedate" value="" class="datepicker" /></td>
+</tr>
+
+<tr class="fieldtags" >
+  <td class="labelscolumn">
+   <label class="labels" for="fieldtags">Add Tags:</label>
+   <br>If you wish, enter a comma-separated list of keywords describing this listing.
+  </td>
+  <td class="optionscolumn"><input type="text" name="addtags" class="standardinput" value="" />
+</td>
+</tr>
+
+<tr class="fieldprogram_type" >
+  <td class="labelscolumn">
+   <label class="labels" for="fieldprogram_type">Program Type:</label>
+   <br>
+  </td>
+  <td class="optionscolumn"><select name="program_type"> 
+ <option value=""></option>
+   <option value="Freeware">Freeware</option>
+   <option value="Demo">Demo</option>
+   <option value="Commercial">Commercial</option>
+   <option value="Manual">Manual</option>
+  </select></td>
+</tr>
+
+<tr class="fieldprogram_language" >
+  <td class="labelscolumn">
+   <label class="labels" for="fieldprogram_language">Program Languages:</label>
+   <br>
+  </td>
+  <td class="optionscolumn"><input type="text" name="program_language" class="standardinput" value="" id="program_languageid"></td>
+</tr>
+
+<tr class="fieldapplication_screenshot_url" >
+  <td class="labelscolumn">
+   <label class="labels" for="fieldapplication_screenshot_url">Application Screenshot:</label>
+   <br>
+  </td>
+  <td class="optionscolumn"><input type="text" name="application_screenshot_url" class="standardinput" value="http://" id="application_screenshot_urlid"></td>
+</tr>
+
+
+<tr>
+ <td class="labelscolumn"><span class="labels">Spam Prevention:</span></td>
+ <td class="optionscolumn">
+<div class="g-recaptcha" data-sitekey="6Les3wsUAAAAAMUCz0WquwRO3aGmbC2KAPZ_HLwm"></div>
+ </td>
+</tr>
+
+
+</table>
+
+<input type="hidden" name="isalbum" value="0" />
+<input type="hidden" name="customwrapper" value="{CUSTOMWRAPPER}" />
+<input type="hidden" name="redirectto" value="{REDIRECTTO}" />
+<button type="submit" name="processform" value="1" class="submitbutton btn btn-lg btn-primary">Submit</button>
+<button type="submit" name="preview" value="1" class="previewbutton btn btn-lg btn-default">Preview</button>
+<input type="hidden" name="stepvars" value="a:0:{}" /><input type="hidden" name="currenttemplatename" value="templates/default/suggestlink.tpl" /></form>
+
+</div>
+</div><input type="hidden" name="maxdesclen" value="1000" /><input type="hidden" name="catid" value="88"><input type="hidden" id="addedittype" value="link" />
+
+</td></tr></table>
+
+<div class="clear"></div>
+
+</div>
+
+<div class="push"></div>
+
+<footer class="footer panel-footer text-muted">
+<div id="bottomarea">
+<div id="languageandtheme">
+
+ 
+</div>
+<div id="categoryjump">
+<form action="index.php?action=redirecttourl" method="POST">
+<select name="catid">
+ <option value="0">Choose Category</option>
+ <option value="172"> Business</option><option value="184">- Accounting & Finance</option><option value="173">- Calculators & Converters</option><option value="181">- Calendars</option><option value="174">- Databases & Tools</option><option value="176">- Inventory & Barcoding</option><option value="177">- Investment Tools</option><option value="178">- Math & Scientific Tools</option><option value="180">- Spreadsheets</option><option value="179">- Wordprocessors</option><option value="4"> Communications</option><option value="45">- BBS Programs</option><option value="41">- E-Mail Clients</option><option value="50">- Modems & Dialup</option><option value="15"> DIsk Operating Systems</option><option value="170">- Atari DOS</option><option value="162">- DOS XL</option><option value="161">- MyDOS</option><option value="165">- Other DOS</option><option value="163">- RDOS OSS DOS</option><option value="164">- SpartaDOS</option><option value="7"> Education</option><option value="85">- Computer</option><option value="76">- Dictionaries</option><option value="77">- Geography</option><option value="78">- Kids</option><option value="79">- Languages</option><option value="80">- Mathematics</option><option value="81">- Other</option><option value="82">- Reference Tools</option><option value="83">- Science</option><option value="84">- Teaching & Training Tools</option><option value="8"> Games & Entertainment</option><option value="99">- Action</option><option value="86">- Adventure & Roleplay</option><option value="87">- Arcade</option><option value="88">- Board</option><option value="89">- Card</option><option value="90">- Casino & Gambling</option><option value="91">- Kids</option><option value="92">- Online Gaming</option><option value="93">- Other</option><option value="94">- Puzzle & Word Games</option><option value="95">- Simulation</option><option value="96">- Sports</option><option value="97">- Strategy & War Games</option><option value="98">- Tools & Editors</option><option value="9"> Graphic Apps</option><option value="109">- Animation Tools</option><option value="100">- CAD</option><option value="101">- Converters & Optimizers</option><option value="102">- Editors</option><option value="103">- Font Tools</option><option value="104">- Gallery & Cataloging Tools</option><option value="105">- Icon Tools</option><option value="106">- Other</option><option value="107">- Screen Capture</option><option value="108">- Viewers</option><option value="10"> Home & Hobby</option><option value="120">- Astrology/Biorhythms/Mystic</option><option value="110">- Astronomy</option><option value="111">- Cataloging</option><option value="112">- Food & Drink</option><option value="113">- Genealogy</option><option value="114">- Health & Nutrition</option><option value="117">- Personal Interest</option><option value="118">- Recreation</option><option value="119">- Religion</option><option value="11"> Network & Internet</option><option value="122">- Browsers</option><option value="125">- FTP Clients</option><option value="127">- Other</option><option value="5"> Productivity</option><option value="54">- Artwork & Painting</option><option value="63">- Clocks & Alarms</option><option value="52">- Desktop Publishing</option><option value="51">- Fonts & Graphics</option><option value="197">- Manuals</option><option value="55">- Screen Savers: Cartoons</option><option value="56">- Screen Savers: Nature</option><option value="57">- Screen Savers: Other</option><option value="58">- Screen Savers: People</option><option value="59">- Screen Savers: Science</option><option value="60">- Screen Savers: Seasonal</option><option value="61">- Screen Savers: Vehicles</option><option value="62">- Themes & Wallpaper</option><option value="171"> Programming Languages</option><option value="14"> System Utilities</option><option value="148">- Backup & Restore</option><option value="151">- File & Disk Management</option><option value="152">- File Compression</option><option value="155">- Printer</option>
+</select>
+<button type="submit" class="gobutton btn btn-default btn-sm">Go &#9658;</button>
+</form>
+</div>
+
+<div class="clear"></div>
+</div>
+
+<ul class="menubullets">
+
+<li><a href="contactform.php">Contact the Admin</a></li>
+
+<li><a href="sitemap.php">Site Map</a></li>
+
+</ul>
+
+
+
+
+<p></p>
+
+<div id="cookienotice" class="alert alert-info cookienotice">This website uses cookies to enhance your experience. Read our <a href="index.php?action=privacy">privacy policy</a> for details.</span> <a id="dismisscookienotice" class="dismisscookienotice">X</a>
+</div>
+
+</footer>
+<script src="http://www.atarimuseum.com/archives/test/jquery/tmpl.min.js"></script>
+<script src="http://www.atarimuseum.com/archives/test/jquery/load-image.min.js"></script>
+<script src="http://www.atarimuseum.com/archives/test/jquery/canvas-to-blob.min.js"></script>
+<script src="http://www.atarimuseum.com/archives/test/jquery/jquery.blueimp-gallery.min.js"></script>
+<script src="http://www.atarimuseum.com/archives/test/uploader/js/jquery.iframe-transport.js"></script>
+<script src="http://www.atarimuseum.com/archives/test/uploader/js/jquery.fileupload.js"></script>
+<script src="http://www.atarimuseum.com/archives/test/uploader/js/jquery.fileupload-process.js"></script>
+<script src="http://www.atarimuseum.com/archives/test/uploader/js/jquery.fileupload-image.js"></script>
+<script src="http://www.atarimuseum.com/archives/test/uploader/js/jquery.fileupload-audio.js"></script>
+<script src="http://www.atarimuseum.com/archives/test/uploader/js/jquery.fileupload-video.js"></script>
+<script src="http://www.atarimuseum.com/archives/test/uploader/js/jquery.fileupload-validate.js"></script>
+<script src="http://www.atarimuseum.com/archives/test/uploader/js/jquery.fileupload-ui.js"></script>
+<script src="http://www.atarimuseum.com/archives/test/uploader/js/jquery.fileupload-jquery-ui.js"></script></body>
+</html>

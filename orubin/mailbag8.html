@@ -1,0 +1,272 @@
+<body bgcolor="#000000">
+<center>
+  <img src="title.jpg">
+</center>
+<br>
+<br>
+<hr>
+<br>
+<br>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tr>
+    <td width="60%" valign="top" bgcolor="#000000"><font color="#ffffff"><br>
+      <center>
+        Page <a href="mailbag.html">1</a>&nbsp;<a
+href="mailbag2.html">2</a>&nbsp;<a
+href="mailbag3.html">3</a>&nbsp;<a href="mailbag4.html">4</a>&nbsp;<a href="mailbag5.html">5</a>&nbsp;<a href="mailbag6.html">6</a>&nbsp;<a href="mailbag7.html">7</a>&nbsp;8
+      </center>
+      <br>
+      <br>
+      If you have a question for me, feel free to send it to owen-at-orubin-dot-com.
+      I can't promise that EVERY question will be put on these pages, but I'll
+      post as many as possible!<br>
+      <br>
+      All letters are pasted exactly as I get them.<br> </font> <br>
+      <hr>
+      <p><font color="#ffffff">        <br>
+        <strong>Q</strong>: Hi Owen, I'm a big fan of your games and I just released a font inspired by the Space Duel logo. <br> 
+        <em>(Note: You can see the font here: <a href="http://www.typodermic.com/243.html" target="_blank">http://www.typodermic.com/243.html </a>)</em><br>
+Tunnel Hunt is still one of my top ten games ever. So great!
+<br>All the best,
+<br>
+Ray Larabie, Typodermic Fonts
+ <br><br>
+         <b>Owen:</b><br>
+        Hi Ray, Thanks for the look at the font. Yea, would love to play with that. I will post this to the <a href="spaceduel.html">Space Duel </a>page as well.
+        Thanks for letting me know about this.  <a href="tunhunt.html">Tunnel Hunt</a> was one of my favorite as well. Too bad it never really got finished, and really too bad everyone did not get a chance to see it in the early version where the tunnels were round and they could split into two. It was very cool. Thanks for writing.<br>
+
+ 
+ </font>
+      <hr>
+      <p><font color="#ffffff">        <br>
+        <strong>Q</strong>: Hi, I've been researching Space Duel for a retro shooter I'm writing.
+        Ideally I would like to have elements in the game that are nods to various
+        early 1980s games, possibly including the excellent Sinistar, as well as
+        asteroids deluxe and many others. <br>
+        <br>
+        I'd like to have some sort of tethered mode. Is this all right with you?
+        What sort of physics did the tether use? I may implement it with Verlet
+        physics, but is there an easier way? Is it as simple as moving ships that
+        stray back to the ends of the tether segment? <br>
+        <br>
+        Also, out of curiosity, can you tell me how the 3D was done in these games?
+        Was it a lookup table? Looks like a lot of the stuff in Space Duel was
+        done with a sin/cos lookup, is this right? What about Battlezone, do you
+        happen to know how they did that? Pretty amazing for the time. <br>
+        <br>
+        I would also like to let you know just how much enjoyment I've gotten out
+        of your games over the years. Space Duel in particular is one of my favorites.
+        I've gotten pretty good with the tethered ships and can slither them through
+        tiny gaps. It's also interesting how much it rewards accuracy, and how
+        much management goes into the shots-- I typically fire with a slow tap
+        so that I conserve a barrage for emergency use. Also it's interesting how
+        you can change your shot spread by moving the ships-- either line abreast
+        or a deadly concentrated spray. <br>
+        <br>
+        Space Duel got a bit of recognition, what with the Who cover and all, but
+        I don't think it ever got the recognition it deserved. It was truly something
+        amazing, really the lord of the vector shooters. In retrospect-- 30 years
+        of retrospect all of a sudden, for christ's sake-- it's best of breed of
+        all the games of that time, hands down I think. <br>
+        <br>
+        I remember being in an arcade in about 1983 and finding a Space Duel machine.
+        A shorty, which was unusual. Up until then I had had a devil of a time
+        with that game, but my mom had left me three dollars and I decided to spend
+        it all on Space Duel. After a couple of wasted games I suddenly reached
+        a Zen-like state that enabled me to get up to pentagons, if I remember
+        right, which I had never seen before at the time. And after that it was
+        always one of my favorites. <br>
+        <br>
+        I may very well build a button rig of some sort so I can play that game
+        as intended. Maybe even a cabinet. <br>
+        <br>
+        30 years of videogames and it's still one of the greats. Good show. I often
+        find myself wondering why I'm playing a game from 1982. I think the answer
+        may have to do with the fact that so many of them today are crappy. <br>
+        <br>
+        <br>
+        <b>Owen:</b><br>
+        Hi Jason, Feel free to use what you like from the game. While I do not "own" it,
+        I would be honored if you borrowed from it. I hope you will have a "credits" section
+        at the end or in "attract" that mentions the contributions. That would
+        be cool. <br>
+        <br>
+        Now, for the physics of the tether. There was none! :-) Remember, we
+        had only a slow, 8-bit processor, so the physics were faked. I do not
+        recall
+        basing it on anything, rather just tweaking drag coefficients, and transfer
+        constants. The bar simply acts as an acceleration to the ship not thrusting
+        away, and as a drag to the ship that is. Using simple SIN & COS tables
+        (small ones at that to save space) I manipulated the tables to determine
+        basic acceleration vectors for each, and then the inverse of that for
+        the drag vector. <br>
+        <br>
+        As for the 3D, it was faked too. I pre-drew all the objects (by hand too)
+        and then just sequenced through a series of images to do the animation.
+        Very simple, but it was effective. <br>
+        <br>
+        As for Battle Zone, that was real 3D. That game had a "math box" attached
+        to the game board that contained some bit-slice computers. Everything,
+        except the horizon and horizon elements (mountains, volcano, etc) were
+        done on a real 3D surface, calculated and positioned and drawn using
+        3D to 2D projection. I did not have that on either Space Duel or Major
+        Havoc. <br>
+        <br>
+        Thanks for the message and the compliments on the game. It was fun to make.
+        Had it not been delayed (it was supposed to be and started out as colored
+        Asteroids and was delayed because Asteroids Deluxe came out) it might not
+        have been so fun, because it would not have needed to be so different from
+        Asteroids. <br>
+        <br>
+      Let me know if you have more questions.</font></p>
+      <p><hr><br>
+        <br><font color="#ffffff">
+        <strong>Q</strong>: Jerald says, &quot;Hello Mr. Rubin,&nbsp;I
+          see you've recently updated your web page! I'm &quot;just another fan&quot; of
+            Atari alumni of my youth, and since you're the creator of one of my
+            favorite arcade games (Major Havoc) I had to ask you for Facebook friendship.
+            :-)<br>
+        Regards,<br>
+        Jerald.&quot;.</font></p>
+      <p><font color="#ffffff"><strong>Owen: </strong>Hi Jerald. Well,
+          I typically do not add people I do not know, but since you were the
+          first
+          to tell
+          me you noticed some web site changes (thanks!), and you have excellent
+          taste in video games :-), you got it. Welcome . Do let me know what
+          you want
+          to know, I need more questions, and always looking for ideas for new
+          content. Thank you. And please, call me Owen!<br>
+        <br>
+		<hr>
+      </font>
+      <p><font color="#ffffff">        </font>
+        </p>
+        <font color="#ffffff"><strong>Q</strong>: Rob says, I'm a big-time fan of Space duel and was wondering if you could help me out with a few things about the game.
+          There are a few players at Twin Galaxies International scoreboard that have taken an interest at Space Duel as of late
+          and are curious about some of the "tricks" used in the game!  It has been discoverd by several players that shield strength
+          can be replenished by holding the shield button down during bonus rounds and bouncing off the walls 4 or 5 times.  Other players
+          have claimed that certain objects have also replenished shields!  I do realize it could be a boardset thing, so I was just wondering if it was something designed into the game itself!  Any info you could give would be greatly appreciated!  As it stands there are several world record scores that were done in the 80's in 1player/1 ship mode that we at this point do not believe to be legit! Game simply gets to tough to quick to be humanly possible unless a modified boardset was used!  So, if you know any secrets to the game that could help us out, we would be in debt to ya:) Tnx for your time,  hope to hear from you. <br>
+          <br>
+        <strong>Owen</strong>: 
+        Hi Rob. Ok, the shield strength trick in the bonus wave will work SOMETIMES. Basically, it is a bug! If you bounce along the wall with very fast, short, fast bounces, it drains the shield, But if you are lucky, it will cause the shield energy to decrement past 0, and actually come back with shield strength even stronger than normal shield. Yes, that works, most of the time. <br><br>
+          
+        There is no object that will do this as far as I am aware. It may be another bug that I have not hear of, but there is no "shield object" out there.  But I guess it is possible for the same "decrement and wrap past 0" bug to occur when hitting other objects. Not that I have ever seen though. <br><br>
+          
+        As for as board sets, there are a number of difficulty settings that can be changed with the DIP switches on the board, including an easy/hard setting, and the initial number of lives, and how often you get am extra ship, so any or all of those settings may have been used to make the game easier.  Here are the settings (from here: http://www.mikesarcade.com/cgi-bin/spies.cgi?action=url&type=dip&page=SpaceDuel.txt)<br>
+      --------------------------------------------------------------<br>
+        Table 1-1 Game Option Settings<br>
+        (Settings of 8-Toggle Switch on Space Duel game PCB at D4)<br>
+        8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Option<br>
+        On&nbsp;&nbsp;Off&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3 ships per game<br>
+        Off&nbsp;&nbsp;Off&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4 ships per game $<br>
+        On&nbsp;&nbsp;On&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5 ships per game<br>
+        Off&nbsp;&nbsp;On&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6 ships per game<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;&nbsp;Off&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*Easy game difficulty<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Off&nbsp;&nbsp;Off&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Normal game difficulty $<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;&nbsp;On&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Medium game difficulty<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Off&nbsp;&nbsp;On&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Hard game difficulty<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Off&nbsp;&nbsp;Off&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;English $<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;&nbsp;Off&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;German<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;&nbsp;On&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Spanish<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Off&nbsp;&nbsp;On&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;French<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bonus life granted every:<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Off&nbsp;&nbsp;On&nbsp;&nbsp;&nbsp;8,000 points<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Off&nbsp;&nbsp;Off&nbsp;&nbsp;10,000 points<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;&nbsp;Off&nbsp;&nbsp;15,000 points<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;&nbsp;On&nbsp;&nbsp;&nbsp;No bonus life<br><br>
+        
+        $ Manufacturer's suggested settings<br>
+        * Easy-In the beginning of the first wave, 3 targets appear on the screen.  Targets increase by one in each new wave.<br>
+        Normal-Space station action is the same as 'Easy'.  Fighter action has 4 targets in the beginning of the first wave.  Targets increase by 2
+        in each new wave.  Targets move faster and more targets enter.<br>
+        Medium and Hard-In the beginning of the first wave, 4 targets appear on the screen.  Targets increase by 2 in each new wave.  As difficulty
+        increases, targets move faster, and more targets enter.<br>
+        --------------------------------------------------------------<br>
+        
+        
+        Hope that is some help. As for secrets, there is not much to tell. The game was designed to be hard on purpose. After the Asteroids issue of people playing for hours on one coin, lurking on the edge of the screen, I was told to fix that, and the small blue land mines do that very well. You can shoot them, they change color, and if shot when white, will simply be reset to the side of the screen, but it helps. Also, shoot the blue stars before they wrap around the screen, as they morph into the puff balls that are a lot more aggressive. Lastly, DO NOT leave just one or two "object" on the screen for too long, it causes the game to ramp up faster as it thinks you are lurking. Finish off the main objects as fast as possible. 
+        
+        Good luck.
+        -Owen-
+        <hr>
+      </font>
+      <p>
+      <p><font color="#ffffff"><strong>Q:</strong> Hi Owen,
+        
+        Recent fan here - I didn't grow up playing your games but I've
+        discovered them via MAME in the last year and I think they were, and
+        still are, astonishing.  Major Havoc and Space Duel are classic
+        examples of creative, timeless gameplay with ideas that seem like they
+        came from the future to make videogames better.
+        
+        I was doing some research (read: google-stalking you) and I saw you
+        were involved in Night Stocker as Technical Support while at Bally
+        Sente: http://www.arcade-history.com/?n=night-stocker&page=detail&id=1772
+        Out of curiosity, could you elaborate on what your role was?  I didn't
+        see any volcanoes as far as I played, so I'm guessing it wasn't that
+        :).
+        
+        Thanks and best regards,
+        Nick Holmes
+        
+        <br>
+        <br>
+        <strong>Owen: </strong>Hi Nick,
+        
+        It has been so long, hard to remember. There were only two or three labs at Sente, so many of us shared the labs. So we were always commenting on each other's games. In fact, part of our job was to play and make suggestions on other games. If we made a lot of suggestions that resulted in major changes to game play, we were often credited on the screen. 
+        
+        I had done a number of driving games in the past, so I know I helped on the modeling of the engine and motion, so acceleration worked correctly. I also remember commenting on  a lot of the game play and suggesting changes to the shooting part of the game too, so I am sure that is why I am mentioned. 
+        
+        Hard to recall much more than that. 25 years ago (ugh!) But thanks for asking. Good point though, that should have had a volcano!  :-)
+        
+      </font></p>
+      <p><font color="#ffffff"><strong>Nick</strong>: Thanks for that, nice to get some insight into the development of these games.  There is some great stuff coming out of smaller devs these days, but I don't see there ever being another time when the creation process of the software is so intertwined with the development of the hardware, or so rich with Big Ideas.  Seems like there was a new genre born every other month.  Night Stocker remains impressive - maybe not quite on the level of Major Havoc, but what is?
+        
+        Have a great Christmas,
+        Nick </font></p>
+      <font color="#ffffff">
+      <hr>
+      </font>
+      <p><font color="#ffffff">        <strong>Q:</strong> Hello Owen.
+        My friend Eric and I are some of your biggest fans...  In 1983, I would have been 20 and Eric was 21.  We were &quot;adult&quot; arcade junkies. (adult by age only)  We used to refer to the Castle (miniture golf and arcade in Redondo Beach, CA) as &quot;Church.&quot;  And we'd go there every weekday.  We worked swing shift jobs, so we'd go while the kids were in school.  Major Havoc is the one game we still talk about. <br>
+        Anyway, I was feeling nostagic and I was looking around the web and stumbled on your site, and therefore, youre email address, so I wanted to check in. <br>
+        I've played the MAME version on a computer, and I've seen sites that sell replacement parts, but I'm wondering if you know how one could find a real, didicated orginal (or true reproduction-none of this Tempest stuff) machine?  Or who I could contact that might be able to help?  Because I'm much closer to actually being an adult now, and might be able to do something with the knowlege.<br>
+        Just wondering if you knew. <br>
+        Thanks for everything.<br>
+        <br>
+        John<br>
+  <br>
+        <br>
+        <strong>Owen:</strong> Hey John,<br>
+        
+        Thanks for the message. Glad you like the game. Always fun to hear people talk about the games they loved when they played as kids, and happy mine was one you liked. I put a lot of effort into the one. <br><br>
+        
+        As for finding a dedicated, you just have to keep a look out for one to appear. You can call collectors, and post on Atari collector boards, and eventually you may find one. They did not make too many sadly (vector games were problematic at the time) but I bet you could find one if you keep looking. Start by putting a watch on EBay, as many show up there.<br> <br>
+        
+        There is a guy who recently contacted me about making copies of the original circuit board, which would be quite cool, and he said there are websites that sell old Atari parts for games. I know that someone else made side graphics, and yet another told me that they were able to buy some Wells Gardner X-Y displays recently, so much of the electronics might be recoverable. That would, of course, leave you to build a cabinet, wiring harness, and control panel.<br><br>
+        
+        I think some of the Mame versions are very good. And, if you can get a real X-Y monitor (they are around) you might consider a Zektor ZVG board for $240. (http://www.zektor.com/zvg/) This is a REAL vector generator board designed to work with a special version of Mame (you can get it from the ZVG site)  so that the display is actually on a real vector display. It looks amazingly good actually, since it draws the real vectors, and not some analog copy in a raster display. <br><br>
+        
+        There are also people who sell game cabinets for Mame, so one of those, a real vector display, a PC and a ZVG, and you would be dan close to a real game. (http://webpages.charter.net/celamantia/mamecab/) or something like this http://www.gamecabinetsinc.com/arcadehits.shtml<br><br>
+        
+        Lastly, if you have not already done so, check out Coinopspace (http://www.coinopspace.com/) where a lot of collectors go, and you might be able to post a request there and actually find one. I understand they can go for $4000 to $5000 or more, so do not be surprised at the prices. <br><br>
+        
+        Hope that helps. <br><br><hr>
+        All emails sent to <a href="mailto:owen@orubin.com">owen@orubin.com</a> can
+        and will be considered for this page. If you do not wish to have your name
+        and/or letter printed, please state as such in your message. <br>
+        <br>
+        </font></p></td>
+  </tr>
+</table>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-13122399-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+</body>

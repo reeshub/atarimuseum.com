@@ -1,0 +1,99 @@
+BODY
+{    BACKGROUND-COLOR: #FFFFFF;
+    COLOR: #000000;
+    FONT: 11px geneva, verdana, arial, sans-serif;
+    scrollbar-base-color: #999999 }
+
+FONT {
+	COLOR: #000033;
+	FONT: 11px geneva, verdana, arial, sans-serif }
+
+.logo {
+	COLOR: #000000;
+	font-weight: bold;
+	TEXT-DECORATION: none;
+	FONT: 18px "arial black", geneva, verdana, arial, sans-serif }
+
+.logo:hover {
+	COLOR: #660000;
+	font-weight: bold;
+	TEXT-DECORATION: none;
+	FONT: 18px "arial black", geneva, verdana, arial, sans-serif }
+
+.slogan { COLOR: #000000;
+	FONT: 10px arial, geneva, verdana, sans-serif;
+	font-weight: bold;
+	font-style: italic }
+
+.title
+{
+    COLOR: #000000;
+    FONT: 15px verdana, arial, sans-serif; font-weight: bold }
+
+
+
+.subtitle
+{
+    COLOR: #660000;
+    FONT: 12px geneva, verdana, arial, sans-serif; font-weight: bold }
+
+
+
+.button { 	background-image: url("picts/button.gif");
+		background-color:#999999;
+		FONT-FAMILY: arial, verdana, helvetica, sans;
+		color: #FFFFFF;
+		font-size: 9pt;
+		height: 30px;
+		cursor:hand;
+		font-weight: bold;
+		BORDER: #000000 1px solid; }
+
+.buttonon { 	background-image: url("picts/buttonon.gif");
+		background-color:#FFCCFF;
+		FONT-FAMILY: arial, verdana, helvetica, sans;
+		color: #FFFFFF;
+		font-size: 9pt;
+		height: 30px;
+		cursor:hand;
+		font-weight: bold;
+		BORDER: #000000 1px solid; }
+
+
+.link
+{    COLOR: #993399;
+    FONT: 10px geneva, verdana, arial, sans-serif;
+    TEXT-DECORATION: none}
+
+.link:hover
+{    COLOR: #663333;
+    FONT: 10px geneva, verdana, arial, sans-serif;
+    TEXT-DECORATION: none}
+
+
+.biglink{
+	COLOR: #663333;
+	FONT: 12px verdana, arial, sans-serif;
+	TEXT-DECORATION: none;
+	font-weight: bold }
+
+.biglink:hover
+{   COLOR: #9966FF;
+	FONT: 12px verdana, arial, sans-serif;
+	TEXT-DECORATION: none;
+	font-weight: bold }
+
+
+.clients
+{
+    COLOR: #666666;
+    FONT: 12px geneva, verdana, arial, sans-serif; font-weight: bold}
+
+
+.blacktitle
+{
+    COLOR: #000000;
+    FONT: 12px geneva, verdana, arial, sans-serif; font-weight: bold }
+
+
+

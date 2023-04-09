@@ -1,0 +1,378 @@
+#atarimuseum .sfm_textbox
+{
+    padding:1px;
+}
+#atarimuseum .sfm_textarea
+{
+    padding:2px;
+    resize:none;
+}
+#atarimuseum .error_strings
+{
+    font-family:Verdana;
+    font-size:12px;
+    color:#660000;
+}
+#atarimuseum img
+{
+    border:0;
+}
+#atarimuseum .loading_div
+{
+    background-color:transparent;
+    background-image:url("images/loading.gif");
+    background-position:center center;
+    background-repeat:no-repeat;
+}
+#atarimuseum input[type='submit'],input[type='reset']
+{
+    font:inherit;
+    color:inherit;
+}
+#atarimuseum .sfm_cr_box
+{
+    font-family:Verdana;
+    font-size:10px;
+    color:#888888;
+}
+#atarimuseum .sfm_cr_box a
+{
+    color:#888888;
+}
+#atarimuseum .sfm_slider
+{
+    margin:0;
+    display:inline-bock;
+}
+#atarimuseum .slider_label
+{
+    padding-top:5px;
+    padding-left:3px;
+    overflow:visible;
+    display:inline-block;
+}
+#atarimuseum .form_outer_div
+{
+    border:none;
+    background-color:#000000;
+}
+#atarimuseum .sfm_form_label
+{
+    background-color:transparent;
+}
+#atarimuseum .element_label
+{
+    background-color:transparent;
+}
+body#sfm_atarimuseum_body
+{
+    background-color:#000000;
+    font-family:Arial;
+    font-size:12px;
+    color:#ffffff;
+    margin:0px;
+}
+#atarimuseum .form_outer_div
+{
+    font-family:Arial;
+    font-size:12px;
+    color:#ffffff;
+}
+#atarimuseum .form_subheading
+{
+    background-color:transparent;
+    margin:0;
+    padding:0;
+}
+#atarimuseum .sfm_float_error_box
+{
+    font-family:Verdana;
+    font-size:12px;
+    color:#eeeeee;
+    background:none repeat scroll 0 0 #333333;
+    border:0;
+    border-radius:4px;
+    -moz-border-radius:4px;
+    -webkit-border-radius:4px;
+    box-shadow:0 0 4px #333;
+    border:none;
+}
+#atarimuseum .sfm_close_box
+{
+    font-family:Verdana;
+    font-size:12px;
+    color:#eeeeee;
+}
+#atarimuseum .progress_box_container
+{
+    border:1px solid #8e8e8e;
+    background-color:#cccccc;
+    font-family:Arial;
+    font-size:10px;
+    color:#ffffff;
+    text-align:center;
+    vertical-align:middle;
+}
+#atarimuseum .progress_box
+{
+    background-color:#333333;
+    width:2px;
+    float:left;
+    margin:2px;
+}
+#atarimuseum .page_heading
+{
+    background-color:transparent;
+    margin:0;
+    padding:0;
+}
+#atarimuseum .page_number
+{
+    background-color:transparent;
+}
+#atarimuseum input[type='text'],input[type='password'],input[type='email'],input[type='tel'],input[type='number']
+{
+    background-color:#ffffff;
+    border:1px solid #888888;
+    border-radius:3px;
+    -moz-border-radius:3px;
+    -webkit-border-radius:3px;
+    height:20px;
+    line-height:20px;
+}
+#atarimuseum textarea
+{
+    background-color:#ffffff;
+    border:1px solid #888888;
+    border-radius:3px;
+    -moz-border-radius:3px;
+    -webkit-border-radius:3px;
+}
+
+
+#atarimuseum #tf7ae29447e7f5b67dee9
+{
+    width:5px;
+    height:5px;
+    display:none;
+}
+#atarimuseum #label4_container
+{
+    z-index:10;
+}
+#atarimuseum #Name_container
+{
+    z-index:9;
+}
+#atarimuseum #Name
+{
+    float:left;
+    z-index:9;
+}
+#atarimuseum #label3_container
+{
+    z-index:8;
+}
+#atarimuseum #Email_container
+{
+    z-index:7;
+}
+#atarimuseum #Email
+{
+    float:left;
+    z-index:7;
+}
+#atarimuseum #label_container
+{
+    z-index:2;
+}
+#atarimuseum #DropdownList_container
+{
+    z-index:1;
+}
+#atarimuseum #DropdownList
+{
+    float:left;
+    z-index:1;
+}
+#atarimuseum #label2_container
+{
+    z-index:3;
+}
+#atarimuseum #Multiline_container
+{
+    z-index:5;
+}
+#atarimuseum #Multiline
+{
+    height:40px;
+}
+#atarimuseum #Multiline
+{
+    float:left;
+    z-index:5;
+}
+#atarimuseum #message_container
+{
+    z-index:6;
+}
+#atarimuseum #message
+{
+    height:307px;
+}
+#atarimuseum #message
+{
+    float:left;
+    z-index:6;
+}
+#atarimuseum #Submit_container
+{
+    z-index:4;
+}
+#atarimuseum #atarimuseum_Submit_img
+{
+    width:84px;
+    height:29px;
+    border:none;
+}
+
+#atarimuseum #atarimuseum_outer_div_p1
+{
+    width:811px;
+    height:610px;
+}
+#atarimuseum #label4_container
+{
+    position:absolute;
+    left:43px;
+    top:44px;
+}
+#atarimuseum #label4_container
+{
+    width:137px;
+    height:20px;
+}
+#atarimuseum #label4
+{
+    position:absolute;
+    top:3px;
+    left:0px;
+    text-align:left;
+}
+#atarimuseum #Name_container
+{
+    position:absolute;
+    left:185px;
+    top:42px;
+}
+#atarimuseum #Name
+{
+    width:322px;
+    height:19px;
+}
+#atarimuseum #label3_container
+{
+    position:absolute;
+    left:42px;
+    top:105px;
+}
+#atarimuseum #label3_container
+{
+    width:141px;
+    height:20px;
+}
+#atarimuseum #label3
+{
+    position:absolute;
+    top:3px;
+    left:0px;
+    text-align:left;
+}
+#atarimuseum #Email_container
+{
+    position:absolute;
+    left:185px;
+    top:103px;
+}
+#atarimuseum #Email
+{
+    width:322px;
+    height:19px;
+}
+#atarimuseum #label_container
+{
+    position:absolute;
+    left:39px;
+    top:197px;
+}
+#atarimuseum #label_container
+{
+    width:391px;
+    height:20px;
+}
+#atarimuseum #label
+{
+    position:absolute;
+    top:3px;
+    left:0px;
+    text-align:left;
+}
+#atarimuseum #DropdownList_container
+{
+    position:absolute;
+    left:364px;
+    top:196px;
+}
+#atarimuseum #DropdownList
+{
+    width:421px;
+    height:22px;
+}
+#atarimuseum #label2_container
+{
+    position:absolute;
+    left:39px;
+    top:223px;
+}
+#atarimuseum #label2_container
+{
+    width:161px;
+    height:20px;
+}
+#atarimuseum #label2
+{
+    position:absolute;
+    top:3px;
+    left:0px;
+    text-align:left;
+}
+#atarimuseum #Multiline_container
+{
+    position:absolute;
+    left:365px;
+    top:285px;
+}
+#atarimuseum #Multiline
+{
+    width:74px;
+    height:34px;
+}
+#atarimuseum #message_container
+{
+    position:absolute;
+    left:38px;
+    top:251px;
+}
+#atarimuseum #message
+{
+    width:750px;
+    height:301px;
+}
+#atarimuseum #Submit_container
+{
+    position:absolute;
+    left:662px;
+    top:570px;
+    width:80px;
+    height:25px;
+}

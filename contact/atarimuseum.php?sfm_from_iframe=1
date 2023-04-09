@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html >
+   <head >
+      <meta http-equiv='Content-Type' content='text/html; charset=utf-8'>
+      <meta name='viewport' content='width=device-width, initial-scale=1'>
+      <title >Form Page: atarimuseum</title>
+      <meta name='generator' content='Simfatic Forms 5.0.8.459'>
+      <script src='scripts/jquery-1.7.2.min.js' type='text/javascript'></script>
+      <script src='scripts/jquery.sim.utils.js' type='text/javascript'></script>
+      <script src='scripts/sfm_validatorv7.js' type='text/javascript'></script>
+      <link rel='stylesheet' type='text/css' href='style/atarimuseum.css?r=849590968'>
+   </head>
+   <body id='sfm_atarimuseum_body'>
+      <form id='atarimuseum' class='sfm_form' novalidate='novalidate' method='post' action='/contact/atarimuseum.php?sfm_sid=oe0pttmsdr5q1n04ij6q1vslep' accept-charset='UTF-8'>
+         <div id='atarimuseum_errorloc' class='error_strings' style='width:811px;text-align:left'></div>
+         <div id='atarimuseum_outer_div_p1' class='form_outer_div'>
+            <div style='position:relative' id='atarimuseum_inner_div'>
+               <input type='hidden' name='sfm_form_submitted' value='yes'>
+               <input type='hidden' name='id_614a68bac0005e90641d' value='4f4b242f32033b2fa9d1e8632'>
+               <input type='text' name='tf7ae29447e7f5b67dee9' id='tf7ae29447e7f5b67dee9'>
+               <div id='label4_container' class='sfm_form_label'>
+                  <label id='label4' for='Name'>Please enter your name:</label>
+               </div>
+               <div id='Name_container' class='sfm_element_container'>
+                  <input type='text' name='Name' id='Name' class='sfm_textbox_common sfm_textbox' size='20' value=''>
+               </div>
+               <div id='label3_container' class='sfm_form_label'>
+                  <label id='label3' for='Email'>Please enter your email:</label>
+               </div>
+               <div id='Email_container' class='sfm_element_container'>
+                  <input type='email' name='Email' id='Email' class='sfm_textbox_common sfm_textbox' size='20' value=''>
+               </div>
+               <div id='label_container' class='sfm_form_label'>
+                  <label id='label' for='DropdownList'>Please Select your reason for emailing the Atari Museum:</label>
+               </div>
+               <div id='DropdownList_container' class='sfm_element_container'>
+                  <select name='DropdownList' id='DropdownList' size='1'>
+                     <option value='Please Select Subject' >Please Select Subject</option>
+                     <option value='General Questions' >General Questions</option>
+                     <option value='Technical Questions' >Technical Questions</option>
+                     <option value='Press Request' >Press Request</option>
+                     <option value='Former Atari Employee' >Former Atari Employee</option>
+                  </select>
+               </div>
+               <div id='label2_container' class='sfm_form_label'>
+                  <label id='label2' for='Multiline'>Please enter your message:</label>
+               </div>
+               <div id='Multiline_container' class='sfm_element_container'><textarea name='Multiline' id='Multiline' class='sfm_textbox_common sfm_textarea'></textarea></div>
+               <div id='message_container' class='sfm_element_container'><textarea name='message' id='message' class='sfm_textbox_common sfm_textarea'></textarea></div>
+               <div id='Submit_container' class='loading_div sfm_element_container'>
+                  <input type='image' name='Submit' id='atarimuseum_Submit_img' src='images/tarimuseum-Submit-0.png' alt='submit'>
+               </div>
+            </div>
+         </div>
+<div class='sfm_cr_box' style='padding:3px; width:350px;cursor:default'>Built with <a rel='nofollow' style='text-decoration:none;' href='http://simfatic.com/form-software/php-email-form-generator.html'>Simfatic Forms</a> web form builder.</div>
+      </form>
+      <script type='text/javascript'>
+$(function()
+{
+   sfm_show_loading_on_formsubmit('atarimuseum','atarimuseum_Submit_img');
+});
+      </script>
+      <script type='text/javascript'>
+var atarimuseumValidator = new Validator("atarimuseum");
+atarimuseumValidator.addValidation("Name",{required:true,message:"Please fill in Name"} );
+atarimuseumValidator.addValidation("Email",{email:true,message:"The input for  should be a valid email value"} );
+atarimuseumValidator.addValidation("Email",{required:true,message:"Please fill in Email"} );
+atarimuseumValidator.addValidation("DropdownList",{dontselect:"Please Select Subject",message:"Please select an option for DropdownList"} );
+atarimuseumValidator.addValidation("message",{required:true,message:"Please fill in message"} );
+      </script>
+   </body>
+</html>

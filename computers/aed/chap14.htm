@@ -1,0 +1,167 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta name="GENERATOR" content="Microsoft FrontPage 5.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>Atari Advanced Engineering Division</title>
+</head>
+
+<body link="#FFFFFF" vlink="#FFFFFF" alink="#FFFFFF" text="#FFFFFF" bgcolor="#000000">
+
+<p align="left"><img border="0" src="headerleft.gif" width="265" height="132"><img border="0" src="headermiddle.gif" width="285" height="132"><map name="FPMap0"><area href="chap10.htm" shape="rect" coords="88, 89, 160, 121"><area href="index.htm" shape="rect" coords="175, 89, 219, 123"></map><img border="0" src="headerright.gif" usemap="#FPMap0" width="226" height="132"></p>
+
+<p align="left">&nbsp;</p>
+
+<p align="left"><font face="Arial" size="5">The &quot;GUMP&quot;</font></p>
+
+<p align="left">&nbsp;</p>
+
+<p align="left"><font face="Arial">&nbsp;&nbsp;&nbsp; While other companies such 
+as Mindset and Amiga Corp were touting their impressive graphics and sound 
+capabilities, Atari was secretly working on its own very impressive systems.</font></p>
+
+<p align="left"><font face="Arial">&nbsp;&nbsp;&nbsp; Project &quot;RAINBOW&quot; was born 
+out of Atari's Corporate Research group.&nbsp;&nbsp;&nbsp;&nbsp; Rainbow was the 
+specification for high-end graphics and sound capabilities from a new set of 
+chips.&nbsp;&nbsp;&nbsp; The graphics portion was called &quot;Silver&amp;Gold&quot; and the 
+audio portion was called &quot;Amy&quot;.</font></p>
+
+<p align="left"><font face="Arial">Initially Rainbow would be implemented into a 
+project by Doug Crockford and Rob Alkire:&nbsp; &quot;The GUMP&quot;...</font></p>
+
+<p align="center" style="margin-top: 0; margin-bottom: 0"><font face="Arial">
+This was a rather out of the ordinary name for a project.&nbsp;&nbsp; </font></p>
+
+<p align="center" style="margin-top: 0; margin-bottom: 0"><font face="Arial">
+Initially, during the research into the history behind this project,&nbsp;
+</font></p>
+
+<p align="center" style="margin-top: 0; margin-bottom: 0"><font face="Arial">it 
+was thought that GUMP perhaps was an acronym for the project:</font></p>
+
+<p align="center" style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+
+<p align="center" style="margin-top: 0; margin-bottom: 0"><font face="Arial">&quot;<b>G</b>raphics
+<b>U</b>ser <b>M</b>ulti <b>P</b>rocessor&quot;</font></p>
+<p align="left"><font face="Arial">This sounded plausible, perhaps that was what 
+GUMP stood for.&nbsp;&nbsp; After asking the two lead engineers, the answer 
+came.&nbsp;&nbsp; Were we right?&nbsp;&nbsp; According to Doug Crockford, the 
+answer was &quot;No&quot;.&nbsp;&nbsp; In fact the meaning for Project GUMP couldn't have 
+been any farther from what we had thought...</font></p>
+<p align="center"><img border="0" src="oz2_077FairuzaBalk.jpg" width="495" height="270"></p>
+<p align="center" style="margin-top: 0; margin-bottom: 0"><font face="Arial">The 
+GUMP was a character from &quot;Return to Oz&quot;.&nbsp;&nbsp; Gump's were elk like 
+creatures, </font></p>
+<p align="center" style="margin-top: 0; margin-bottom: 0"><font face="Arial">but 
+&quot;The Gump&quot; was an elk head on a plaque attached to a sofa.</font></p>
+<p align="center" style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+<p align="center" style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+<p align="left" style="margin-top: 0; margin-bottom: 0"><font face="Arial">&nbsp;&nbsp;&nbsp; 
+So now that the project name was straightened out and understood, it was time to 
+delve into what GUMP was all about.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; After speaking 
+with Robert Alkire who worked on Project GUMP and some comments on Sierra, here 
+are his comments:</font></p>
+<p align="left" style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+<p align="center" style="margin-top: 0; margin-bottom: 0">
+<a href="gump-watermrked-sm.jpg"><img border="0" src="gump-watermrked-tn.jpg" width="200" height="259"></a></p>
+<blockquote>
+  <blockquote>
+    <blockquote>
+      <blockquote>
+        <blockquote>
+<p align="left" style="margin-top: 0; margin-bottom: 0"><i>
+<font face="Arial" size="2">&quot;GUMP was a reference design for Rainbow, one of 
+several, in fact. <br>
+Gold was the VDAC and HSYNC/VSYNC generator - silver was </font></i></p>
+<p align="left" style="margin-top: 0; margin-bottom: 0"><i>
+<font face="Arial" size="2">the SPRITE generator.&nbsp;&nbsp;&nbsp; We were 
+trying to keep cost low and at </font></i></p>
+<p align="left" style="margin-top: 0; margin-bottom: 0"><i>
+<font face="Arial" size="2">the time 40 pin chips were about the max we could go 
+without getting pricey. </font></i></p>
+<p align="left" style="margin-top: 0; margin-bottom: 0"><i>
+<font face="Arial" size="2">This meant splitting the graphics into two chips.
+<br>
+&nbsp;</font></i></p>
+<p align="left" style="margin-top: 0; margin-bottom: 0"><i>
+<font face="Arial" size="2">Sierra was a next gen Atari computer design. It had 
+a different processor</font></i></p>
+<p align="left" style="margin-top: 0; margin-bottom: 0"><i>
+<font face="Arial" size="2">weekly and was designed by committee - suffice to 
+say - it was a mess. <br>
+It was nearly impossible to make any headway so I opted to work with Steve.</font></i></p>
+<p align="left" style="margin-top: 0; margin-bottom: 0"><i>
+<font face="Arial" size="2">&nbsp;<br>
+Steve started Rainbow and had an idea of a clean API for a graphics chip. <br>
+It was the two of us who designed the chips to RTL level.&nbsp;&nbsp;&nbsp; We 
+worked with</font></i></p>
+<p align="left" style="margin-top: 0; margin-bottom: 0"><i>
+<font face="Arial" size="2">the chip guys for the actual layout. <br>
+<br>
+Doug Crockford made the lab, well... interesting. He taught me to juggle and</font></i></p>
+<p align="left" style="margin-top: 0; margin-bottom: 0"><i>
+<font face="Arial" size="2">he is a great story teller/programmer. His papers 
+are worth the read.</font></i></p>
+<p align="left" style="margin-top: 0; margin-bottom: 0"><i>
+<font face="Arial" size="2">&nbsp;<br>
+Amy was a sound chip effort. I can remember some of the names but not all.<br>
+<br>
+Atari research was headed by Alan Kay and Christina Hooper. Later they </font>
+</i></p>
+<p align="left" style="margin-top: 0; margin-bottom: 0"><i>
+<font face="Arial" size="2">brought Ted Hoff in. <br>
+<br>
+Bob&quot;</font></i></p>
+        </blockquote>
+      </blockquote>
+    </blockquote>
+  </blockquote>
+</blockquote>
+<p align="left" style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+<p align="center" style="margin-top: 0; margin-bottom: 0">
+<img border="0" src="silver-tapes.jpg" width="600" height="450"></p>
+<p align="center" style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+<hr>
+<p align="center" style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+<p align="center" style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+<p align="center" style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+<p align="center" style="margin-top: 0; margin-bottom: 0">
+&nbsp;</p>
+<p align="center" style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+<p align="center" style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+<p align="center" style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+<p align="center" style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+<p align="center" style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+<p align="center" style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+<p align="left" style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+<p align="left" style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+<p align="left" style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+<p align="left" style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+<p align="left" style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+<p align="left" style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+<p align="left" style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+<p align="left" style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+<p align="left" style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+<p align="left" style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+<p align="left" style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+<p align="left" style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+<p align="left" style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+<p align="left" style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+<p align="left" style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+<p align="left" style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+<p align="left" style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+<p align="left" style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+<p align="left" style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+<p align="left" style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+<p align="left" style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+<p align="left" style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+<p align="center" style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+<p align="center" style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+<p align="center" style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+<p align="left">&nbsp;</p>
+
+</body>
+
+</html>

@@ -1,0 +1,441 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+   <meta name="author" content="Curt Vendel">
+   <meta name="GENERATOR" content="Mozilla/4.75 [en] (Win98; U) [Netscape]">
+   <title>Transporting Atari 8bit games to Atari 5200</title>
+</head>
+<body bgcolor="#000000">
+
+<pre><font face="Arial,Helvetica"><font color="#FFFFFF">A.N.A.L.O.G. #15, January 1984
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b><font size=+2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; TRANSPORTING
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ATARI COMPUTER PROGRAMS
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; TO THE ATARI 5200
+&nbsp;
+</font><i>by Claus Buchholz
+</i></b>&nbsp;
+When Atari designed the 5200 "Supersystem" as a successor to
+the&nbsp; aging&nbsp; 2600&nbsp; VCS, they made use of the state-of-the-art
+hardware&nbsp; they put into their 400/800 home computers.&nbsp; As&nbsp; a
+result,&nbsp; the systems are quite similar. The differences&nbsp; are
+great&nbsp; enough, however, that transporting programs from&nbsp; one
+system to the other requires some effort.
+&nbsp;
+The&nbsp; 5200&nbsp; is&nbsp; a&nbsp; single-board machine with four&nbsp; controller
+jacks,&nbsp; a cartridge slot, an I/O expansion connector&nbsp; and&nbsp; a
+power/RF&nbsp; cable.&nbsp; It&nbsp; shares the same VLSI&nbsp; chips&nbsp; with&nbsp; the
+400/800,&nbsp; except&nbsp; for&nbsp; the 6520 PIA&nbsp; (joystick/parallel&nbsp; I/O
+ports).&nbsp; The&nbsp; other chips (ANTIC, GTIA, POKEY and&nbsp; the&nbsp; 6502
+CPU)&nbsp; are in the 5200, although some of their registers&nbsp; are
+in&nbsp; different&nbsp; memory locations than those in&nbsp; the&nbsp; 400/800.
+Also,&nbsp;&nbsp; some&nbsp; of&nbsp; the&nbsp; registers&nbsp; serve&nbsp; slightly&nbsp; different
+purposes.&nbsp; Figure 1 is a block diagram of&nbsp; the&nbsp; 5200.&nbsp; Let's
+look at each section of the hardware in turn.
+&nbsp;
+When&nbsp; a&nbsp; specific register is mentioned in the article,&nbsp; the
+name&nbsp; is&nbsp; taken&nbsp; from&nbsp; the Hardware Manual&nbsp; in&nbsp; the&nbsp; 400/800
+Technical&nbsp; Reference&nbsp; Notes. With the exceptions&nbsp; listed&nbsp; in
+this article, the Hardware Manual applies also to the 5200.
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 6502 CPU.
+&nbsp;
+Although&nbsp; it is a standard 6502 from the programmer's&nbsp; view,
+Atari&nbsp; has&nbsp; reworked this chip to save four&nbsp; support&nbsp; chips.
+Those&nbsp; four&nbsp; chips mediate access of the system bus&nbsp; by&nbsp; the
+6502B&nbsp; and ANTIC in the 400/800, but that function is&nbsp; built
+into the 6502C in the 5200. Atari also uses the 6502C in the
+new XL series of computers.
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 16K RAM.
+&nbsp;
+The&nbsp; 5200 contains 16K bytes of RAM addressed from $0000&nbsp; to
+$3FFF,&nbsp; just as in an unexpanded 400. The memory circuit&nbsp; is
+nearly identical to that in the 400, except it uses 4516s, a
+5V-only version of the 4116 16K-bit dynamic RAM.
+&nbsp;
+The&nbsp; 5200&nbsp; monitor program reserves locations $0000&nbsp; through
+$0018&nbsp; and $0200 through $021B for shadows and RAM&nbsp; vectors.
+And, of course, page $01 is reserved for the 6502 stack. The
+rest of the RAM is available to the cartridge program.
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ANTIC.
+&nbsp;
+This is the same ANTIC chip used in the 400/800. Since ANTIC
+shares&nbsp; the address bus with the CPU and has no chip&nbsp; select
+input,&nbsp; its registers reside in the same place in the 5200's
+memory as in the 400/800's, page $D4.
+&nbsp;
+The&nbsp; 5200&nbsp; has&nbsp; no System Reset key, so bit 5&nbsp; of&nbsp; NMIST&nbsp; is
+useless and the 5200's interrupt handler ignores it.
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; GTIA.
+&nbsp;
+The GTIA and its registers perform the same functions in the
+5200&nbsp; and&nbsp; 400/800,&nbsp; except as noted below.&nbsp; The&nbsp; registers,
+however, reside at page $C0 in the 5200's memory, not at $D0
+as in the 400/800.
+&nbsp;
+The&nbsp; trigger inputs, TRIG0 through TRIG3, are wired&nbsp; to&nbsp; the
+controller ports, one to a port. The bottom button on either
+side&nbsp; of&nbsp; the leftmost controller zeroes the TRIG0&nbsp; register
+when pressed, and likewise for the other ports.
+&nbsp;
+The&nbsp; bits&nbsp; in&nbsp; CONSOL,&nbsp; the 400/800's&nbsp; console&nbsp; switch&nbsp; port
+(START, OPTION, SELECT and speaker), are used as outputs&nbsp; in
+the 5200, Bit 3, the 400/800's speaker control can still&nbsp; be
+toggled&nbsp; in&nbsp; the&nbsp; 5200&nbsp; to produce&nbsp; sounds&nbsp; through&nbsp; the&nbsp; TV
+speaker.&nbsp;&nbsp; Bit&nbsp;&nbsp; 2&nbsp; controls&nbsp; the&nbsp; pots&nbsp; in&nbsp;&nbsp; the&nbsp;&nbsp; joystick
+controllers. It must be set high to enable the pots.
+&nbsp;
+Bits 1 and 0 select which controller port is to be active at
+one&nbsp; time. 00 selects port #1 (the leftmost), 01 selects #2,
+10&nbsp; selects&nbsp; #3, and 11 selects #4. The trigger buttons&nbsp; and
+pots&nbsp; are independent of this selection; it applies only&nbsp; to
+the keypads and top side buttons on the controllers.
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; POKEY.
+&nbsp;
+POKEY's registers are all addressed at page $EB in the&nbsp; 5200
+as&nbsp; opposed&nbsp; to&nbsp; $D2&nbsp; in&nbsp; the&nbsp; 400/800.&nbsp; Its&nbsp; functions&nbsp; are
+unchanged, however, except for two.
+&nbsp;
+The&nbsp; eight&nbsp; pot inputs used for paddles in the&nbsp; 400/800&nbsp; are
+wired&nbsp; to&nbsp; the 5200's controller ports, two to a port.&nbsp; Each
+controller&nbsp; has an analog joystick, using one pot&nbsp; to&nbsp; sense
+horizontal position and a second pot for vertical&nbsp; position.
+The&nbsp; even pots (POT0-POT6) give the horizontal positions&nbsp; of
+range&nbsp; from 1 to 228; the maximum readings are to the&nbsp; right
+for&nbsp; the&nbsp; horizontal pot and at the bottom for the&nbsp; vertical
+pot. Figure 2 shows the pinout for the 5200 controllers.
+&nbsp;
+Pin&nbsp; Function
+1&nbsp;&nbsp;&nbsp; Keypad -- right column
+2&nbsp;&nbsp;&nbsp; Keypad -- middle column
+3&nbsp;&nbsp;&nbsp; Keypad -- left column
+4&nbsp;&nbsp;&nbsp; Start, Pause, and Reset common
+5&nbsp;&nbsp;&nbsp; Keypad -- third row and Reset
+6&nbsp;&nbsp;&nbsp; Keypad -- second row and Pause
+7&nbsp;&nbsp;&nbsp; Keypad -- top row and Start
+8&nbsp;&nbsp;&nbsp; Keypad -- bottom row
+9&nbsp;&nbsp;&nbsp; Pot common
+10&nbsp;&nbsp; Horizontal pot (POT0, 2, 4, 6)
+11&nbsp;&nbsp; Vertical pot (POT1, 3, 5, 7)
+12&nbsp;&nbsp; 5 volts DC
+13&nbsp;&nbsp; Bottom side buttons (TRIG0, 1, 2, 3)
+14&nbsp;&nbsp; Top side buttons
+15&nbsp;&nbsp; 0 volts -- ground
+&nbsp;
+The&nbsp; keyboard scanning lines in the 400/800 are used in&nbsp; the
+5200&nbsp; to read the keypad keys to the one controller that&nbsp; is
+selected&nbsp; by&nbsp; bits 1 and 0 in CONSOL. Only&nbsp; four&nbsp; lines&nbsp; are
+used,&nbsp; though, so only bits 1 through 4 of KBCODE are valid.
+Table&nbsp; 1&nbsp; gives the keycode for each key on the&nbsp; controller.
+The top side buttons on the selected controller act like the
+400/800 shift keys and also cause a BREAK-key interrupt,&nbsp; if
+that's&nbsp; enabled.&nbsp; Bit 0 of SKCTL, the debounce&nbsp; enable&nbsp; bit,
+need not be set in the 5200.
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; KBCODE
+Key&nbsp;&nbsp;&nbsp;&nbsp; bits&nbsp;&nbsp;&nbsp; Keypad code
+-------------------
+none&nbsp;&nbsp;&nbsp; 0000&nbsp;&nbsp;&nbsp; $FF
+#&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0001&nbsp;&nbsp;&nbsp; $0B
+0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0010&nbsp;&nbsp;&nbsp; $00
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0011&nbsp;&nbsp;&nbsp; $0A
+Reset&nbsp;&nbsp; 0100&nbsp;&nbsp;&nbsp; $0E
+9&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0101&nbsp;&nbsp;&nbsp; $09
+8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0110&nbsp;&nbsp;&nbsp; $08
+7&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0111&nbsp;&nbsp;&nbsp; $07
+Pause&nbsp;&nbsp; 1000&nbsp;&nbsp;&nbsp; $0D
+6&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1001&nbsp;&nbsp;&nbsp; $06
+5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1010&nbsp;&nbsp;&nbsp; $05
+4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1011&nbsp;&nbsp;&nbsp; $04
+Start&nbsp;&nbsp; 1100&nbsp;&nbsp;&nbsp; $0C
+3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1101&nbsp;&nbsp;&nbsp; $03
+2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1110&nbsp;&nbsp;&nbsp; $02
+1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1111&nbsp;&nbsp;&nbsp; $01
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+POKEY's serial I/O lines are used in the 5200, but they&nbsp; are
+wired&nbsp; to&nbsp; the&nbsp; I/O expansion connector, an&nbsp; edge&nbsp; connector
+hidden&nbsp; behind&nbsp; a small door in the rear of the&nbsp; 5200.&nbsp; This
+connector&nbsp; allows for more hardware registers&nbsp; addressed&nbsp; at
+page&nbsp; $E0,&nbsp; and for peripherals using the serial&nbsp; port.&nbsp; See
+Figure&nbsp; 3&nbsp; for&nbsp; the pinout of this connector. Its&nbsp; existence
+demonstrates&nbsp; Atari's&nbsp; original plans&nbsp; to&nbsp; expand&nbsp; the&nbsp; 5200
+system.
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Top&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Bottom
+-----------------------------------------------
++5V DC&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1&nbsp;&nbsp; 36&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; +5V DC
+Audio Out (2 port)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2&nbsp;&nbsp; 35&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Not connected
+Ground&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 3&nbsp;&nbsp; 34&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Ground
+R/W Early&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 4&nbsp;&nbsp; 33&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Not connected
+Enable E0-EF&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 5&nbsp;&nbsp; 32&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; D7
+D6&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 6&nbsp;&nbsp; 31&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; D5
+D4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 7&nbsp;&nbsp; 30&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; D3
+D2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 8&nbsp;&nbsp; 29&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; D1
+D0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 9&nbsp;&nbsp; 28&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Ground
+IRQ&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 10&nbsp; 27&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; A0
+Ground&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 11&nbsp; 26&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; A1
+Serial Data In&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 12&nbsp; 25&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; A2
+Serial In Clock&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 13&nbsp; 24&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; A3
+Serial Out Clock&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 14&nbsp; 23&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; A4
+Serial Data Out&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 15&nbsp; 22&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; A5
+Audio In&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 16&nbsp; 21&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; A6
+A14&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 17&nbsp; 20&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; A7
+System Clock 01&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 18&nbsp; 19&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; A11
+&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ROM.
+&nbsp;
+The 5200 has a 2K ROM on board which holds the character set
+and&nbsp; monitor program. The character set, which is&nbsp; an&nbsp; exact
+copy of the 400/800's set, resides at pages $F8 through $FB,
+and the monitor sits at $FC through $FF.
+&nbsp;
+The&nbsp; cartridge&nbsp; ROM&nbsp; can be 32K bytes long&nbsp; and&nbsp; resides&nbsp; in
+memory from $4000 to $BFFF. Figure 4 shows the pinout of the
+cartridge&nbsp; slot.&nbsp; The&nbsp; two interlock&nbsp; connectors&nbsp; are&nbsp; wired
+together&nbsp; on&nbsp; a&nbsp; cartridge board. The 5200 uses&nbsp; this&nbsp; as&nbsp; a
+switch for the cartridge's power connections and as a&nbsp; Reset
+signal.&nbsp; Therefore,&nbsp; a cartridge may be&nbsp; safely&nbsp; removed&nbsp; or
+inserted while the 5200 is powered on.
+&nbsp;
+&nbsp;
+D0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1&nbsp;&nbsp; 36&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Interlock
+D1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2&nbsp;&nbsp; 35&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; A11
+D2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 3&nbsp;&nbsp; 34&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; A12
+D3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 4&nbsp;&nbsp; 33&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; A10
+D4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 5&nbsp;&nbsp; 32&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; A13
+D5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 6&nbsp;&nbsp; 31&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; A9
+D6&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 7&nbsp;&nbsp; 30&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Audio In (2 port)
+D7&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 8&nbsp;&nbsp; 29&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; A8
+Enable 80-8F&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 9&nbsp;&nbsp; 28&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Not Connected
+Enable 40-7F&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 10&nbsp; 27&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; A7
+Not Connected&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 11&nbsp; 26&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; +5V DC
+Ground&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 12&nbsp; 25&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Ground
+Ground&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 13&nbsp; 24&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Ground (Video In on 2 port)
+Ground (System Clock
+02 on 2 port)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 14&nbsp; 23&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Ground
+A6&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 15&nbsp; 22&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; A4
+A5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 16&nbsp; 21&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; A3
+A2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 17&nbsp; 20&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; A1
+Interlock&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 18&nbsp; 19&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; A0
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The 5200 monitor program.
+&nbsp;
+The&nbsp; 1K&nbsp; monitor program in ROM has three functions: (1)&nbsp; to
+initialize the system before running the cartridge&nbsp; program,
+(2) to service interrupts as they occur, and (3) to maintain
+shadows&nbsp; of&nbsp; some important hardware registers. Recall&nbsp; that
+the&nbsp; 400/800 Operating System is 10K bytes long and performs
+the&nbsp; above&nbsp; functions. It also provides peripheral handlers,
+predefined&nbsp; graphics&nbsp; modes, a screen editor,&nbsp; and&nbsp; floating
+point&nbsp; math&nbsp; routines. Those utilities do not exist&nbsp; in&nbsp; the
+5200.
+&nbsp;
+Table&nbsp; 2&nbsp; shows&nbsp; the RAM locations used by the&nbsp; monitor&nbsp; for
+shadows and RAM vectors.
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Table 2. 5200 Monitor RAM Locations.
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Page Zero Locations
+$00&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Shadow for IRQEN
+$01&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Real time clock (high byte)
+$02&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Real time clock (low byte)
+$03&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Critical&nbsp; code&nbsp; flag&nbsp; (if&nbsp; non-zero,&nbsp; VBI&nbsp; routine&nbsp; is
+abbreviated)
+$04&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Attract mode timer/flag
+$05&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Shadow for DLISTL
+$06&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Shadow for DLISTH
+$07&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Shadow for DMACTL
+$08-$10&nbsp;&nbsp; Shadows for COLPMO through COLBK
+$11-$18&nbsp;&nbsp; Shadows for POT0 through POT7
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Page Two Vectors
+$200 Immediate IRQ vector
+$202 Immediate VBI vector
+$204 Deferred VBI vector
+$206 DLI vector
+$208 Keyboard IRQ vector
+$20A Keypad routine continuation vector
+$20C BREAK key IRQ vector
+$20E BRK instruction IRQ vector
+$210 Serial Input Data Ready IRQ vector
+$212 Serial Output Data Needed IRQ vector
+$214 Serial Output Finished IRQ vector
+$216 POKEY Timer 1 IRQ vector
+$218 POKEY Timer 2 IRQ vector
+$21A POKEY Timer 4 IRQ vector
+&nbsp;
+Upon&nbsp;&nbsp; Reset,&nbsp; the&nbsp; 6502&nbsp; vectors&nbsp; through&nbsp; $FFFC&nbsp;&nbsp; to&nbsp;&nbsp; the
+initialization routine. This routine performs the&nbsp; following
+sequence.
+&nbsp;
+1. Disable maskable interrupts, clear the 6502 decimal flag,
+and set the stack pointed to $01FF.
+&nbsp;
+2.&nbsp; If&nbsp; the cartridge address $BFFD contains $FF, then&nbsp; jump
+immediately&nbsp;&nbsp; through&nbsp; the&nbsp; vector&nbsp; at&nbsp;&nbsp; $BFFE&nbsp;&nbsp; (diagnostic
+cartridge).
+&nbsp;
+3.&nbsp; Zero all hardware registers and page $00, set CHBASE&nbsp; to
+point&nbsp; to the character set at $F8, and initialize the first
+six RAM vectors starting at $0200.
+&nbsp;
+4.&nbsp; Set&nbsp; up&nbsp; the&nbsp; Atari logo rainbow display. The&nbsp; cartridge
+title&nbsp; (20 characters) and copyright year (2 characters)&nbsp; in
+ANTIC mode 7 display code are taken from cartridge addresses
+$BFE8 through $BFFD.
+&nbsp;
+5.&nbsp; Enable&nbsp; VBI (Vertical Blank Interrupt) and DLI&nbsp; (Display
+List Interrupt), and enable key scan.
+&nbsp;
+6.&nbsp; Wait four seconds, then jump through the vector at $BFFE
+to the cartridge program.
+&nbsp;
+When&nbsp; the&nbsp; 6502 receives a non-maskable interrupt (NMI),&nbsp; it
+vectors&nbsp; through&nbsp; $FFFA&nbsp; to the NMI handler.&nbsp; The&nbsp; following
+steps take place:
+&nbsp;
+1.&nbsp; Check&nbsp; NMIST&nbsp; and strobe NMIRES to reset&nbsp; the&nbsp; interrupt
+status.
+&nbsp;
+2.&nbsp; If&nbsp; a&nbsp; DLI&nbsp; is&nbsp; pending, jump&nbsp; through&nbsp; the&nbsp; DLI&nbsp; vector
+(initialized to point to the rainbow effect routine).
+&nbsp;
+3.&nbsp; If&nbsp; a&nbsp; VBI&nbsp; is pending, jump through the&nbsp; immediate&nbsp; VBI
+vector (initialized to point to the VBI routine).
+&nbsp;
+4. Else, return from the interrupt (no System Reset).
+&nbsp;
+A cartridge program can change these vectors to point to its
+own&nbsp; DLI&nbsp; and&nbsp; VBI&nbsp; routines, if it must.&nbsp; The&nbsp; default&nbsp; VBI
+routine takes the following action.
+&nbsp;
+1.&nbsp; Push&nbsp; A,&nbsp; X, and Y onto stack, increment the&nbsp; real&nbsp; time
+clock, and update the attract mode timer.
+&nbsp;
+2.&nbsp; If the critical code flag byte is non-zero, then pop&nbsp; Y,
+X, and A from the stack and return from the interrupt.
+&nbsp;
+3. Update DLISTL, DLISTH, and DMACTL from their shadows.
+&nbsp;
+4.&nbsp; Maintain the attract mode flag and update the GTIA color
+registers from their shadows.
+&nbsp;
+5. Update the pot shadows from POT0 through POT7, and strobe
+POTGO to start another pot scan.
+&nbsp;
+6.&nbsp; Jump&nbsp; through&nbsp; the deferred VBI vector&nbsp; (initialized&nbsp; to
+point to the end-of-interrupt routine, which pops Y, X,&nbsp; and
+A, and returns from the interrupt).
+&nbsp;
+If&nbsp; maskable&nbsp; interrupts&nbsp; (IRQs)&nbsp; are&nbsp; enabled&nbsp; and&nbsp; one&nbsp; is
+received,&nbsp; the 6502 vectors through $FFFE to an&nbsp; instruction
+which jumps through the immediate IRQ vector. That vector is
+initialized to point to the IRQ routine, which performs&nbsp; the
+following tasks.
+&nbsp;
+1. Push A and check IRQST.
+&nbsp;
+2.&nbsp; For each of the eight bits in IRQST, check for a pending
+interrupt. If found, then clear the status bit, update IRQEN
+from&nbsp; its&nbsp; shadow,&nbsp; and&nbsp; jump through&nbsp; the&nbsp; appropriate&nbsp; IRQ
+vector.
+&nbsp;
+3.&nbsp; If&nbsp; no interrupt found, then push X and check for a&nbsp; BRK
+instruction interrupt. If found, then jump through&nbsp; the&nbsp; BRK
+instruction IRQ vector.
+&nbsp;
+4. Else, pop X and A and return from the interrupt.
+&nbsp;
+The&nbsp; only IRQ vector that is initialized is the keyboard IRQ
+vector,&nbsp; which&nbsp; points&nbsp; to&nbsp; the keypad&nbsp; read&nbsp; routine.&nbsp; That
+routine does the following:
+&nbsp;
+1. Push X and Y.
+&nbsp;
+2. Read KBCODE and mask bits 1 through 4.
+&nbsp;
+3. Convert to the keypad code given in Table 1, leaving that
+code in A.
+&nbsp;
+4.&nbsp; Jump&nbsp; through&nbsp; the&nbsp; keypad routine&nbsp; continuation&nbsp; vector
+(initialized to point to the end-of-interrupt routine).
+&nbsp;
+Comparing&nbsp; the&nbsp; 5200's monitor vectors to the&nbsp; 400/800's&nbsp; OS
+vectors,&nbsp;&nbsp; we&nbsp;&nbsp; see&nbsp;&nbsp; that&nbsp; Atari&nbsp; paid&nbsp; no&nbsp;&nbsp; attention&nbsp;&nbsp; to
+compatibility between the two. This further complicates&nbsp; the
+task of converting a program from one system to the other.
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Transportability.
+&nbsp;
+It&nbsp; would&nbsp; not be difficult, given the information&nbsp; in&nbsp; this
+article,&nbsp; to&nbsp; write a program in two versions, one&nbsp; for&nbsp; the
+400/800 and another for the 5200. Nor would it be difficult,
+given&nbsp; the&nbsp; source code, to convert a finished program&nbsp; from
+the&nbsp; 5200&nbsp; to the 400/800. The reverse is more difficult&nbsp; if
+the&nbsp; program&nbsp; takes&nbsp; advantage of special&nbsp; features&nbsp; in&nbsp; the
+400/800&nbsp; OS. Otherwise, the only task, aside from redefining
+some&nbsp; addresses,&nbsp; is to convert the keyboard/joystick&nbsp; input
+routines from one system to the other.
+&nbsp;
+I&nbsp; acquired the information in this article by dissecting&nbsp; a
+5200&nbsp; and&nbsp; disassembling its ROM. The 400/800 schematics&nbsp; in
+the Hardware Manual were quite helpful. It is interesting to
+note&nbsp; the&nbsp; difference between the two machines and to&nbsp; guess
+Atari's&nbsp;&nbsp; motives&nbsp; for&nbsp; the&nbsp; design&nbsp; differences.&nbsp; But&nbsp;&nbsp; the
+similarities&nbsp; grossly outweigh the differences,&nbsp; so&nbsp; that&nbsp; a
+5200&nbsp; program can be developed and almost entirely&nbsp; debugged
+before&nbsp; testing&nbsp; on a 5200. With the addition&nbsp; of&nbsp; an&nbsp; EPROM
+burner,&nbsp; a 400/800 can be a powerful development system&nbsp; for
+5200&nbsp; programs. An adventuresome hacker can even bypass&nbsp; the
+EPROM&nbsp; by&nbsp; putting dual-port RAM on the cartridge board&nbsp; and
+downloading&nbsp; programs&nbsp; from the 400/800&nbsp; development&nbsp; system
+into the 5200 for testing.
+&nbsp;
+&nbsp;
+&nbsp;
+<font size=+4>A.N.A.L.O.G. #16, February 1984
+</font>&nbsp;
+READER COMMENT
+&nbsp;
+5200 Article Update. (ANALOG #15)
+&nbsp;
+Newer&nbsp; releases of the 5200 incorporate some minor&nbsp; hardware
+changes.&nbsp; Controller&nbsp; ports 3 and 4&nbsp; have&nbsp; been&nbsp; eliminated,
+making&nbsp; POT4 through POT7, TRIG2, TRIG3, and bit 1 of CONSOL
+useless.&nbsp; A&nbsp; few of the connector pins have been&nbsp; redefined.
+Pin&nbsp; 2&nbsp; of&nbsp; the I/O expansion connector now carries&nbsp; POKEY's
+Audio Out signal. Three pins on the cartridge connector have
+changed&nbsp; to&nbsp; accomodate&nbsp; the new 2600&nbsp; adapter.&nbsp; The&nbsp; system
+clock, 02, is output on pin 14, isolated through a diode. An
+alternate&nbsp; video&nbsp; input is taken from pin&nbsp; 24&nbsp; and&nbsp; is&nbsp; also
+isolated through a diode. Pin 30 provides an alternate audio
+input.
+&nbsp;
+There&nbsp; is space on the newer boards for circuitry for a&nbsp; PAL
+(European TV standard) version of the 5200. Also, on&nbsp; power-
+up,&nbsp; the&nbsp; monitor&nbsp; program checks for&nbsp; the&nbsp; PAL&nbsp; version&nbsp; by
+examining&nbsp; the&nbsp; GTIA&nbsp; register&nbsp; PAL&nbsp; after&nbsp; step&nbsp; 2&nbsp; of&nbsp; the
+initialization routine. It also checks the cartridge program
+for PAL compatibility. The byte at $BFE7 should read $02&nbsp; if
+compatible, or $00 if not. This is the only important change
+to&nbsp; the&nbsp; monitor program. There are some additional hardware
+changes,&nbsp; but none affects the machine's operation from&nbsp; the
+programmer's view.
+&nbsp;
+Claus Buchholz
+Greenwich, CT</font></font></pre>
+
+</body>
+</html>

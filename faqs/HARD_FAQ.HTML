@@ -1,0 +1,1246 @@
+<HTML>
+<HEAD>
+   <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+   <META NAME="description" CONTENT="The Atari 8-bit Hardware Upgrade, Modification and Add-On FAQ">
+   <META NAME="keywords" CONTENT="David A. Paterson, Atari, hardware, hacks, upgrade, FAQ, 6502, fnord">
+   <META NAME="GENERATOR" CONTENT="Mozilla/4.01 [en] (WinNT; I) [Netscape]">
+   <META NAME="Author" CONTENT="Curt Vendel">
+   <META NAME="Description" CONTENT="The Atari 8-bit Hardware Upgrade, Modification and Add-On FAQ">
+   <META NAME="KeyWords" CONTENT="David A. Paterson, Atari, hardware, hacks, upgrade, FAQ, 6502, fnord">
+   <TITLE>The Atari 8-bit Hardware Upgrade, Modification and Add-On FAQ</TITLE>
+</HEAD>
+<BODY TEXT="#FFFFFF" BGCOLOR="#000000" LINK="#FF0000" VLINK="#CC66CC" ALINK="#FF0000" BACKGROUND="graypape.gif">
+
+<H1>
+<B>The Atari 8-bit Hardware Upgrade, Modification and Add-On FAQ</B></H1>
+Version 1.1
+<BR>Updated February 16, 1997
+<BR>Maintained by: <A HREF="mailto:davepat@total.net">David A. Paterson</A>
+<BR>
+<HR>
+<H3>
+PURPOSE</H3>
+
+<HR>
+
+<P>This FAQ exists to describe the various hardware modifications available
+to the Atari 8-bit user. It does not teach you how to do them. It definitely
+doesn't take any responsibility for the results if you do try them. But
+it will try to give you some information about where to find more information,
+which upgrades (or "hacks") are best, and who to consult if things go wrong.
+For addresses and phone numbers of any of the companies listed, consult
+the Vendors and Developers List, posted to <A HREF="news://comp.sys.atari.8bit">comp.sys.atari.8-bit</A>
+at or about the 15th of each month.
+
+<P>It also exists to describe the many wild, Woolley and wonderful products
+that have been produced for the Atari 8-bit. Many are unique, some may
+be apocryphal. Mainstream items like printers, modems, disk drives and
+cassette decks are all excluded, unless I feel otherwise. Temperature gauges,
+combination printer buffer/RAMdisks that run through the joystick port,
+and other such are fair game.
+
+<P>If you're looking for a list of Atari hardware (real or vapour-ware)
+or for a list of Atari compatible disk drives, check out the comp.sys.atari.8bit
+FAQ, posted every two months, and stored at <A HREF="gopher://gopher.archive.umich.edu:7055/11/atari/8bit">the
+University of Michigan archive </A>.
+<BR>
+<HR>
+<H3>
+OTHER STUFF I THOUGHT I SHOULD INCLUDE SOMEWHERE</H3>
+
+<HR>
+
+<P>This FAQ owes a debt of gratitude to Michael Current, Bill Kendrick,
+Glenn Saunders, Alan Sharkis, William Moeller, Ryan Goolevitch and Ben
+Corr for their contributions. Bob Woolley and Bob Puff (CSS) also deserve
+mention, since they are responsible for so many of the items listed here.
+All errors, omissions, blatant mistakes and attitude problems are mine.
+If you notice any, tell me!
+
+<P>Many plans for upgrades and add-ons are archived at <A HREF="http://intrepid.mcs.kent.edu/~clisowsk/8bit.html">the
+BRiTiSH Underground Atari 8bit</A> Web page.
+<BR><A NAME="index"></A>
+<HR>
+<H3>
+INDEX</H3>
+
+<HR>
+<LI>
+<A HREF="#ram">RAM Upgrades listed by computer</A></LI>
+
+<LI>
+<A HREF="#video">Video</A></LI>
+
+<LI>
+<A HREF="#os">Operating Systems</A></LI>
+
+<LI>
+<A HREF="#sound">Sound</A></LI>
+
+<LI>
+<A HREF="#drives">Disk Drives</A></LI>
+
+<LI>
+<A HREF="#others">Other Neat Stuff</A></LI>
+
+<TABLE BORDER >
+<TR>
+<TD>Key to abbreviations</TD>
+</TR>
+
+<TR>
+<TD>ANL - Analog Magazine</TD>
+</TR>
+
+<TR>
+<TD>AC - Atari Classics Magazine</TD>
+</TR>
+
+<TR>
+<TD>ANT - Antic Magazine</TD>
+</TR>
+
+<TR>
+<TD>AIM - Atari Interface Magazine</TD>
+</TR>
+</TABLE>
+
+<HR>
+<H3>
+<A NAME="ram"></A>RAM Upgrades</H3>
+
+<HR>
+<LI>
+<A HREF="#ramgen">General</A></LI>
+
+<LI>
+<A HREF="#ram400">Atari 400</A></LI>
+
+<LI>
+<A HREF="#ram800">Atari 800</A></LI>
+
+<LI>
+<A HREF="#ram1200xl">Atari 1200xl</A></LI>
+
+<LI>
+<A HREF="#ram600xl">Atari 600xl</A></LI>
+
+<LI>
+<A HREF="#ram800xl">Atari 800xl</A></LI>
+
+<LI>
+<A HREF="#ram130xe">Atari 130xe</A>&nbsp;
+<HR></LI>
+
+<BR><A NAME="ramgen"></A>
+<LI>
+<B>General</B></LI>
+
+
+<P>The 6502 microprocessor at the heart of every Atari 8-bit has a sixteen
+bit wide address bus. What this means is that it can access up to 2^16
+memory locations. That's 65536 bytes. Some people, wanting more memory,
+came up with a variety of techniques to use more memory. Most were built
+around the idea of bank switching. Bank switching means that you swap chunks
+of memory around so that the CPU can see them when necessary. Most schemes
+use 16k banks, though 4k and 32k have also been tried.
+<BR><A NAME="ram400"></A>
+<LI>
+<B>Atari 400</B></LI>
+
+
+<P>The original Atari 400 had either 8k or 16k. Atari produced a board
+with 48k. Mosaic produced a 32k board, as well as a 64k board with 48k
+RAM plus 4 4k RAM banks. (ANL 13, IFC)
+<BR><A NAME="ram800"></A>
+<LI>
+<B>Atari 800</B></LI>
+
+
+<P>The Atari 800 came with three memory slots. Each slot could contain
+Atari 8k or 16k RAM boards. Mosaic produced 32k and 64k boards. Three 64k
+boards could be combined for 192k.
+
+<P>Axlon produced the 128k RAMdisk board. It banks 16k, using $CFFF as
+a control register. Banked memory appears from $4000 to $7FFF.
+
+<P>David Byrd created the "800 PLUS 288K UPGRADE" which rewired existing
+16k RAM boards, but required additional work to become fully Axlon compatible.
+A nasty sort of flame war erupted between David Byrd and Jay Torres of
+the Windhover Project over who invented the upgrade.
+
+<P><A HREF="magna256.html">Magna systems produced 256k</A>, 512k and 1M
+boards which followed the Axlon standard. (ANL 65, 68)
+<BR><A NAME="ram1200xl"></A>
+<LI>
+<B>Atari 1200xl</B></LI>
+
+
+<P>See 800xl.
+<BR><A NAME="ram600xl"></A>
+<LI>
+<B>Atari 600xl</B></LI>
+
+
+<P>As shipped, the Atari 600xl came with 16k RAM. Atari released the 1064
+memory module which expanded the 600xl to 64k. MPP, now Supra, produced
+the Microram 64k Memory Board (ANL 19, 28)
+
+<P>RC Systems produced three expansion modules for the 600xl, raising memory
+to 32k, 48k or 64k (ANL 26, 12)
+
+<P>Richard Gore produced the Yorky, a 256k board which plugs in to the
+PBI. It provides full compatibility with 130xe type banking. It is for
+use on 600xls upgraded internally to 64k, or on 800xls. (AC 3/2, 10)
+
+<P>The 600xl can be internally upgraded to 64k by replacing the two RAM
+chips, and adding selects for the two address lines.
+<BR><A NAME="ram800xl"></A>
+<LI>
+<B>Atari 800xl</B></LI>
+
+
+<P>The Atari 800xl came with 64k RAM internal. To access RAM hidden under
+the OS ROMs, the PIA chip was used (PORTB, used for STICK(2) and (3) on
+the original 800). Claus Bucholtz published plans for a 256k upgrade which
+banked 32k at a time using PORTB for control in Byte magazine. (Byte Sept
+85)
+
+<P>ICD released the RAMBO upgrade, providing 256k in 16k banks, using PORTB.
+Newell came out with the 256k XL, which would work on a 1200xl or 800xl,
+providing 256k total memory, . The two upgrades used different sequences
+to access their banks. (ANL 44, 115)
+
+<P>Charles Bucholtz updated his upgrade to use 16k banks after the release
+of the 130xe. Most of the 800xl upgrades can be made compatible with Antic
+banking. The only possible problem would be when Antic and the CPU are
+supposed to be using different memory banks.
+
+<P>The Yorky will also provide 256k on an 800xl (see the entry under 600xl).
+
+<P>Newell released 1Meg and 4Meg upgrades for the 800xl. These banked 16k
+as well, and required disabling internal BASIC to properly access the memory.
+
+<P>Fine Tooned Engineering, having bought the rights to ICD and Newell's
+products, is bringing out a third method in the Mars 8. Though not yet
+released, it will use SIMMs for 256k, 1Meg or 4Meg RAM.
+
+<P>The 800xl is arguably the most popular Atari 8-bit for upgrades, since
+most 800xls have socketed chips.
+<BR><A NAME="ram130xe"></A>
+<LI>
+<B>Atari 130xe</B></LI>
+
+
+<P>The 130xe was the first "official" method of banking memory. It too
+used PORTB, but with an added twist: ANTIC and the CPU could access different
+banks. This provided headaches for some owners of "older" 800xl upgrades,
+but few programs took advantage of this feature (SpartaDos Wedge and VideoBlitz
+demo only). Upgrades for the 130xe include replacing one set of 64k chips
+with 256k chips, raising the RAM to 320k. Adding another 256k for 576k
+total has also been done. These were designed by Scott Peterson, as was
+a 1088k upgrade.
+
+<P>
+<HR>
+<H3>
+<A NAME="video"></A>Video</H3>
+
+<HR>
+<LI>
+<A HREF="#vidug">Upgrades</A></LI>
+
+<LI>
+<A HREF="#vid80">80 column devices</A></LI>
+
+<LI>
+<A HREF="#vidnp">Nir-Pal</A></LI>
+
+<LI>
+<A HREF="#vidgen">Genlock</A></LI>
+
+<LI>
+<A HREF="#vidce">Computer Eyes</A></LI>
+
+<LI>
+<A HREF="#vides">Easy Scan</A>&nbsp;
+<HR></LI>
+
+<BR><A NAME="vidug"></A>
+<LI>
+<B>Upgrades</B></LI>
+
+
+<P>The most common video upgrades are the SuperVideo series, described
+in AC 2/6. Plans were provided for the 600xl, 800xl, 1200xl and 130xe.
+The SuperVideo upgrade provides the forgotten chroma signal on the monitor
+port. It corrects a number of errors in the parts in the Atari video circuit,
+resulting in a clearer image, particularly on monitors.
+
+<P>Providing TTL output was also covered in AC 2/6. Bob Woolley provided
+plans for the circuit, as well as instructions for getting TTL output from
+an XEP80. Be warned that the output is not in the standard Atari colours;
+on a CGA type screen, the sixteen possible shades are translated into eight
+colours.
+<BR><A NAME="vid80"></A>
+<LI>
+<B>80 column devices</B></LI>
+
+
+<P>Since the 400/800 were released in 1979, people have been clamouring
+for better text displays than the default 40x24. Two products were released
+for the 800: The Austin-Franklin 80 column board and the Bit 3 80 column
+board were both for use in the Atari 800. They replaced the third memory
+module. The Austin-Franklin board came with a "Right Cartridge" which provided
+the drivers. Removing the cartridge disabled the board. Some software would
+not run with an 80-column board installed.
+
+<P>Ace 80/80xl was a cartridge released which provided 80 columns by using
+bitmapped graphics on an 80 column screen. A similar technique was used
+in the Newell Omniview, an add-on for their Omnimon.
+
+<P>Atari's entry into the 80 column field was the much maligned XEP80.
+For maximum compatibility, the XEP80 attaches to the computer via a joystick
+port. It includes three character sets, 8k internally, and a parallel printer
+port. The software provided by Atari supports a 320x200 graphics mode.
+This mode only supports direct bit images. Hacks have been released which
+hook the XEP80 on via the parallel bus.
+
+<P>Recent terminal programs have added two other display techniques. ICE-T
+uses a graphics 8 screen and fine scrolling for its display. FlickerTerm
+uses two graphics 0 screens a half-character apart, each displayed during
+alternate vertical blanks.
+
+<P>In a series of articles in the SLCC newsletter, Bob Woolley gave hardware
+plans for installing an 80-column TTL output inside an XL.
+<BR><A NAME="vidnp"></A>
+<LI>
+<B>Nir-PAL</B></LI>
+
+
+<P>With the decline of Atari in North America, more and more quality software
+was migrating across the Atlantic which was all but unusable. Why? European
+Ataris are built for the PAL broadcast standard; North American Ataris
+use NTSC. Not knowing it was impossible, Nir Dary upgraded an NTSC Atari
+to run PAL software properly. Swap out the NTSC Antic chip for a PAL Antic,
+do a minor modification to the OS, and voila! Your Atari is ready to join
+the EU. (Better stop before the abbreviation police arrive!)
+<BR><A NAME="vidgen"></A>
+<LI>
+<B>Genlock</B></LI>
+
+
+<P>In October and November of 1991, Michael St Pierre published articles
+in the SLCC Journal describing plans for a monochrome Genlock. A genlock
+is a system to synchronize live video with a computer image. Graphics can
+be overlaid, faded in or out, or used for titling.
+
+<P>In 1994, Michael announced Prism Studio, a full colour genlock. It is
+sold by Mytek.
+<BR><A NAME="vidce"></A>
+<LI>
+<B>Computer Eyes</B></LI>
+
+
+<P>Computer Eyes was a video capture system which plugged into two joystick
+ports. It could render images in a variety of modes. It required a composite
+video source. (ANL 35, 53)
+<BR><A NAME="vides"></A>
+<LI>
+<B>Easy Scan</B></LI>
+
+
+<P>Take a cartridge, add a fibre-optic cable, and hook it onto a printer,
+and you've got Easy-Scan, an image scanner for the Atari 8-bit. Innovative
+Concepts produced this item. (ANT 7/6, 43)
+<BR>
+<HR>
+<H3>
+<A NAME="os"></A>Operating Systems</H3>
+
+<HR>
+
+<P>The original 400/800 had a 10k ROM OS. There was nothing in memory from
+$C000-CFFF. The later xl/xe models all had 16k OSes. As an added bonus,
+the xl/xe OS was in a 28 pin ROM that was pin compatible with a 27128 EPROM.
+What does this mean to the layman? With a little knowledge of 6502 assembly
+and an EPROM burner, you can write your own operating system (or at least
+change Atari's).
+<TABLE BORDER >
+<TR>
+<TH COLSPAN="2">A Summary of Atari Operating Systems</TH>
+</TR>
+
+<TR>
+<TD><B>Computer</B></TD>
+
+<TD><B>OS</B></TD>
+</TR>
+
+<TR>
+<TD>400/800</TD>
+
+<TD>
+<LI>
+Rev A. No self test; Memo Pad mode&nbsp;</LI>
+
+<LI>
+Rev B. Fixes several bugs in Rev A</LI>
+</TD>
+</TR>
+
+<TR>
+<TD>1200xl</TD>
+
+<TD>
+<LI>
+XL OS. Some incompatibilities with 400/800 OS</LI>
+</TD>
+</TR>
+
+<TR>
+<TD>600xl/800xl</TD>
+
+<TD>
+<LI>
+Revised XL OS. Includes parallel bus handlers. Self test mode for 1200xl
+keyboard layoutInternal BASIC.</LI>
+</TD>
+</TR>
+
+<TR>
+<TD>65xe/130xe</TD>
+
+<TD>
+<LI>
+Revised XL OS. (as above)&nbsp;</LI>
+
+<LI>
+Small number of 130xes released with corrected self test for expanded RAM,
+XE keyboard</LI>
+</TD>
+</TR>
+
+<TR>
+<TD>xegs</TD>
+
+<TD>
+<LI>
+Modified XL OS. Self-test mode changed. Internal Missile Command and BASIC</LI>
+</TD>
+</TR>
+</TABLE>
+<B>Operating System upgrades</B>
+
+<P><U>UltraSpeed + OS</U>: from CSS. Supports high speed disk communication.
+Drives 1 through 9. Any RAM upgrade. Includes three modes: standard XL/XE
+OS; 400/800 OS; UltraSpeed+ OS. For XL/XE systems.
+
+<P><U>Omnimon</U>: from Newell. M/l monitor for 400/800. Installs into
+$C000 page of memory, otherwise unused.
+
+<P><U>RAMROD OS</U>: from Newell. Replacement for 400/800. Includes accelerated
+floating point math package.
+
+<P><U>RAMROD XL</U>: from Newell. OS speed-up routines, fast math, and
+Omnimon. Includes option for second OS.
+
+<P><U>Omniview</U>: from Newell. Adds 80 column display, using Graphics
+8 3-bit wide characters. Add-on for RAMROD boards, 400/800 and xl/xe versions.
+
+<P><U>XL Boss</U>: from Allen Macroware. OS replacement for XL model computers.
+Includes m/l monitor. 400/800 OS compatible.
+
+<P><U>TurBoss</U>: available from KP and Best. Fast math and fast screen
+routines. For XL/XE computers.
+
+<P><U>Turbo 816</U>: Chuck Steinman at Dataque released a modified OS that
+used the 16 bit capability of the 65816 CPU upgrade he sold. For XL/XE
+computers.
+
+<P><U>DP OS Version 4</U>: my own effort (don't ask about versions 1 through
+3!). Fast floating point math, fast screen display, graphics 0 screen dump,
+fast keyboard repeat. For XL/XE computers.
+
+<P><U>SmartOS</U>: This is a hardware upgrade that installs a battery-backed
+RAM chip into your XL/XE. This lets you fool around with changing the OS
+and not have to burn new EPROMs constantly. Presented in AC 4/3.
+
+<P><U>Warp+ OS</U>: From Steven Tucker of APE fame. High speed I/O, 4 OS
+versions. Plug in replacement for XL/XE computers. Full details at <A HREF="http://www.nacs.net/~classics">the
+APE homepage</A>.
+<BR>
+<HR>
+<H3>
+<A NAME="sound"></A>Sound</H3>
+
+<HR>
+<LI>
+<A HREF="#souvm">Voice Master</A></LI>
+
+<LI>
+<A HREF="#soupar">Parrot</A></LI>
+
+<LI>
+<A HREF="#soumou">Sound Mouse</A></LI>
+
+<LI>
+<A HREF="#sougum">Gumby Stereo</A></LI>
+
+<LI>
+<A HREF="#soupop">POPS</A></LI>
+
+<LI>
+<A HREF="#soumid">MIDI Mate</A></LI>
+
+<LI>
+<A HREF="#sousio">SIO-2-MIDI</A></LI>
+
+<LI>
+<A HREF="#soummx">MIDI-Max</A>&nbsp;
+<HR></LI>
+
+<BR><A NAME="souvm"></A>
+<LI>
+<B>Voice Master</B></LI>
+
+
+<P>Covox sold the Voice Master and Voice Master junior. These would capture
+and record speech. Bundled software attempted recognition of commands,
+with limited success. (ANL 47, 44)
+<BR><A NAME="soupar"></A>
+<LI>
+<B>Parrot</B></LI>
+
+
+<P>The Parrot was a sound digitizer sold by Alpha Systems. Resembling a
+paddle, the device had phono jack for input. Antic provided plans for a
+similar project, called the Antic Sampling Processor. (ANT 8/8, 11)
+<BR><A NAME="soumou"></A>
+<LI>
+<B>SoundMouse</B></LI>
+
+
+<P>Among the more esoteric products ever released was the SoundMouse, which
+interpreted sound to provide a reading on a paddle register. It did not
+act as a digitizer, like the Voice Master and Parrot did. Bundled software
+made the lava lamp look mainstream in its appeal. No commercial applications
+taking advantage of this unique device were released.
+<BR><A NAME="sougum"></A>
+<LI>
+<B>Gumby</B></LI>
+
+
+<P>Chuck Steinman of DataQue created this set of plans for building stereo
+sound by installing a second Pokey chip (Pokey and Gumby, get it?). Once
+installed, the second channel has all its addresses 16 bytes higher in
+memory ($D210 - $D21F). A small number of demos have been released in stereo.
+<BR><A NAME="soupop"></A>
+<LI>
+<B>POPS</B></LI>
+
+
+<P>Lee Brilliant, ANALOG's resident hardware guru, came up with this system
+for stereo sound, running it off the clock line on the SIO bus. As with
+Gumby, it requires customized software to use. (ANL ???)
+<BR><A NAME="soumid"></A>
+<LI>
+<B>MIDIMATE</B></LI>
+
+
+<P>MIDI stands for Musical Instrument Digital Interface. It is a system
+for computers to record, replay and control musical instruments. MIDIMATE,
+when combined with MidiTrack software, permits an Atari 8-bit to take control.
+Why buy an ST? (ANL 33:26)
+<BR><A NAME="sousio"></A>
+<LI>
+<B>SIO-2-MIDI Interface</B></LI>
+
+
+<P>This is a set of plans to make your own MIDI interface. Limited software
+is included.
+<BR><A NAME="soummx"></A>
+<LI>
+<B>MidiMax</B></LI>
+
+
+<P>There was also a midi interface made by Wizztronics, called the MidiMax.
+Unlike the MidiMate, it had not jacks for external sync, but it did have
+an additional SIO port so it could be chained. It contained the same optoisolators
+generally used in midi keyboards, and the case was riveted steel -- real
+rugged. It came with Lee Actor's MMS software, some sample songs, a program
+to convert AMS to MMS files, and a couple of six foot midi cables. Gary
+Levenberg wrote the manual for the software. In addition, Wizztronics sold
+a dozen or so double-sided disks of MMS songs that had been converted from
+AMS.
+<BR>
+<HR>
+<H3>
+<A NAME="drives"></A>Disk Drives</H3>
+
+<HR>
+<LI>
+<A HREF="#ddhap">Happy Computing</A></LI>
+
+<LI>
+<A HREF="#ddusd">US Doubler</A></LI>
+
+<LI>
+<A HREF="#ddsa">Super Archiver</A></LI>
+
+<LI>
+<A HREF="#ddbw">Bit Writer</A></LI>
+
+<LI>
+<A HREF="#ddxfu">XF551 Update</A></LI>
+
+<LI>
+<A HREF="#ddxf3">XF Single and Dual Drive Upgrades</A></LI>
+
+<LI>
+<A HREF="#ddxfw">Bob Woolley's 3 1/2" XF551 Upgrade</A></LI>
+
+<LI>
+<A HREF="#ddrom">512K ROMDisk</A></LI>
+
+<LI>
+<A HREF="#ddamd">Amdek 3" Drive</A></LI>
+
+<LI>
+<A HREF="#ddmio">MIO</A></LI>
+
+<LI>
+<A HREF="#ddmio2">MIO II</A></LI>
+
+<LI>
+<A HREF="#ddbb">Black Box</A></LI>
+
+<LI>
+<A HREF="#ddfb">Floppy Board</A></LI>
+
+<LI>
+<A HREF="#ddkp">Supra/KP Hard Disk Interface</A></LI>
+
+<LI>
+<A HREF="#ddcor">Corvus Hard Disk System</A></LI>
+
+<LI>
+<A HREF="#ddihd">IDE Hard Drive Interface v1.0</A></LI>
+
+<LI>
+<A HREF="#ddbwi">Bob Woolley's IDE Interface</A></LI>
+
+<LI>
+<A HREF="#ddgii">German IDE Interface</A></LI>
+
+<LI>
+<A HREF="#ddatr">ATR-8000</A></LI>
+
+<LI>
+<A HREF="#ddcc">Critical Connection</A></LI>
+
+<LI>
+<A HREF="#dds2p">SIO-2-PC</A></LI>
+
+<LI>
+<A HREF="#ddape">APE</A>&nbsp;
+<HR></LI>
+
+<BR><A NAME="ddhap"></A>
+<LI>
+<B>Happy Computing</B></LI>
+
+
+<P>Atari users were notorious for their software piracy. The Happy Drive
+(originally for the 810, later for the 1050) contributed to that reputation.
+It was a modified 810, which could duplicate copy protected software. Thus
+began a war between crackers and software houses. It also included a full
+track buffer, which sped up operations and reduced the painful grinding
+sound of the 810 at work. The 1050 version also made the 1050 into a true
+double-density drive; version 7.0 would let the modified 1050 read and
+write 180k MS-DOS disks.
+<BR><A NAME="ddusd"></A>
+<LI>
+<B>US Doubler</B></LI>
+
+
+<P>The Atari 1050 drive was brain-damaged from the very beginning. Rather
+than add a few dollars worth of parts to make a true double-density drive,
+Atari invented their own format, called "dual-density", which stored 130k
+on a disk. ICD produced the US Doubler, a hardware add-on that gave the
+1050 true double-density. As an added bonus, it also included UltraSpeed,
+which made "the normal beep-beep of Pokey sound like staccato machine gun
+fire" according to one review. These drives, in order to use warp-speed,
+had to have disks formatted in a special "Ultra-speed" sector skew. Unlike
+the Happy which would buffer the whole track and warp it to the computer,
+the USDoubler had limited ram and relied on the sector to be accessible
+right when it needs to be read. Using a ultraskew disk in non-US mode was
+REALLY SLOW :) A variant was produced which added 4 to the drive number,
+permitting drives to be addressed as D5:-D8:.
+<BR><A NAME="ddsa"></A>
+<LI>
+<B>The Super Archiver</B></LI>
+
+
+<P>This was CSS's entry into the 1050 DD sweepstakes. It included a high-end
+crackers' toolbox, letting you edit sectors, create phantom sectors and
+other fun stuff.
+<BR><A NAME="ddbw"></A>
+<LI>
+<B>The Bit Writer</B></LI>
+
+
+<P>Eventually, software companies came up with a new copy-protection technique:
+use 34 sector tracks and repeating sector numbers, so you get a "different"
+sector #7 depending on where the disk is when you ask for it. CSS to the
+cracker's rescue again! The Bit-Writer reads in tracks from the disk and
+stores the bit pattern. This can then be re-written. Ironically, the software
+disk that came with this upgrade to the Super Archiver was created on a
+non-Atari machine, so users couldn't copy it.
+<BR><A NAME="ddxfu"></A>
+<LI>
+<B>The XF551 Update</B></LI>
+
+
+<P>Atari's last disk drive for the 8-bit wasn't quite perfect. This replacement
+OS ROM from CSS fixed a number of bugs (can't switch back and forth between
+SD and DD properly), and sped up the drive. A warning on upgrading the
+XF551: The main PC board is lousy. It's REALLY easy to break traces - even
+unplugging SIO cables can do it. BE CAREFUL!
+<BR><A NAME="ddxf3"></A>
+<LI>
+<B>The XF Single and Dual Drive Upgrades</B></LI>
+
+
+<P>CSS introduced these for the XF551. You could either replace the 360k
+mechanism with a 720k one, or add a 720k to the 360k. Software included
+let you read and write IBM disks.
+<BR><A NAME="ddxfw"></A>
+<LI>
+<B>Bob Woolley's 3 1/2" XF551 Upgrade</B></LI>
+
+
+<P>Once again, someone couldn't leave well enough alone, ripped apart Atari
+hardware, got bored with merely improving the OS ROM, and swapped out the
+360k 5 1/4" mechanism for a 720k 3 1/2" one. This was sold by an outfit
+called Innovative Concepts.
+<BR><A NAME="ddrom"></A>
+<LI>
+<B>512k ROMDisk</B></LI>
+
+
+<P>From Klaus Peters in Germany, this system provides a solid-state alternative
+to floppy and hard disks. Using up to 8 27512 EPROMs, this setup provides
+high-speed PBI access to commonly used software
+<BR><A NAME="ddamd"></A>
+<LI>
+<B>Amdek 3" drive</B></LI>
+
+
+<P>Amdek released a new standard for disks: a rigid 3" plastic disk that
+could store a whopping 360k (but you'd have to flip the disk for that).
+It never caught on.
+<BR><A NAME="ddmio"></A>
+<LI>
+<B>MIO</B></LI>
+
+
+<P>ICD manufactured this wonderboard in 1987. Connected to the PBI or ECI,
+it provided either 256k or 1Meg of RAM, an RS232 port, a parallel printer
+port and a SCSI hard drive port. The RAM can be configured as a RAMdisk
+or printer buffer, or via software as a hard disk cache. To connect it
+to a 130XE ECI required a special adapter that would convert the 130xe's
+cartridge/ECI to an 800XL compatible PBI. The little board had two cartridge
+slots (the rear of the two works for some cartrige types only, like Rtime
+8) This looked better than having a tower of stackable cartriges coming
+out of your 800XL! (Spartados X, Rtime8, and Action all plugged on top
+of each other is rather obtrusive on an 800XL :)
+<BR><A NAME="ddmio2"></A>
+<LI>
+<B>MIO II</B></LI>
+
+
+<P>Announced, sold but never delivered by Fine Tooned Engineering, this
+PBI/ECI board will provide an interface and power supply for an IDE hard
+disk. It may also include extended memory support for CPU upgraded computers,
+as well as a parallel port. It was demonstrated at the TAF show in 1995.
+<BR><A NAME="ddbb"></A>
+<LI>
+<B>Black Box</B></LI>
+
+
+<P>CSS manufactures the Black Box, a PBI/ECI device that offers an optional
+64k printer buffer. Its main attractions are its m/l monitor, 19200 baud
+RS232 port, parallel port, and hard disk interface. The parallel and serial
+ports do not use standard DB9 or DB25 connectors; custom cables are required.
+<BR><A NAME="ddfb"></A>
+<LI>
+<B>Floppy Board</B></LI>
+
+
+<P>This is an add-on to the Black Box, also from CSS. It permits standard
+floppy drives, 360k, 720k, 1.2M and 1.44M, to be attached to the Black
+Box. Since they are connected to the PBI, these drives operate extremely
+quickly. Software included lets you read and write to MS-DOS format disks.
+<BR><A NAME="ddkp"></A>
+<LI>
+<B>Supra/KP Hard Disk Interface</B></LI>
+
+
+<P>Supra released one of the first hard drives for the 800xl. It hooked
+up via the PBI. KP bought the rights to the interface from Supra.
+<BR><A NAME="ddcor"></A>
+<LI>
+<B><A HREF="corvus.html">Corvus Hard Disk System</A></B></LI>
+
+
+<P>The earliest hard disk interface, the Corvus system hooked up to a 400/800
+via joystick ports 3 and 4. A custom DOS would be booted from a floppy
+disk to permit the computer to access the hard disk, which was divided
+into 720 sector partitions.
+<BR><A NAME="ddihd"></A>
+<LI>
+<B>IDE Hard Drive Interface v1.0</B></LI>
+
+
+<P>New from Poland, this promises to let your XL/XE take control of new
+IDE hard disks. Its design will permit future systems to break the 16 megabyte
+boundary.<A HREF="mailto: CONRADUS@plearn.edu.pl">Email</A> for more info.
+<BR><A NAME="ddbwi"></A>
+<LI>
+<B>Bob Woolley's IDE Interface</B></LI>
+
+
+<P>Some guys are constantly hacking hardware. And then there's Bob. Memory
+upgrades? PBIs for 1200xls? 80 column devices? Battery-backed RAM operating
+system? Somewhere, after all those, he found the time to interface the
+xl/xe parallel bus with an IDE hard drive. Plans to be published in the
+next Atari Classics magazine.
+<BR><A NAME="ddgii"></A>
+<LI>
+<B>German IDE Interface</B></LI>
+
+
+<P>And now there is a new IDE-Interface available from germany. ~DM 120,
++ shipping. Works fine with Mitsumi CD-ROMs. Get in contact with the developers
+by <A HREF="mailto:stefan_birmanns@ac.cybercity.de, matz@kawo2.rwth-aachen.de">Email</A>.
+<BR><A NAME="ddatr"></A>
+<LI>
+<B><A HREF="atr8000.html">ATR-8000</A></B></LI>
+
+
+<P>SWP Computer Products made this original wonder-widget: Serial and parallel
+ports, standard floppy interface, optional hard disk interface and even
+CPM and MS-DOS add-ons.
+<BR><A NAME="ddcc"></A>
+<LI>
+<B>Critical Connection</B></LI>
+
+
+<P>A long time ago, in a galaxy far, far away, was a mystic operating system
+known as CPM. A company named USS Enterprises produced the Critical Connection,
+a device to permit a CPM computer to emulate disk drives for the Atari.
+It was a cable, plus software for the CPM end of the system. The CPM system
+could also act as a printer buffer, and the CPM keyboard could be used
+in the place of the Atari keyboard. (ANL 39,103)
+<BR><A NAME="dds2p"></A>
+<LI>
+<B>SIO2PC</B></LI>
+
+
+<P>With the demise of CPM and the rise of the IMI cartel (IBM-Microsoft-Intel)
+a new system similar to the Critical Connection arose. Nick Kennedy developed
+the SIO2PC hardware and software, which permits any PC with a serial port
+to act as up to four disk drives for an Atari. It can also act as a printer
+buffer.
+<BR><A NAME="ddape"></A>
+<LI>
+<B>APE</B></LI>
+
+
+<P>Steven J. Tucker took SIO2PC one better and wrote new software. <A HREF="http://www.nacs.net/~classics">The
+Atari Peripheral Emulator</A> (APE for short) lets your PC act as high-speed
+drives. It lets you print to your PC printer. And it lets you use your
+PC modem on the 8-bit. It also permits, with a special cable, the creation
+of backups of copy-protected disks.
+<BR>
+<HR>
+<H3>
+<A NAME="others"></A>Other Neat Stuff</H3>
+
+<HR>
+<LI>
+<A HREF="#ozuc">Zucchini</A></LI>
+
+<LI>
+<A HREF="#opia2">PIA2</A></LI>
+
+<LI>
+<A HREF="#owima">WIMA Radio, Lima, Ohio</A></LI>
+
+<LI>
+<A HREF="#ocut">Comp-U-Temp</A></LI>
+
+<LI>
+<A HREF="#oatlab">Atari Lab</A></LI>
+
+<LI>
+<A HREF="#ot816">Turbo 816</A></LI>
+
+<LI>
+<A HREF="#os16">Sweet 16</A></LI>
+
+<LI>
+<A HREF="#obw816">Bob Woolley's 65816 Upgrade</A></LI>
+
+<LI>
+<A HREF="#omn">MicroNet</A></LI>
+
+<LI>
+<A HREF="#omp">MultiPlexer</A></LI>
+
+<LI>
+<A HREF="#ogl2">GameLink II</A></LI>
+
+<LI>
+<A HREF="#ojn">J-Net</A></LI>
+
+<LI>
+<A HREF="#otk">Transkey</A></LI>
+
+<LI>
+<A HREF="#obk">B-Keys</A></LI>
+
+<LI>
+<A HREF="#oxet">XE-Touch</A></LI>
+
+<LI>
+<A HREF="#ofr">Freezer</A></LI>
+
+<LI>
+<A HREF="#ort8">R-Time 8</A></LI>
+
+<LI>
+<A HREF="#oucc">???? Clock Cartridge</A></LI>
+
+<LI>
+<A HREF="#om8">Mars-8</A></LI>
+
+<LI>
+<A HREF="#o850">Atari 850</A></LI>
+
+<LI>
+<A HREF="#oprc">P:R: Connection</A></LI>
+
+<LI>
+<A HREF="#ossi">Siders' Serial Interface</A></LI>
+
+<LI>
+<A HREF="#o1090">Atari 1090xl Interface box</A></LI>
+
+<LI>
+<A HREF="#ompp">MPP 1000 Modem</A></LI>
+
+<LI>
+<A HREF="#ovb2">Voice Box II</A></LI>
+
+<LI>
+<A HREF="#or128">R/128 RAMdisk Printer Buffer Spooler</A></LI>
+
+<LI>
+<A HREF="#on18">N1858-32</A></LI>
+
+<LI>
+<A HREF="#oosc">Oscar Model 1</A></LI>
+
+<LI>
+<A HREF="#opbi">1200xl PBI</A></LI>
+
+<LI>
+<A HREF="#oaya">Arm Your Atari</A>&nbsp;
+<HR></LI>
+
+<BR><A NAME="ozuc"></A>
+<LI>
+<B>Zucchini</B></LI>
+
+
+<P>In ANL 59,60 and 62, Dr. Lee S. Brilliant provided plans and software
+to turn a surplus Atari into a printer buffer for another Atari. He called
+it "The Atari Zucchini".
+
+<P>The Printer Buffer Routine (PBR) and Disk Emulator Routine (DER) came
+from B.L. Enterprises. They were cartridges and cables which worked in
+a similar fashion to the Zucchini. The PBR provided a buffer, while the
+DER emulated a disk drive on the remote computer. Stock XLs gave 403 free
+sectors; a 130xe would give 914. (ANL 65, 67)
+<BR><A NAME="opia2"></A>
+<LI>
+<B>PIA2</B></LI>
+
+
+<P>With the use of PORTB for RAM banking, hackers were looking for more
+parallel outputs. This plan, for adding one more PIA chip, includes notes
+for adding two more. It was intended as a means to control large RAM upgrades.
+(AIM 3/2, 16)
+<BR><A NAME="owima"></A>
+<LI>
+<B>WIMA Radio, Lima, Ohio</B></LI>
+
+
+<P>This radio station, when automating 6 broadcast hours daily, created
+a hardware and software package built around a 130xe for control. Control
+was via joystick ports and tone decoders. (ANT 8/7, 30)
+<BR><A NAME="ocut"></A>
+<LI>
+<B>Comp-U-Temp</B></LI>
+
+
+<P>This provided 8 or 16 channels and 2 or 4 sensors. It would monitor
+the temperature, with options to log results to disk or printer, or to
+sound an alarm if the temperature strayed out of set boundaries. The software
+was described as "cumbersome". (ANL 48, 35)
+<BR><A NAME="oatlab"></A>
+<LI>
+<B><A HREF="atarilab.html">Atari Lab</A></B></LI>
+
+
+<P>During one of their periodic restructurings, Atari decided to sell their
+computers as educational. Thus, the Atari Lab series was produced. The
+two kits released provided experimenters with tools to measure light and
+temperature, hooked in by the joystick ports. Of course, the next restructuring
+left this an orphan product.
+<BR><A NAME="ot816"></A>
+<LI>
+<B>Turbo 816</B></LI>
+
+
+<P>Released by DataQue, this provided a replacement OS as well as a replacement
+for the 6502 CPU. A 65816 was substituted, providing new opcodes and a
+24 bit address space (16Megs vs 64k with the 6502).
+<BR><A NAME="os16"></A>
+<LI>
+<B>Sweet 16</B></LI>
+
+
+<P>Released by Fine Tooned Engineering, this provides a 65816 CPU to replace
+the 6502. Documentation and software were supposed to follow; I bought
+#2 or #3 and am still waiting...
+<BR><A NAME="obw816"></A>
+<LI>
+<B>Bob Woolley's 65816 Upgrade</B></LI>
+
+
+<P>Notice one name popping up again and again? In AC 3/3, Bob began explaining
+how to add a 14 mHz 65816 to your xl. That's right, parallel processing.
+Complete plans were never published.
+<BR><A NAME="omn"></A>
+<LI>
+<B>MicroNet</B></LI>
+
+
+<P>Supra provided the Atari community with its first networking product.
+MicroNet provides nine SIO connectors. Eight are for computers. The ninth
+goes to whatever peripherals are to be connected. The system served to
+isolate the computers electrically. It did no software checking, meaning
+that two or more users attempting to print or save at the same time could
+trash each others output. (ANL 51, 76)
+<BR><A NAME="omp"></A>
+<LI>
+<B>MultiPlexer</B></LI>
+
+
+<P>CSS provided a better way to network. The Multiplexer system requires
+one host system which has all the disk drives and printers for the network.
+The slaves are connected via the cartridge port to the host, and all their
+disk and printer i/o is rerouted to the host. All the systems involved
+require their OS replaced with a special multiplexer OS. The only thing
+not shared by the network is the R: device, allowing the system to be used
+for running a multi-line BBS with BBS Express! Professional BBS software
+from K-Products, which is still actively supported. This was possible with
+a special version of 4.0, and is built into 5.0.
+<BR><A NAME="ogl2"></A>
+<LI>
+<B>GameLink II</B></LI>
+
+
+<P>The most recent innovation in networking the 8-bit Atari, GameLink II
+permits up to 8 machines to share information for interactive games. Currently,
+only the Maze of Agdagon supports this system. DataQue sells cables and
+the game.
+<BR><A NAME="ojn"></A>
+<LI>
+<B>J-Net</B></LI>
+
+
+<P>Released to on-line services and possibly to the Umich archive as well,
+this set of programs was designed to interface computers by the joystick
+port, using 3 bi-directional data lines and two control lines.
+<BR><A NAME="otk"></A>
+<LI>
+<B>Transkey</B></LI>
+
+
+<P>Even the most dedicated of Atari enthusiasts hates the xe keyboard,
+with its mushy feel. Michael St Pierre created an interface for a PC keyboard.
+Hook it in to your xl/xe, and plug in your PC keyboard. It includes programmable
+macro keys and a number of other features. Be warned that the PC keyboard
+isn't mapped the same as the Atari; for example, on the Atari SHIFT-2 gives
+a ", while on the PC it gives a @. Available from Dataque.
+<BR><A NAME="obk"></A>
+<LI>
+<B>B-Keys</B></LI>
+
+
+<P>This keyboard was a full stroke replacement for the Atari 400 membrane
+keyboard, but they were very low keys....the touch was OK, but not excellent.
+There were better keyboard replacements for the 400, but NONE of them fit
+as well, or looked as if they were part of the orginal Atari 400.
+<BR><A NAME="oxet"></A>
+<LI>
+<B>XE-Touch</B></LI>
+
+
+<P>The XE computers have arguably the worst keyboards ever made. To firm
+up the squishy keys, Best Electronics sells this set of silicone switches.
+It only works on one of the two xe keyboard models, though.
+<BR><A NAME="ofr"></A>
+<LI>
+<B>Freezer</B></LI>
+
+
+<P>Huge RAM upgrades are great, but when your system crashes you can say
+goodbye to all the info in your RAMdisk. Bob Woolley made this mod to add
+a hard reset, by fooling the system into thinking that a cart had been
+pulled out of the system. Your system reboots, but your RAMdisk contents
+are preserved.
+<BR><A NAME="ort8"></A>
+<LI>
+<B>R-Time 8</B></LI>
+
+
+<P>This is a clock cartridge for any Atari from Fine Tooned Engineering.
+It includes a pass-through connector so that any other cartridge can be
+plugged in as well. Though primarily intended for SpartaDos, software for
+other DOSes is included.
+<BR><A NAME="oucc"></A>
+<LI>
+<B>???? Clock Cartridge</B></LI>
+
+
+<P>Announced 'way back in Atari Classics 1/1, this product was intended
+as a replacement for the R-Time 8 from Best Electronics. Software difficulties
+have kept it from being released.
+<BR><A NAME="om8"></A>
+<LI>
+<B>Mars-8</B></LI>
+
+
+<P>This was under development from Fine Tooned Engineering. For 800xls
+only. Memory expansion of 256k, 1M or 4M using 30 pin SIMMs. Install internally
+Action, Basic XL/XE, MAC/65, SpartaDos X, R-Time 8. Shown at the TAF show
+in 1995, it was never commercially released.
+<BR><A NAME="o850"></A>
+<LI>
+<B><A HREF="atari850.html">Atari 850</A></B></LI>
+
+
+<P>This device hooks into the SIO line, and provides 4 9-pin RS232 ports
+and a 15-pin parallel port. The RS232 ports are NOT IBM PC standard. The
+MIO and PR Connection use the same pinout.
+<BR><A NAME="oprc"></A>
+<LI>
+<B>P:R: Connection</B></LI>
+
+
+<P>This device plugs into the SIO line, and provides 2 9-pin RS232 ports
+and a 15-pin parallel port. It is powered by the SIO line. The Atari 1200xl
+requires an internal modification to work with this device, or with the
+Atari XM301 300 baud modem.
+<BR><A NAME="ossi"></A>
+<LI>
+<B>Siders' Serial Interface</B></LI>
+
+
+<P>With 850s and P:R: Connections becoming increasingly rare, Kenneth Siders
+released plans to build a high-speed serial interface using only 2 ICs.
+<BR><A NAME="o1090"></A>
+<LI>
+<B><A HREF="1090xl.html">Atari 1090XL Interface Box</A></B></LI>
+
+
+<P>Ever look in the back of an Apple II or an IBM PC, and envy the expansion
+cards? Atari was planning to release a similar expansion box. The full
+specs were written up, and prototypes were sent out to hardware developers.
+As usual, Atari took this great idea, buried it, and forgot about it. Add
+on cards included CPM and 64k RAM. These are EXTREMELY rare; I've only
+ever seen two for sale. Definitely collectors pieces.
+
+<P>&nbsp;
+<BR><A NAME="ompp"></A>
+<LI>
+<B>MPP 1000 Modem</B></LI>
+
+
+<P>The joystick port is a parallel port. The SIO port is a serial port.
+So where would you hook up a serial modem? MPP (now Supra) plugged a 300
+baud modem into the joystick port. Running at 300 baud, with software that
+couldn't d/l files longer than 32k (an Xmodem bug), this is what got me
+started in the on-line world, and what got Supra started in the modem business.
+Wonder if I could trade in my old 300AT for a new 33.6k?
+<BR><A NAME="ovb2"></A>
+<LI>
+<B>Voice Box II</B></LI>
+
+
+<P>Manufactured by the ALIEN Group, this speech synthesizer even made it
+into TIME Magazine in their "Machine of the Year" issue in 1982. Plugging
+into the SIO line, this device would produce speech of the traditional
+computer variety.
+<BR><A NAME="or128"></A>
+<LI>
+<B>R/128 RAMdisk Printer Buffer Spooler</B></LI>
+
+
+<P>Protronics of California announced this 128k RAMdisk/printer buffer
+which interfaced via the joystick ports, offering it as a replacement for
+the 850. A 512k upgrade was promised. (ANT 2/8, 106)
+<BR><A NAME="on18"></A>
+<LI>
+<B>N1858-32</B></LI>
+
+
+<P>Newell Industries announced this 850 replacement in 1983. It offered
+two serial and one parallel port, along with an expandable 8k printer buffer.
+(ANT 2/8, 106)
+<BR><A NAME="oosc"></A>
+<LI>
+<B>Oscar Model 1</B></LI>
+
+
+<P>This bar-code scanner was from the Databar Corp. The intent was to permit
+the speedy entry of computer programs which would be encoded in magazines.
+(ANT 2/8, 107)
+<BR><A NAME="opbi"></A>
+<LI>
+<B><A HREF="pbi1200.txt">1200XL PBI</A></B></LI>
+
+
+<P>Hackers love the 1200xl for two reasons: because of all the space available
+within the case, and because of the great keyboard. Bob Woolley came up
+with this set of plans for adding a parallel bus interface to the 1200xl.
+<BR><A NAME="oaya"></A>
+<LI>
+<B>Arm Your Atari</B></LI>
+
+
+<P>ANALOG magazine provided this unique information on interfacing an 8-bit
+to a Radio Shack Armatron remote controlled arm. Positioning was determined
+using the paddle/potentiometers, and control was via the PIA (joystick
+pins).
+<CENTER><A HREF="index.html"></A>&nbsp;</CENTER>
+
+<CENTER><A HREF="index.html"></A>&nbsp;</CENTER>
+
+</BODY>
+</HTML>
