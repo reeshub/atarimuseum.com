@@ -3,21 +3,21 @@
 <head>
 <meta name="description" content="" />
  <meta charset="utf-8">
-<noscript><link rel="stylesheet" href="http://www.atarimuseum.com/archives/test/uploader/css/jquery.fileupload-ui-noscript.css"></noscript>
+<noscript><link rel="stylesheet" href="/archives/test/uploader/css/jquery.fileupload-ui-noscript.css"></noscript>
 
 
 
 <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/dark-hive/jquery-ui.min.css" id="theme">
 
- <script src="http://www.atarimuseum.com/archives/test/javascriptheader.js" type="text/javascript"></script> 
- <script src="http://www.atarimuseum.com/archives/test/jquery/bootstrapdropdown.min.js" type="text/javascript"></script> 
+ <script src="/archives/test/javascriptheader.js" type="text/javascript"></script> 
+ <script src="/archives/test/jquery/bootstrapdropdown.min.js" type="text/javascript"></script> 
  <script src="https://www.google.com/recaptcha/api.js" type="text/javascript" async defer></script> 
- <script src="http://www.atarimuseum.com/archives/test/ckeditor/ckeditor.js" type="text/javascript"></script> 
- <script src="http://www.atarimuseum.com/archives/test/ckeditor/adapters/jquery.js" type="text/javascript"></script> 
- <link rel="stylesheet" href="http://www.atarimuseum.com/archives/test/schemas/bootstrap_darkly.min.css" type="text/css" />
- <link rel="stylesheet" href="http://www.atarimuseum.com/archives/test/schemas/bootstrapdark.min.css" type="text/css" />
- <link rel="stylesheet" href="http://www.atarimuseum.com/archives/test/jquery/blueimp-gallery.min.css" type="text/css" />
- <link rel="stylesheet" href="http://www.atarimuseum.com/archives/test/uploader/css/jquery.fileupload-ui.css" type="text/css" />
+ <script src="/archives/test/ckeditor/ckeditor.js" type="text/javascript"></script> 
+ <script src="/archives/test/ckeditor/adapters/jquery.js" type="text/javascript"></script> 
+ <link rel="stylesheet" href="/archives/test/schemas/bootstrap_darkly.min.css" type="text/css" />
+ <link rel="stylesheet" href="/archives/test/schemas/bootstrapdark.min.css" type="text/css" />
+ <link rel="stylesheet" href="/archives/test/jquery/blueimp-gallery.min.css" type="text/css" />
+ <link rel="stylesheet" href="/archives/test/uploader/css/jquery.fileupload-ui.css" type="text/css" />
  
 <script type="text/javascript">
 //<![CDATA[
@@ -54,7 +54,7 @@ $(".memuitems a").click(function(e) { $(".menuitems").hide(500); });
       
         });
         
-        $("#loginsubmit").click(function(e){ e.preventDefault(); wsn_modallogin("http://www.atarimuseum.com/archives/test/suggest.php?action=addlink&catid=88", e); });        
+        $("#loginsubmit").click(function(e){ e.preventDefault(); wsn_modallogin("/archives/test/suggest.php?action=addlink&catid=88", e); });        
     
 $("#sortableold tbody").sortable({
  helper: fixHelper,
@@ -403,7 +403,7 @@ $.post("/archives/test/ajax.php",{ action: 'deleteattachment', id: attachid, use
 </script>
 <title>Atari Museum Archives Database: Submit Listing</title>
 
-<link rel="stylesheet" href="http://www.atarimuseum.com/archives/test/templates/styles/production/default.css" type="text/css" />
+<link rel="stylesheet" href="/archives/test/templates/styles/production/default.css" type="text/css" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style type="text/css">
    .cke_editable { background-color: #000000; } 
@@ -417,7 +417,7 @@ $.post("/archives/test/ajax.php",{ action: 'deleteattachment', id: attachid, use
 
 <div class="floatleft">
 <div class="logobg"> </div>
-<div class="logo"><a href="http://www.atarimuseum.com/archives/test"><img src="http://www.atarimuseum.com/archives/test/templates/images_default/newlogo.png" alt="Atari Archival Database" /></a></div>
+<div class="logo"><a href="/archives/test"><img src="/archives/test/templates/images_default/newlogo.png" alt="Atari Archival Database" /></a></div>
 </div>
 
 <div class="floatleft quicksearch largescreens">
@@ -472,40 +472,40 @@ Password<br><input type="password" name="userpassword" id="loginpassword" class=
 <td class="leftmenuleft">
 <nav class="categoryleftmenu">
 <div class="btn-group-vertical" role="group" aria-label="...">
-<a href="http://www.atarimuseum.com/archives/test/index.php?action=displaycat&amp;catid=172" class="btn btn-default">Business </a>
+<a href="/archives/test/index.php?action=displaycat&amp;catid=172" class="btn btn-default">Business </a>
 <div id="submenu172"></div>
-<a href="http://www.atarimuseum.com/archives/test/index.php?action=displaycat&amp;catid=4" class="btn btn-default">Communications <span class="badge">2</span></a>
+<a href="/archives/test/index.php?action=displaycat&amp;catid=4" class="btn btn-default">Communications <span class="badge">2</span></a>
 <div id="submenu4"></div>
-<a href="http://www.atarimuseum.com/archives/test/index.php?action=displaycat&amp;catid=15" class="btn btn-default">DIsk Operating Systems <span class="badge">2</span></a>
+<a href="/archives/test/index.php?action=displaycat&amp;catid=15" class="btn btn-default">DIsk Operating Systems <span class="badge">2</span></a>
 <div id="submenu15"></div>
-<a href="http://www.atarimuseum.com/archives/test/index.php?action=displaycat&amp;catid=7" class="btn btn-default">Education </a>
+<a href="/archives/test/index.php?action=displaycat&amp;catid=7" class="btn btn-default">Education </a>
 <div id="submenu7"></div>
-<a href="http://www.atarimuseum.com/archives/test/index.php?action=displaycat&amp;catid=8" class="btn btn-default">Games & Entertainment <span class="badge">1</span></a><div class="btn-group-vertical" role="group" aria-label="...">
-<a href="http://www.atarimuseum.com/archives/test/index.php?action=displaycat&amp;catid=99" class="btn btn-default">Action </a>
-<a href="http://www.atarimuseum.com/archives/test/index.php?action=displaycat&amp;catid=86" class="btn btn-default">Adventure & Roleplay </a>
-<a href="http://www.atarimuseum.com/archives/test/index.php?action=displaycat&amp;catid=87" class="btn btn-default">Arcade </a>
-<a href="http://www.atarimuseum.com/archives/test/index.php?action=displaycat&amp;catid=88" class="btn btn-primary">Board </a>
-<a href="http://www.atarimuseum.com/archives/test/index.php?action=displaycat&amp;catid=89" class="btn btn-default">Card </a>
-<a href="http://www.atarimuseum.com/archives/test/index.php?action=displaycat&amp;catid=90" class="btn btn-default">Casino & Gambling </a>
-<a href="http://www.atarimuseum.com/archives/test/index.php?action=displaycat&amp;catid=91" class="btn btn-default">Kids </a>
-<a href="http://www.atarimuseum.com/archives/test/index.php?action=displaycat&amp;catid=92" class="btn btn-default">Online Gaming </a>
-<a href="http://www.atarimuseum.com/archives/test/index.php?action=displaycat&amp;catid=93" class="btn btn-default">Other </a>
-<a href="http://www.atarimuseum.com/archives/test/index.php?action=displaycat&amp;catid=94" class="btn btn-default">Puzzle & Word Games </a>
-<a href="http://www.atarimuseum.com/archives/test/index.php?action=displaycat&amp;catid=95" class="btn btn-default">Simulation </a>
-<a href="http://www.atarimuseum.com/archives/test/index.php?action=displaycat&amp;catid=96" class="btn btn-default">Sports </a>
-<a href="http://www.atarimuseum.com/archives/test/index.php?action=displaycat&amp;catid=97" class="btn btn-default">Strategy & War Games <span class="badge">1</span></a>
-<a href="http://www.atarimuseum.com/archives/test/index.php?action=displaycat&amp;catid=98" class="btn btn-default">Tools & Editors </a>
+<a href="/archives/test/index.php?action=displaycat&amp;catid=8" class="btn btn-default">Games & Entertainment <span class="badge">1</span></a><div class="btn-group-vertical" role="group" aria-label="...">
+<a href="/archives/test/index.php?action=displaycat&amp;catid=99" class="btn btn-default">Action </a>
+<a href="/archives/test/index.php?action=displaycat&amp;catid=86" class="btn btn-default">Adventure & Roleplay </a>
+<a href="/archives/test/index.php?action=displaycat&amp;catid=87" class="btn btn-default">Arcade </a>
+<a href="/archives/test/index.php?action=displaycat&amp;catid=88" class="btn btn-primary">Board </a>
+<a href="/archives/test/index.php?action=displaycat&amp;catid=89" class="btn btn-default">Card </a>
+<a href="/archives/test/index.php?action=displaycat&amp;catid=90" class="btn btn-default">Casino & Gambling </a>
+<a href="/archives/test/index.php?action=displaycat&amp;catid=91" class="btn btn-default">Kids </a>
+<a href="/archives/test/index.php?action=displaycat&amp;catid=92" class="btn btn-default">Online Gaming </a>
+<a href="/archives/test/index.php?action=displaycat&amp;catid=93" class="btn btn-default">Other </a>
+<a href="/archives/test/index.php?action=displaycat&amp;catid=94" class="btn btn-default">Puzzle & Word Games </a>
+<a href="/archives/test/index.php?action=displaycat&amp;catid=95" class="btn btn-default">Simulation </a>
+<a href="/archives/test/index.php?action=displaycat&amp;catid=96" class="btn btn-default">Sports </a>
+<a href="/archives/test/index.php?action=displaycat&amp;catid=97" class="btn btn-default">Strategy & War Games <span class="badge">1</span></a>
+<a href="/archives/test/index.php?action=displaycat&amp;catid=98" class="btn btn-default">Tools & Editors </a>
 </div>
-<a href="http://www.atarimuseum.com/archives/test/index.php?action=displaycat&amp;catid=9" class="btn btn-default">Graphic Apps </a>
+<a href="/archives/test/index.php?action=displaycat&amp;catid=9" class="btn btn-default">Graphic Apps </a>
 <div id="submenu9"></div>
-<a href="http://www.atarimuseum.com/archives/test/index.php?action=displaycat&amp;catid=10" class="btn btn-default">Home & Hobby </a>
+<a href="/archives/test/index.php?action=displaycat&amp;catid=10" class="btn btn-default">Home & Hobby </a>
 <div id="submenu10"></div>
-<a href="http://www.atarimuseum.com/archives/test/index.php?action=displaycat&amp;catid=11" class="btn btn-default">Network & Internet </a>
+<a href="/archives/test/index.php?action=displaycat&amp;catid=11" class="btn btn-default">Network & Internet </a>
 <div id="submenu11"></div>
-<a href="http://www.atarimuseum.com/archives/test/index.php?action=displaycat&amp;catid=5" class="btn btn-default">Productivity <span class="badge">8</span></a>
+<a href="/archives/test/index.php?action=displaycat&amp;catid=5" class="btn btn-default">Productivity <span class="badge">8</span></a>
 <div id="submenu5"></div>
-<a href="http://www.atarimuseum.com/archives/test/index.php?action=displaycat&amp;catid=171" class="btn btn-default">Programming Languages <span class="badge">2</span></a>
-<a href="http://www.atarimuseum.com/archives/test/index.php?action=displaycat&amp;catid=14" class="btn btn-default">System Utilities </a>
+<a href="/archives/test/index.php?action=displaycat&amp;catid=171" class="btn btn-default">Programming Languages <span class="badge">2</span></a>
+<a href="/archives/test/index.php?action=displaycat&amp;catid=14" class="btn btn-default">System Utilities </a>
 <div id="submenu14"></div>
 </div>
 </nav>
@@ -515,11 +515,11 @@ Password<br><input type="password" name="userpassword" id="loginpassword" class=
 
 <div class="nav">
 <ol class="breadcrumb">  
-<li><a href="http://www.atarimuseum.com/archives/test">Atari Museum Archives Database</a> </li>
+<li><a href="/archives/test">Atari Museum Archives Database</a> </li>
 
-<li><a href="http://www.atarimuseum.com/archives/test/index.php?action=displaycat&amp;catid=8">Games & Entertainment</a> </li>
+<li><a href="/archives/test/index.php?action=displaycat&amp;catid=8">Games & Entertainment</a> </li>
 
-<li><a href="http://www.atarimuseum.com/archives/test/index.php?action=displaycat&amp;catid=88">Board</a> </li>
+<li><a href="/archives/test/index.php?action=displaycat&amp;catid=88">Board</a> </li>
 
 <li class="active">Submit Listing</li>
 </ol>
@@ -599,8 +599,8 @@ Password<br><input type="password" name="userpassword" id="loginpassword" class=
   <td class="labelscolumn">
    <label class="labels" for="fielddescription">Description:</label>
    <br><ul>
-<li>You may use <a onclick="window.open('http://www.atarimuseum.com/archives/test/index.php?action=codes', '', 'width=610,height=400,scrollbars=yes');">BB Codes</a>.</li>
-<li>You may use <a onclick="window.open('http://www.atarimuseum.com/archives/test/index.php?action=smilies', '', 'width=610,height=400,scrollbars=yes');">smilies</a>.</li>
+<li>You may use <a onclick="window.open('/archives/test/index.php?action=codes', '', 'width=610,height=400,scrollbars=yes');">BB Codes</a>.</li>
+<li>You may use <a onclick="window.open('/archives/test/index.php?action=smilies', '', 'width=610,height=400,scrollbars=yes');">smilies</a>.</li>
 </ul>
 
   </td>
@@ -875,17 +875,17 @@ Password<br><input type="password" name="userpassword" id="loginpassword" class=
 </div>
 
 </footer>
-<script src="http://www.atarimuseum.com/archives/test/jquery/tmpl.min.js"></script>
-<script src="http://www.atarimuseum.com/archives/test/jquery/load-image.min.js"></script>
-<script src="http://www.atarimuseum.com/archives/test/jquery/canvas-to-blob.min.js"></script>
-<script src="http://www.atarimuseum.com/archives/test/jquery/jquery.blueimp-gallery.min.js"></script>
-<script src="http://www.atarimuseum.com/archives/test/uploader/js/jquery.iframe-transport.js"></script>
-<script src="http://www.atarimuseum.com/archives/test/uploader/js/jquery.fileupload.js"></script>
-<script src="http://www.atarimuseum.com/archives/test/uploader/js/jquery.fileupload-process.js"></script>
-<script src="http://www.atarimuseum.com/archives/test/uploader/js/jquery.fileupload-image.js"></script>
-<script src="http://www.atarimuseum.com/archives/test/uploader/js/jquery.fileupload-audio.js"></script>
-<script src="http://www.atarimuseum.com/archives/test/uploader/js/jquery.fileupload-video.js"></script>
-<script src="http://www.atarimuseum.com/archives/test/uploader/js/jquery.fileupload-validate.js"></script>
-<script src="http://www.atarimuseum.com/archives/test/uploader/js/jquery.fileupload-ui.js"></script>
-<script src="http://www.atarimuseum.com/archives/test/uploader/js/jquery.fileupload-jquery-ui.js"></script></body>
+<script src="/archives/test/jquery/tmpl.min.js"></script>
+<script src="/archives/test/jquery/load-image.min.js"></script>
+<script src="/archives/test/jquery/canvas-to-blob.min.js"></script>
+<script src="/archives/test/jquery/jquery.blueimp-gallery.min.js"></script>
+<script src="/archives/test/uploader/js/jquery.iframe-transport.js"></script>
+<script src="/archives/test/uploader/js/jquery.fileupload.js"></script>
+<script src="/archives/test/uploader/js/jquery.fileupload-process.js"></script>
+<script src="/archives/test/uploader/js/jquery.fileupload-image.js"></script>
+<script src="/archives/test/uploader/js/jquery.fileupload-audio.js"></script>
+<script src="/archives/test/uploader/js/jquery.fileupload-video.js"></script>
+<script src="/archives/test/uploader/js/jquery.fileupload-validate.js"></script>
+<script src="/archives/test/uploader/js/jquery.fileupload-ui.js"></script>
+<script src="/archives/test/uploader/js/jquery.fileupload-jquery-ui.js"></script></body>
 </html>

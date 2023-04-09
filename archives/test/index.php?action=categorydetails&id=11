@@ -5,10 +5,10 @@
  <meta charset="utf-8">
 <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/dark-hive/jquery-ui.min.css" id="theme">
 
- <script src="http://www.atarimuseum.com/archives/test/javascriptheader.js" type="text/javascript"></script> 
- <script src="http://www.atarimuseum.com/archives/test/jquery/bootstrapdropdown.min.js" type="text/javascript"></script> 
- <link rel="stylesheet" href="http://www.atarimuseum.com/archives/test/schemas/bootstrap_darkly.min.css" type="text/css" />
- <link rel="stylesheet" href="http://www.atarimuseum.com/archives/test/schemas/bootstrapdark.min.css" type="text/css" />
+ <script src="/archives/test/javascriptheader.js" type="text/javascript"></script> 
+ <script src="/archives/test/jquery/bootstrapdropdown.min.js" type="text/javascript"></script> 
+ <link rel="stylesheet" href="/archives/test/schemas/bootstrap_darkly.min.css" type="text/css" />
+ <link rel="stylesheet" href="/archives/test/schemas/bootstrapdark.min.css" type="text/css" />
  
 <script type="text/javascript">
 //<![CDATA[
@@ -33,7 +33,7 @@ $(".memuitems a").click(function(e) { $(".menuitems").hide(500); });
       
         });
         
-        $("#loginsubmit").click(function(e){ e.preventDefault(); wsn_modallogin("http://www.atarimuseum.com/archives/test/index.php?action=categorydetails&id=11", e); });        
+        $("#loginsubmit").click(function(e){ e.preventDefault(); wsn_modallogin("/archives/test/index.php?action=categorydetails&id=11", e); });        
    
 $(".submenus").hide(0);
  wsn_closeboxes(); 
@@ -50,7 +50,7 @@ $('a.ajaxdelete').click(function(e) { wsn_doajaxdelete(e, this.href, this.id); }
 </script>
 <title>Atari Museum Archives Database: Category Details</title>
 
-<link rel="stylesheet" href="http://www.atarimuseum.com/archives/test/templates/styles/production/default.css" type="text/css" />
+<link rel="stylesheet" href="/archives/test/templates/styles/production/default.css" type="text/css" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style type="text/css">
    .cke_editable { background-color: #000000; } 
@@ -64,7 +64,7 @@ $('a.ajaxdelete').click(function(e) { wsn_doajaxdelete(e, this.href, this.id); }
 
 <div class="floatleft">
 <div class="logobg"> </div>
-<div class="logo"><a href="http://www.atarimuseum.com/archives/test"><img src="http://www.atarimuseum.com/archives/test/templates/images_default/newlogo.png" alt="Atari Archival Database" /></a></div>
+<div class="logo"><a href="/archives/test"><img src="/archives/test/templates/images_default/newlogo.png" alt="Atari Archival Database" /></a></div>
 </div>
 
 <div class="floatleft quicksearch largescreens">
@@ -119,29 +119,29 @@ Password<br><input type="password" name="userpassword" id="loginpassword" class=
 <td class="leftmenuleft">
 <nav class="categoryleftmenu">
 <div class="btn-group-vertical" role="group" aria-label="...">
-<a href="http://www.atarimuseum.com/archives/test/index.php?action=displaycat&amp;catid=172" class="btn btn-default">Business </a>
+<a href="/archives/test/index.php?action=displaycat&amp;catid=172" class="btn btn-default">Business </a>
 <div id="submenu172"></div>
-<a href="http://www.atarimuseum.com/archives/test/index.php?action=displaycat&amp;catid=4" class="btn btn-default">Communications <span class="badge">2</span></a>
+<a href="/archives/test/index.php?action=displaycat&amp;catid=4" class="btn btn-default">Communications <span class="badge">2</span></a>
 <div id="submenu4"></div>
-<a href="http://www.atarimuseum.com/archives/test/index.php?action=displaycat&amp;catid=15" class="btn btn-default">DIsk Operating Systems <span class="badge">2</span></a>
+<a href="/archives/test/index.php?action=displaycat&amp;catid=15" class="btn btn-default">DIsk Operating Systems <span class="badge">2</span></a>
 <div id="submenu15"></div>
-<a href="http://www.atarimuseum.com/archives/test/index.php?action=displaycat&amp;catid=7" class="btn btn-default">Education </a>
+<a href="/archives/test/index.php?action=displaycat&amp;catid=7" class="btn btn-default">Education </a>
 <div id="submenu7"></div>
-<a href="http://www.atarimuseum.com/archives/test/index.php?action=displaycat&amp;catid=8" class="btn btn-default">Games & Entertainment <span class="badge">1</span></a>
+<a href="/archives/test/index.php?action=displaycat&amp;catid=8" class="btn btn-default">Games & Entertainment <span class="badge">1</span></a>
 <div id="submenu8"></div>
-<a href="http://www.atarimuseum.com/archives/test/index.php?action=displaycat&amp;catid=9" class="btn btn-default">Graphic Apps </a>
+<a href="/archives/test/index.php?action=displaycat&amp;catid=9" class="btn btn-default">Graphic Apps </a>
 <div id="submenu9"></div>
-<a href="http://www.atarimuseum.com/archives/test/index.php?action=displaycat&amp;catid=10" class="btn btn-default">Home & Hobby </a>
+<a href="/archives/test/index.php?action=displaycat&amp;catid=10" class="btn btn-default">Home & Hobby </a>
 <div id="submenu10"></div>
-<a href="http://www.atarimuseum.com/archives/test/index.php?action=displaycat&amp;catid=11" class="btn btn-primary">Network & Internet </a><div class="btn-group-vertical" role="group" aria-label="...">
-<a href="http://www.atarimuseum.com/archives/test/index.php?action=displaycat&amp;catid=122" class="btn btn-default">Browsers </a>
-<a href="http://www.atarimuseum.com/archives/test/index.php?action=displaycat&amp;catid=125" class="btn btn-default">FTP Clients </a>
-<a href="http://www.atarimuseum.com/archives/test/index.php?action=displaycat&amp;catid=127" class="btn btn-default">Other </a>
+<a href="/archives/test/index.php?action=displaycat&amp;catid=11" class="btn btn-primary">Network & Internet </a><div class="btn-group-vertical" role="group" aria-label="...">
+<a href="/archives/test/index.php?action=displaycat&amp;catid=122" class="btn btn-default">Browsers </a>
+<a href="/archives/test/index.php?action=displaycat&amp;catid=125" class="btn btn-default">FTP Clients </a>
+<a href="/archives/test/index.php?action=displaycat&amp;catid=127" class="btn btn-default">Other </a>
 </div>
-<a href="http://www.atarimuseum.com/archives/test/index.php?action=displaycat&amp;catid=5" class="btn btn-default">Productivity <span class="badge">8</span></a>
+<a href="/archives/test/index.php?action=displaycat&amp;catid=5" class="btn btn-default">Productivity <span class="badge">8</span></a>
 <div id="submenu5"></div>
-<a href="http://www.atarimuseum.com/archives/test/index.php?action=displaycat&amp;catid=171" class="btn btn-default">Programming Languages <span class="badge">2</span></a>
-<a href="http://www.atarimuseum.com/archives/test/index.php?action=displaycat&amp;catid=14" class="btn btn-default">System Utilities </a>
+<a href="/archives/test/index.php?action=displaycat&amp;catid=171" class="btn btn-default">Programming Languages <span class="badge">2</span></a>
+<a href="/archives/test/index.php?action=displaycat&amp;catid=14" class="btn btn-default">System Utilities </a>
 <div id="submenu14"></div>
 </div>
 </nav>
@@ -151,16 +151,16 @@ Password<br><input type="password" name="userpassword" id="loginpassword" class=
 
 <div class="nav">
 <ol class="breadcrumb">  
-<li><a href="http://www.atarimuseum.com/archives/test">Atari Museum Archives Database</a> </li>
+<li><a href="/archives/test">Atari Museum Archives Database</a> </li>
 
-<li><a href="http://www.atarimuseum.com/archives/test/index.php?action=displaycat&amp;catid=11">Network & Internet</a> </li>
+<li><a href="/archives/test/index.php?action=displaycat&amp;catid=11">Network & Internet</a> </li>
 
 <li class="active">Category Details</li>
 </ol>
 </div>
 
 <div class="panel panel-primary">
-<div class="panel-heading"><h3 class="panel-title"><a href="http://www.atarimuseum.com/archives/test/index.php?action=displaycat&amp;catid=11" class="title">Network & Internet</a> </h3></div>
+<div class="panel-heading"><h3 class="panel-title"><a href="/archives/test/index.php?action=displaycat&amp;catid=11" class="title">Network & Internet</a> </h3></div>
 <div class="panel-body detailsborder">
 
 <div class="details"><span class="labels">Description:</span>

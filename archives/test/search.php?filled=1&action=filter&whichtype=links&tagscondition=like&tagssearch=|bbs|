@@ -5,10 +5,10 @@
  <meta charset="utf-8">
 <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/dark-hive/jquery-ui.min.css" id="theme">
 
- <script src="http://www.atarimuseum.com/archives/test/javascriptheader.js" type="text/javascript"></script> 
- <script src="http://www.atarimuseum.com/archives/test/jquery/bootstrapdropdown.min.js" type="text/javascript"></script> 
- <link rel="stylesheet" href="http://www.atarimuseum.com/archives/test/schemas/bootstrap_darkly.min.css" type="text/css" />
- <link rel="stylesheet" href="http://www.atarimuseum.com/archives/test/schemas/bootstrapdark.min.css" type="text/css" />
+ <script src="/archives/test/javascriptheader.js" type="text/javascript"></script> 
+ <script src="/archives/test/jquery/bootstrapdropdown.min.js" type="text/javascript"></script> 
+ <link rel="stylesheet" href="/archives/test/schemas/bootstrap_darkly.min.css" type="text/css" />
+ <link rel="stylesheet" href="/archives/test/schemas/bootstrapdark.min.css" type="text/css" />
  
 <script type="text/javascript">
 //<![CDATA[
@@ -33,7 +33,7 @@ $(".memuitems a").click(function(e) { $(".menuitems").hide(500); });
       
         });
         
-        $("#loginsubmit").click(function(e){ e.preventDefault(); wsn_modallogin("http://www.atarimuseum.com/archives/test/search.php?filled=1&action=filter&whichtype=links&tagscondition=like&tagssearch=%7Cbbs%7C", e); });        
+        $("#loginsubmit").click(function(e){ e.preventDefault(); wsn_modallogin("/archives/test/search.php?filled=1&action=filter&whichtype=links&tagscondition=like&tagssearch=%7Cbbs%7C", e); });        
    
 $(".submenus").hide(0);
  wsn_closeboxes(); 
@@ -71,7 +71,7 @@ function showsearchurl()
 </script>
 <title>Atari Museum Archives Database: Bbs</title>
 
-<link rel="stylesheet" href="http://www.atarimuseum.com/archives/test/templates/styles/production/default.css" type="text/css" />
+<link rel="stylesheet" href="/archives/test/templates/styles/production/default.css" type="text/css" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style type="text/css">
    .cke_editable { background-color: #000000; } 
@@ -85,7 +85,7 @@ function showsearchurl()
 
 <div class="floatleft">
 <div class="logobg"> </div>
-<div class="logo"><a href="http://www.atarimuseum.com/archives/test"><img src="http://www.atarimuseum.com/archives/test/templates/images_default/newlogo.png" alt="Atari Archival Database" /></a></div>
+<div class="logo"><a href="/archives/test"><img src="/archives/test/templates/images_default/newlogo.png" alt="Atari Archival Database" /></a></div>
 </div>
 
 <div class="floatleft quicksearch largescreens">
@@ -140,26 +140,26 @@ Password<br><input type="password" name="userpassword" id="loginpassword" class=
 <td class="leftmenuleft">
 <nav class="categoryleftmenu">
 <div class="btn-group-vertical" role="group" aria-label="...">
-<a href="http://www.atarimuseum.com/archives/test/index.php?action=displaycat&amp;catid=172" class="btn btn-default">Business </a>
+<a href="/archives/test/index.php?action=displaycat&amp;catid=172" class="btn btn-default">Business </a>
 <div id="submenu172"></div>
-<a href="http://www.atarimuseum.com/archives/test/index.php?action=displaycat&amp;catid=4" class="btn btn-default">Communications <span class="badge">2</span></a>
+<a href="/archives/test/index.php?action=displaycat&amp;catid=4" class="btn btn-default">Communications <span class="badge">2</span></a>
 <div id="submenu4"></div>
-<a href="http://www.atarimuseum.com/archives/test/index.php?action=displaycat&amp;catid=15" class="btn btn-default">DIsk Operating Systems <span class="badge">2</span></a>
+<a href="/archives/test/index.php?action=displaycat&amp;catid=15" class="btn btn-default">DIsk Operating Systems <span class="badge">2</span></a>
 <div id="submenu15"></div>
-<a href="http://www.atarimuseum.com/archives/test/index.php?action=displaycat&amp;catid=7" class="btn btn-default">Education </a>
+<a href="/archives/test/index.php?action=displaycat&amp;catid=7" class="btn btn-default">Education </a>
 <div id="submenu7"></div>
-<a href="http://www.atarimuseum.com/archives/test/index.php?action=displaycat&amp;catid=8" class="btn btn-default">Games & Entertainment <span class="badge">1</span></a>
+<a href="/archives/test/index.php?action=displaycat&amp;catid=8" class="btn btn-default">Games & Entertainment <span class="badge">1</span></a>
 <div id="submenu8"></div>
-<a href="http://www.atarimuseum.com/archives/test/index.php?action=displaycat&amp;catid=9" class="btn btn-default">Graphic Apps </a>
+<a href="/archives/test/index.php?action=displaycat&amp;catid=9" class="btn btn-default">Graphic Apps </a>
 <div id="submenu9"></div>
-<a href="http://www.atarimuseum.com/archives/test/index.php?action=displaycat&amp;catid=10" class="btn btn-default">Home & Hobby </a>
+<a href="/archives/test/index.php?action=displaycat&amp;catid=10" class="btn btn-default">Home & Hobby </a>
 <div id="submenu10"></div>
-<a href="http://www.atarimuseum.com/archives/test/index.php?action=displaycat&amp;catid=11" class="btn btn-default">Network & Internet </a>
+<a href="/archives/test/index.php?action=displaycat&amp;catid=11" class="btn btn-default">Network & Internet </a>
 <div id="submenu11"></div>
-<a href="http://www.atarimuseum.com/archives/test/index.php?action=displaycat&amp;catid=5" class="btn btn-default">Productivity <span class="badge">8</span></a>
+<a href="/archives/test/index.php?action=displaycat&amp;catid=5" class="btn btn-default">Productivity <span class="badge">8</span></a>
 <div id="submenu5"></div>
-<a href="http://www.atarimuseum.com/archives/test/index.php?action=displaycat&amp;catid=171" class="btn btn-default">Programming Languages <span class="badge">2</span></a>
-<a href="http://www.atarimuseum.com/archives/test/index.php?action=displaycat&amp;catid=14" class="btn btn-default">System Utilities </a>
+<a href="/archives/test/index.php?action=displaycat&amp;catid=171" class="btn btn-default">Programming Languages <span class="badge">2</span></a>
+<a href="/archives/test/index.php?action=displaycat&amp;catid=14" class="btn btn-default">System Utilities </a>
 <div id="submenu14"></div>
 </div>
 </nav>
@@ -169,9 +169,9 @@ Password<br><input type="password" name="userpassword" id="loginpassword" class=
 
 <div class="nav">
 <ol class="breadcrumb">  
-<li><a href="http://www.atarimuseum.com/archives/test">Atari Museum Archives Database</a> </li>
+<li><a href="/archives/test">Atari Museum Archives Database</a> </li>
 
-<li><a href="http://www.atarimuseum.com/archives/test/search.php">Search</a> </li>
+<li><a href="/archives/test/search.php">Search</a> </li>
 
 <li class="active">Bbs</li>
 </ol>
@@ -209,11 +209,11 @@ Sort by
 <table class="standardtable table">
 
 <td class="link panel panel-default " style="width: 99%; ;">
-<div class="bittitle panel-heading"><h3 class="panel-title"> <a href="http://www.atarimuseum.com/archives/test/link.php?action=detail&amp;id=1">Original AMIS <mark class="searchhighlight">BBS</mark> Versions</a>    </h3></div>
+<div class="bittitle panel-heading"><h3 class="panel-title"> <a href="/archives/test/link.php?action=detail&amp;id=1">Original AMIS <mark class="searchhighlight">BBS</mark> Versions</a>    </h3></div>
 <div class="bitcontainer panel-body"  id="link1">
 
 <div class="floatleft linkboxleft">
-<div class="thumbshot"><a href="http://www.atarimuseum.com/archives/test/link.php?action=detail&amp;id=1"><img src="http://www.atarimuseum.com/archives/test/attachments/thumb_200x200_nothumbnail.jpg" alt="" title="Versions 1.0 to 1.2" class="avatar linkimage" ></a></div>
+<div class="thumbshot"><a href="/archives/test/link.php?action=detail&amp;id=1"><img src="/archives/test/attachments/thumb_200x200_nothumbnail.jpg" alt="" title="Versions 1.0 to 1.2" class="avatar linkimage" ></a></div>
 </div>
 
 
@@ -222,7 +222,7 @@ Sort by
 
 
 
-<div class="linkbitcategory">From <a href="http://www.atarimuseum.com/archives/test/index.php?action=displaycat&amp;catid=4">Communications</a> &#187; <a href="http://www.atarimuseum.com/archives/test/index.php?action=displaycat&amp;catid=45">BBS Programs</a></div>
+<div class="linkbitcategory">From <a href="/archives/test/index.php?action=displaycat&amp;catid=4">Communications</a> &#187; <a href="/archives/test/index.php?action=displaycat&amp;catid=45">BBS Programs</a></div>
 
 <div class="linkbitsummary">Versions 1.0 to 1.2</div>
 
@@ -244,7 +244,7 @@ Sort by
 <div class="clear"></div>
 
 <div class="linktools cellbottom">
-<span class="glyphicon glyphicon-book" aria-hidden="true"></span> <a href="http://www.atarimuseum.com/archives/test/link.php?action=detail&amp;id=1">Details  </a> 
+<span class="glyphicon glyphicon-book" aria-hidden="true"></span> <a href="/archives/test/link.php?action=detail&amp;id=1">Details  </a> 
  
  
  
@@ -259,11 +259,11 @@ Sort by
 </td>
 </tr><tr>
 <td class="link panel panel-default " style="width: 99%; ;">
-<div class="bittitle panel-heading"><h3 class="panel-title"> <a href="http://www.atarimuseum.com/archives/test/link.php?action=detail&amp;id=2">Carnival Network <mark class="searchhighlight">BBS</mark></a>    </h3></div>
+<div class="bittitle panel-heading"><h3 class="panel-title"> <a href="/archives/test/link.php?action=detail&amp;id=2">Carnival Network <mark class="searchhighlight">BBS</mark></a>    </h3></div>
 <div class="bitcontainer panel-body"  id="link2">
 
 <div class="floatleft linkboxleft">
-<div class="thumbshot"><a href="http://www.atarimuseum.com/archives/test/link.php?action=detail&amp;id=2"><img src="http://www.atarimuseum.com/archives/test/attachments/thumb_200x200_nothumbnail.jpg" alt="" title="BBS Program for Atari 800 computers" class="avatar linkimage" ></a></div>
+<div class="thumbshot"><a href="/archives/test/link.php?action=detail&amp;id=2"><img src="/archives/test/attachments/thumb_200x200_nothumbnail.jpg" alt="" title="BBS Program for Atari 800 computers" class="avatar linkimage" ></a></div>
 </div>
 
 
@@ -272,7 +272,7 @@ Sort by
 
 
 
-<div class="linkbitcategory">From <a href="http://www.atarimuseum.com/archives/test/index.php?action=displaycat&amp;catid=4">Communications</a> &#187; <a href="http://www.atarimuseum.com/archives/test/index.php?action=displaycat&amp;catid=45">BBS Programs</a></div>
+<div class="linkbitcategory">From <a href="/archives/test/index.php?action=displaycat&amp;catid=4">Communications</a> &#187; <a href="/archives/test/index.php?action=displaycat&amp;catid=45">BBS Programs</a></div>
 
 <div class="linkbitsummary"><mark class="searchhighlight">BBS</mark> Program for Atari 800 computers</div>
 
@@ -294,7 +294,7 @@ Sort by
 <div class="clear"></div>
 
 <div class="linktools cellbottom">
-<span class="glyphicon glyphicon-book" aria-hidden="true"></span> <a href="http://www.atarimuseum.com/archives/test/link.php?action=detail&amp;id=2">Details  </a> 
+<span class="glyphicon glyphicon-book" aria-hidden="true"></span> <a href="/archives/test/link.php?action=detail&amp;id=2">Details  </a> 
  
  
  
