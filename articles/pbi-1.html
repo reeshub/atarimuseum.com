@@ -1,0 +1,531 @@
+<HTML>
+<HEAD>
+   <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+   <META NAME="Author" CONTENT="Curt Vendel">
+   <META NAME="GENERATOR" CONTENT="Mozilla/4.01 [en] (WinNT; I) [Netscape]">
+   <TITLE>Parallel Bus Interface</TITLE>
+</HEAD>
+<BODY TEXT="#FFFFFF" BGCOLOR="#000000" LINK="#FF0000" VLINK="#CC66CC" ALINK="#FF0000">
+
+<CENTER><B><FONT SIZE=+2>PARALLEL BUS INTERFACE</FONT></B></CENTER>
+
+<CENTER><B><FONT SIZE=+2></FONT></B>&nbsp;</CENTER>
+
+<CENTER>&nbsp;</CENTER>
+
+<CENTER></CENTER>
+
+<CENTER><FONT SIZE=+1>Specifications</FONT></CENTER>
+
+<CENTER><FONT SIZE=+1></FONT>&nbsp;</CENTER>
+
+<CENTER><FONT SIZE=+1></FONT>&nbsp;</CENTER>
+
+<CENTER><FONT SIZE=+1></FONT></CENTER>
+
+<CENTER><FONT SIZE=+1>Ajay Chopra</FONT></CENTER>
+
+<CENTER><FONT SIZE=+1>Draft of 2/3/83</FONT></CENTER>
+
+<CENTER><FONT SIZE=+1></FONT>&nbsp;</CENTER>
+
+<CENTER><FONT SIZE=+1></FONT></CENTER>
+
+<CENTER><FONT SIZE=+1>ATARI COMPANY CONFIDENTIAL</FONT></CENTER>
+
+<HR WIDTH="100%">
+
+<P>1.0 THE PARALLEL BUS INTERFACE (PBI)
+
+<P>The Parallel Bus Interface Connector is a 50-pin connector (See figure
+1.0) with the following signals:
+<BR>&nbsp;
+<BR>&nbsp;
+
+<P>PIN 3 through PIN 9 are AO through A6 respectively.&nbsp; PIN 11 through
+PIN 18 are A7 through A14 respectively.&nbsp; PIN 20 is A15.&nbsp; These
+are the CPU address lines.&nbsp; The CPU addresses the Parallel Bus Interface
+devices using these lines.
+<BR>&nbsp;
+<BR>&nbsp;
+
+<P>PIN 21 through PIN 28 are DO through D7 respectively.&nbsp; These are
+the processor data lines.&nbsp; The CPU transmits and receives data and
+control information from the Parallel Bus Interface devices on these lines.
+<BR>&nbsp;
+<BR>&nbsp;
+
+<P>PIN 31 is for the Buffered Phase 2 Clock (BO2) Output to the
+<BR>Parallel Bus Interface devices.
+<BR>&nbsp;
+<BR>&nbsp;
+
+<P>PIN 35 is the IRQ (Interrupt Request) input from the Parallel Bus Interface
+devices.&nbsp; A PBI device can pull this input low to invoke the device
+handler that services the parallel bus device.&nbsp; This input is "open
+drain".
+<BR>&nbsp;
+<BR>&nbsp;
+
+<P>PIN 46 is the Latched Read/Write (LR/W) Output to the Parallel
+<BR>Bus Interface devices.&nbsp; This line is "high" for a read cycle.
+<BR>It is "low" for a write cycle.
+<BR>&nbsp;
+<BR>&nbsp;
+
+<P>PIN 34 is the Reset (POR) output to the Parallel Bus Interface devices.&nbsp;
+This output resets any device so designed on-power up and when the RESET
+key on the CPU keyboard is hit.
+<BR>&nbsp;
+<BR>&nbsp;
+
+<P>PIN 49 is audio in signal from the Parallel Bus devices.&nbsp; This
+line is connected directly to the audio summation network of the CPU.&nbsp;
+The audio signal is 1 volt Peak to Peak.
+
+<P>CONSOLE
+<BR>TOP
+<BR>&nbsp;
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_________
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+GND&nbsp; |1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+2&nbsp; | EXT SEL
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+AO&nbsp; |3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+4&nbsp; | A1
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+A2&nbsp;&nbsp; |5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+6&nbsp; | A3
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+A4&nbsp;&nbsp; |7&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+8&nbsp; | A5
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+A6&nbsp; |9&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+10| GND
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+A7&nbsp; |11&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+12| A8
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+A9&nbsp; |13&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+14| A10
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+All&nbsp; |15&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+16| A12
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+A13&nbsp; |17&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+18| A14
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+GND&nbsp; |19&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+20| A15
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+DO&nbsp; |21&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+22| D1
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+D2&nbsp; |23&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+24| D3
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+D4&nbsp; |25&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+26| D5
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+D6&nbsp; |27&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+28| D7
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+GND&nbsp; |29&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+30| GND
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+B02&nbsp; |31&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+32| GND
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Reserved&nbsp; |33&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+34| RST
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+IRQ&nbsp;&nbsp; |35&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+36| RDY
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Reserved&nbsp; |37&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+38| EXTENB
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Reserved&nbsp; |39&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+40| REF
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+CAS&nbsp; |41&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+42| GND
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+TD&nbsp; |43&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+44| RAS
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+GND&nbsp; |45&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+46| LR/W
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Reserved&nbsp; |47&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+48| Reserved
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+AUDIO&nbsp; |49&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 50
+| GND
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+__________
+<BR>&nbsp;
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; FIGURE
+1.0 PBI CONNECTOR
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+(Looking into the CPU Connector)
+<BR>&nbsp;
+<BR>&nbsp;
+
+<P>CONSOLE
+<BR>BOTTOM
+
+<P>PIN 38 is External Decoder Enable (EXTENB) output.&nbsp; This output
+goes high
+<BR>when an address on the CPU bus is an allowed address for a PBI device.
+<BR>The CPU generates the EXTENB signal for all segments of the CPU memory
+map except:
+<BR>&nbsp;
+<BR>&nbsp;
+
+<P>(a) The Active segments of the O.S. ROM.&nbsp; Any disabled segments
+<BR>of the O.S. ROM generate the EXTENB signal when addressed.
+<BR>&nbsp;
+<BR>&nbsp;
+
+<P>(b) The region occupied by the internal cartridge (if present).
+
+<P>PIN 2 is the External Select (EXTSEL) Input.&nbsp; This input is generated
+<BR>by the (external) decoder resident in the PBI device.&nbsp; This signal
+should
+<BR>go low whenever the EXTENB is enabled and the selected PBI device
+<BR>uses the address generated on the CPU Bus.&nbsp; This input is used
+to disable
+<BR>the CPU decoder for the duration of the current bus cycle.
+<BR>&nbsp;
+<BR>&nbsp;
+
+<P>PIN 36 is the RDY input to the CPU.&nbsp; A slow PBI device can extend
+<BR>the CPU bus cycle by pulling this line low when it is addressed.
+<BR>&nbsp;
+<BR>&nbsp;
+
+<P>PIN 40 ' is the Refresh (REF) output.&nbsp; This output may be used
+for the
+<BR>refresh timing of volitile memories connected to the PBI.
+<BR>&nbsp;
+<BR>&nbsp;
+
+<P>PIN 43 is Math Pak Disable (MPD) input from the PBI devices.
+<BR>This input is pulled to the "low" state whenever a Parallel Bus device
+is
+<BR>selected by the CPU and the device has a handler resident in the region
+D800H to DFFFH.
+<BR>&nbsp;
+<BR>&nbsp;
+
+<P>PIN 44 is ROW Address Strobe (RAS) output to the Parallel Bus devices.
+<BR>This output may be used for external memory expansion.
+<BR>&nbsp;
+<BR>&nbsp;
+
+<P>PIN 41 is the Column Address Strobe (CAS) output to the Parallel Bus
+<BR>devices.&nbsp; This output may be used for external memory expansion.
+<BR>&nbsp;
+<BR>&nbsp;
+
+<P>PINS 33, 37, 39, 47 and 48 are reserved.
+<BR>PINS 1, 10, 19, 29, 30, 32, 42, 45 and 50 are Signal grounds (GND).
+<BR>ELECTRICAL LEVELS:
+<BR>D. C. Characteristics
+
+<P>All PBI outputs from the CPU will have tne capability of driving one
+<BR>LSTTL gate.
+<BR>&nbsp;
+<BR>&nbsp;
+
+<P>All PBI inputs except IRQ should have the drive capability of the
+<BR>output of an LSTTL gate.
+<BR>&nbsp;
+<BR>&nbsp;
+
+<P>The 1RQ input is "open drain" and in the "low" state should present
+<BR>the following characteristics:
+<BR>&nbsp;
+<BR>&nbsp;
+
+<P>11 = 0.4V (max)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+I = 1.6mA (min Sink current)
+
+<P>AC Characteristics
+
+<P>To be specified.
+
+<P>2.0 Parallel Bus Devices
+
+<P>The Parallel bus will support three types of devices:
+<BR>2.1 External Memory:
+
+<P>The PBI will allow the user to expand the local RAM externally to
+<BR>-&nbsp;&nbsp; up to 64K.&nbsp; This will allow external memory expansion
+of a 16K CPU.
+<BR>&nbsp;
+<BR>&nbsp;
+
+<P>2.2 Parallel Bus Peripherals (PBPS)
+
+<P>The PBPs have the following characteristics:
+
+<P>(a) They interface to the CPU through a well defined handler/O.S. interface.&nbsp;
+The code for this interface is resident in CPU Memory location D600H to
+D7FFH (COMM A &amp; COMM B areas).&nbsp; The ROM containing this code is
+physically located in a Parallel Bus Adapter. (See Section 3.0)
+<BR>&nbsp;
+<BR>&nbsp;
+
+<P>The O.S. can support up to 8 PBPs at one time.
+
+<P>(b) Each PBP has a unique handler that resides in-the CPU memory space
+at locations D800H to DFFFH.&nbsp; The ROMs containing the code for these
+handlers are physically resident in the respective peripherals. (The memory
+space occupied by the handlers actually contains the @lath-pak within the
+S-16.&nbsp; The Math-pak is disabled whenever any EBP is enabled.&nbsp;
+See (c) below).
+<BR>&nbsp;
+<BR>&nbsp;
+
+<P>(c) Location DIFFH in the CPU memory map is reserved for passing control
+information between the CPU and the PBPS.
+<BR>&nbsp;
+<BR>&nbsp;
+
+<P>The CPU linearly selects the PBI devices by writing into location DLFFH.
+
+<P>Location DLFFH.
+<BR>&nbsp;
+<BR>&nbsp;
+
+<P>Writing a "1" into Dx (x=O to 7) selects device Dx (x=O to 7).
+<BR>Writing a "O" into Dx (x=O to 7) de-selects device Dx (x=O to 7).
+<BR>&nbsp;
+<BR>&nbsp;
+
+<P>The CPU can thus select up to 8 PBI devices.
+
+<P>If the IRQ line is pulled "low" the CPU polls location DLFFH.
+<BR>A read from this location returns the PBI devices' interrupt
+
+<P>status.
+<BR>&nbsp;
+<BR>&nbsp;
+
+<P>2. 2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Parallel Bus Peripherals (PBPS)&nbsp;
+(continued)
+
+<P>(c) continued....
+
+<P>if bit Ix (x=O to 7) is "1", then device Dx (x=O to 7) has interrupted.&nbsp;
+If bit Ix (x=O to 7) is "O" then device Dx (x=O to 7) has not interrupted.&nbsp;
+The device is required to clear its interrupt status bit when its interrupt
+is ser-viced by the CPU.
+<BR>&nbsp;
+<BR>&nbsp;
+
+<P>2.3
+<BR>&nbsp;
+<BR>&nbsp;
+
+<P>(d) The PBPs should assert MPD only when they are selected.&nbsp; The
+PBPs should assert EXTSEL only when they are selected and if EXTENB is
+asserted.
+<BR>&nbsp;
+<BR>&nbsp;
+
+<P>(e) The PBPs may respond to any one of the selects Dl through D7.&nbsp;
+It is recommended that the PBPs have configuration switches to allow them
+to respond to any one of the selects Dl through
+<BR>D7. The PBPs should not respond to device select DO.&nbsp; DO is
+<BR>reserved for use by Atari.
+<BR>&nbsp;
+<BR>&nbsp;
+
+<P>(f) A peripheral handler may respond to address in the region D80OH-DFFH
+only when it is selected.&nbsp; Location D800H contains the device I.D.
+of an PBP.&nbsp; If a slot that contains no peripheral is selected, address
+D800H should return FFH as data.
+<BR>&nbsp;
+<BR>&nbsp;
+
+<P>(g) A peripheral may respond to addresses in the region DIOOH to DLFEH
+only wben it is selected.
+<BR>&nbsp;
+<BR>&nbsp;
+
+<P>(h) The PBPs will have priority over the SIO peripheral when they are
+addressed generically.
+<BR>&nbsp;
+<BR>&nbsp;
+
+<P>(i) The data between the CPU and an PBP is passed under the control
+of the peripheral handler for the PBPS.
+<BR>&nbsp;
+<BR>&nbsp;
+
+<P>(j) The PBPs will work if a cartridge is present in the cartridge slot.
+<BR>&nbsp;
+<BR>&nbsp;
+
+<P>"External Application" Cartridges:
+
+<P>The External Application Cartridge are a generalization of the PBPS.
+<BR>They have the following characteristics:
+<BR>&nbsp;
+<BR>&nbsp;
+
+<P>(a) An "External Applications" Cartridge (EAC) can reside at any or
+all of the addresses in the region OOOOH to BFFFH for which the EXTENB
+is generated.&nbsp; They may respond to these addresses only when "opened."
+<BR>&nbsp;
+<BR>&nbsp;
+
+<P>(b) The EACs must be "opened" by the S-16 through the slot select location
+in the same was as the PBPS.
+<BR>&nbsp;
+<BR>&nbsp;
+
+<P>(c) The EACs must conform to the EXTENB/EXTSEL protocol.
+
+<P>2. 3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "External Application" Cartridges:&nbsp;&nbsp;
+(continued)
+
+<P>(d) The EACs must have a "handler" (resident in locations D800H to DFFFH)
+that controls their operation.&nbsp; The EACs must conform to conditions
+(d) thru (g) of Section 2.2 above.
+<BR>&nbsp;
+<BR>&nbsp;
+
+<P>(e) The EACs will work if a cartridge is present in the internal cartridge
+slot.
+
+<P>3.0 THE PBI ADAPTER CONCEPT:
+
+<P>The use of the PBI shall require a PBI adapter.&nbsp; The PBI adapter
+shall provide, at a minimum, the following:
+<BR>&nbsp;
+<BR>&nbsp;
+
+<P>(1) Buffers for the Address, Data, LR/W, B02, RAS, CAS, RST, REF and
+EXTENB Signals.
+<BR>&nbsp;
+<BR>&nbsp;
+
+<P>(2) 512 bytes of ROM that contain code for the CPU's software interface
+to the PBPS.&nbsp; This code is resident in locations D600 to D7FF in the
+CPU memory map.&nbsp; The Adapter will have to decode this address space
+to generate Chip Select for the ROM.
+<BR>&nbsp;
+<BR>&nbsp;
+
+<P>Any PBI device that does not use the PBI adapter will have to provide
+(1) above.&nbsp; It will also have to provide (2) above if it is a PBP
+or an EAC.
+<BR>&nbsp;
+<BR>&nbsp;
+
+<P>The PBI adapter may optionally provide the following in addition to
+(1) and (2) above:
+<BR>&nbsp;
+<BR>&nbsp;
+
+<P>(a)&nbsp; The memory expansion for a CPU that has less than 64K RAM.
+
+<P>(b) Device Select address decode (DIFFH and write).&nbsp; This decode
+may be bussed to the PBI devices connected after the adapter on one of
+the reserved lines.
+<BR>&nbsp;
+<BR>&nbsp;
+
+<P>(c) IRQ Status decode (DIFF and read).&nbsp; This decode may be bussed
+to the PBI devices connected after the adapter on-one of the reserved lines.
+<BR>&nbsp;
+<BR>&nbsp;
+
+<P>(d) Power Supply to support the PBI devices connected to the adapter.&nbsp;
+Such a power supply may source +5, +12 and -12V.&nbsp; These power signals
+may be bussed to devices connected after the adapter on reserved lines.
+
+<P>
+<HR WIDTH="100%">
+<BR>&nbsp;
+</BODY>
+</HTML>
