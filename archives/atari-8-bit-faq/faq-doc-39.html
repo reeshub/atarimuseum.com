@@ -1,0 +1,128 @@
+<HEAD>
+<TITLE>Atari 8-Bit Computers: Frequently Asked Questions - 12.4) What kinds of monitors can I use with my Atari?</TITLE>
+</HEAD>
+<BODY>
+Parent document is top of "<A NAME=up HREF="faq.html"><I>Atari 8-Bit Computers: Frequently Asked Questions</I></A>"<BR>
+Previous document is "<A NAME=up HREF="faq-doc-38.html"><I>12.3) What do I need to connect a hard drive to my 8-bit Atari?</I></A>"<BR>
+Next document is "<A NAME=up HREF="faq-doc-40.html"><I>13.1) What's the best DOS for the Atari?</I></A>"<BR>
+<HR>
+<H1>12.4) What kinds of monitors can I use with my Atari?</H1>
+<PRE>
+In general, you either need a Composite Video monitor, or a standard TV.
+
+Television:
+You'll need a video cable (not detachable on the 400/800), and a TV Switch
+Box. Used with VHF Channel 2 or 3.
+
+Monitor:
+The 8-bit Atari produces a color Composite Video signal, plus
+separate chroma (color) and luminance (brightness) signals which the best
+composite video monitors can take advantage of.  Popular examples of such
+monitors include the family of monitors produced by Commodore.
+
+The pinout of the Monitor port is in the pinout section of this FAQ list.
+
+Gotcha's:
+
+-the 400 and North American 600XL lack a monitor port entirely.  They can only
+be used with a TV.
+
+-the 800XL lacks separate chroma/lumi (can be added via hardware modification)
+
+-the XE Game System provides an RCA-style jack in place of the Monitor port;
+ so it provides Composite Video but lacks separate chroma\lumi signals
+
+-the XEP80 Interface Module produces a monochrome Composite Video signal via
+ an RCA-style jack.  This higher-resolution signal produces crisp, clear 80
+ column text on 80-column monochrome composite video monitors.
+
+mailto:buesch@srv.net (Brent Buescher, Jr.) writes:
+
+"The best monitor for an Atari 8 bit that is readily available today would be
+a television with an S-video input---these tend to be large and high-quality,
+so the s-video input is the deciding factor there. You'll have to build the
+cable yourself, and if you have an XL you'll want to do the Super Video
+upgrade that Ben Poehland published in Atari Classics a few years ago---this
+puts the chroma signal back on the pin that it should be and cleans up the
+video signal enormously. It's really more of a fix than an upgrade.
+
+I use a commodore split-video monitor.  They work great and are
+cheap-to-reasonable when you can find them."
+
+mailto:bryede@emi.net (Bryan Edewaard) writes:
+
+"Yes, the best choices are monitors that support "Separated Video"
+(sometimes called Commodore video on Commodore monitors), or S-Video.
+These monitors have separate color and luminance video inputs, which
+give a sharper picture without cross-color artifacts - such as the
+colored fringes on text when viewed on a TV (although some games use
+these artifacts to get additional colors).  If you have an XL
+computer, then it needs an upgrade to support these monitors due to
+the omission of chroma from the monitor port.  the 800 and XE
+computers don't have this problem.
+
+The 2nd best choice is a TV or monitor that has a "Composite Video"
+(usually called just "Video" or "Aux") input. This is a signal that
+has the color and luminance information combined into one signal.  The
+picture will be a little less sharp, but still much better than using
+the "Channel 3" output.
+
+&#62;Where might I find one?
+
+I've seen them a flea markets, garage sales, swap meets, ham fests,
+and in newsgroups like this one.  Plus, many new TV's support S-Video
+and Composite video inputs.
+
+&#62;What are the advantages of using one of these rather than a TV?
+
+Well, it's all a matter of how many stages the signal must go through.
+
+1. The Atari generates video as a color signal and a brightness
+(luminance) signal. These are passed to the monitor port as Chroma and
+Luma signals (XL's have no Chroma output from the factory).
+
+2. The signals are mixed together to make a standard video signal
+which is also passed to the monitor port as Composite Video.
+
+3. Then the mixed video signal (along with audio) goes through the
+process of being "modulated" into a TV radio signal (channel 3 or 4).
+This step involves removing high frequencies from the video (blurring
+it) and sending it to the TV in a fragile broadcast form that's
+suseptable to all kinds of interference.  Then the TV must (1) extract
+the video signal from the radio signal, (2) separate the Chroma and
+Luma components as best it can, then (3) divide the Chroma in R, G,
+and B. Any of these steps that you can eliminate will help your
+picture.
+
+&#62;Are there any other composite video monitors that anyone would recommend
+&#62;(and where might I find one)?
+
+Maybe the 8-bit FAQ mentions these monitors.  The most common one is
+probably the Commodore 1702 which has a very good picture and is quite
+reliable.
+
+If you plan to use an XL (which I do), upgrading the video circuitry
+makes as big a difference as what monitor you choose. Ben Poehland has
+some excellent articles in Atari Classics magazines for improving the
+quality of the XL's video, as well as restoring the missing Chroma
+output."
+
+Jerry Jessop, mailto:jjessop1@home.com explains why French Ataris produce
+fewer colors:
+
+"I will tell you why it only has monochrome out, because it's SECAM and a
+SECAM GTIA was never produced. The PAL GTIA is used in France and the Lum
+outputs are run into an onboard encoder to produce a "psudo" color depending
+on the Luminance output, composite only. This is why a SECAM VCS or 800 has
+nowhere near the same number of colors (16) availible as a PAL or NTSC unit
+(256).
+
+The FGTIA was never completed as the market size did not warrant the expense.
+The largest SECAM market is not France but the Soviet Union (former) and in
+80-84 sales of these items there were not possible."
+</PRE>
+<HR>
+Parent document is top of "<A NAME=up HREF="faq.html"><I>Atari 8-Bit Computers: Frequently Asked Questions</I></A>"<BR>
+Previous document is "<A NAME=up HREF="faq-doc-38.html"><I>12.3) What do I need to connect a hard drive to my 8-bit Atari?</I></A>"<BR>
+Next document is "<A NAME=up HREF="faq-doc-40.html"><I>13.1) What's the best DOS for the Atari?</I></A>"<BR>
+</BODY>

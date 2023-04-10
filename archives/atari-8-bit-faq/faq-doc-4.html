@@ -1,0 +1,92 @@
+<HEAD>
+<TITLE>Atari 8-Bit Computers: Frequently Asked Questions - 1.3) What are the some of the performance features of the 8-bit Atari?</TITLE>
+</HEAD>
+<BODY>
+Parent document is top of "<A NAME=up HREF="faq.html"><I>Atari 8-Bit Computers: Frequently Asked Questions</I></A>"<BR>
+Previous document is "<A NAME=up HREF="faq-doc-3.html"><I>1.2) What can I do with an 8-bit Atari?</I></A>"<BR>
+Next document is "<A NAME=up HREF="faq-doc-5.html"><I>1.4) What is the internal layout of the 8-bit Atari?</I></A>"<BR>
+<HR>
+<H1>1.3) What are the some of the performance features of the 8-bit Atari?</H1>
+<PRE>
+Some of this text by mailto:kendrick@zippy.sonoma.edu (Bill Kendrick).
+
+CLOCK SPEED:
+NTSC machines: 1.78979 MHz
+PAL machines: 1.773447 MHz
+
+SCREEN REFRESH RATE:
+      60 times per second (Hz) on NTSC Ataris
+      49.86 Hz on PAL machines
+
+ANTIC AND THE DISPLAY LIST:
+ANTIC     CIO/BASIC     Display     Resolution        Number of
+Mode #    Graphics #    Type        (full screen)     Colors
+---------------------------------------------------------------
+  2          0          Char         40 x 24            1 *
+  3          -          Char         40 x 19            1 *
+  4         12 ++       Char         40 x 24            5
+  5         13 ++       Char         40 x 12            5
+  6          1          Char         20 x 24            5
+  7          2          Char         20 x 12            5
+  8          3          Map          40 x 24            4
+  9          4          Map          80 x 48            2
+  A          5          Map          80 x 48            4
+  B          6          Map         160 x 96            2
+  C         14 ++       Map         160 x 192           2
+  D          7          Map         160 x 96            4
+  E         15 ++       Map         160 x 192           4
+  F          8          Map         320 x 192           1 *
+  F          9 +        Map          80 x 192           1 **
+  F         10 +        Map          80 x 192           9
+  F         11 +        Map          80 x 192           16 ***
+  * 1 Hue; 2 Luminances
+ ** 1 Hue; 16 Luminances
+*** 16 Hues; 1 Luminance
+  + require the GTIA chip.  1979-1981 400/800's shipped with CTIA
+ ++ Not available via the BASIC GRAPHICS command in 400/800's.
+
+GRAPHICS INDIRECTION (COLOR REGISTERS AND CHARACTER SETS):
+Nine color registers are available.  Each color register holds any of 16
+luminances x 16 hues = 256 colors.  (Four registers are for player-missile
+graphics.
+
+Character sets of 128 8x8 characters, each with a normal and an inverse video
+incarnation, are totally redefinable.
+
+PLAYER-MISSLE GRAPHICS:
+  Four 8-bit wide, 128 or 256 byte high single color players, and four
+    2-bit wide, 128 or 256 byte high single color missiles are available.
+    A mode to combine the 4 missiles into a 5th 8-bit wide player is also
+    available, as is a mode to XOR colors or blacken out colors when players
+    overlap (good for making three colors out of two players!)  Players
+    and missiles have adjustable priority and collision detection.
+
+DISPLAY LIST INTERRUPTS (DLI's):
+  Screen modes can be mixed (by lines) down the screen using the Display
+    List - a program which is executed by the ANTIC graphics chip every
+    screen refresh:
+
+  All other screen attributes (color, player/missile horizontal position,
+    screen width, player/missile/playfield priority, etc.) can be ajusted
+    at any point down the screen via DLI's.
+
+SCROLLING:
+  Fine scrolling (both vertical and horizontal) can be enabled on any
+    line on the screen.
+
+SOUND:
+  Four voices of 8-bit pitch-resolution, 4-bit volume-resolution,
+    8-distortion sound can be produced.  2 voices (1 and 2, and/or 3 and 4)
+    can be combined to make 16-bit pitch-resolution.  Also 4-bit volume-only
+    modes can be enabled for digitally sampled sound replay.
+
+  A fifth "voice" is produced by the internal speaker on Atari 400/800's
+    (for keyclick and buzzer) and in the XL's and XE's this was
+    (fortunately!) rerouted through the normal audio output, and the
+    keyclick can be disabled.
+</PRE>
+<HR>
+Parent document is top of "<A NAME=up HREF="faq.html"><I>Atari 8-Bit Computers: Frequently Asked Questions</I></A>"<BR>
+Previous document is "<A NAME=up HREF="faq-doc-3.html"><I>1.2) What can I do with an 8-bit Atari?</I></A>"<BR>
+Next document is "<A NAME=up HREF="faq-doc-5.html"><I>1.4) What is the internal layout of the 8-bit Atari?</I></A>"<BR>
+</BODY>

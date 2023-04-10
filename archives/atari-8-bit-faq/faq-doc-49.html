@@ -1,0 +1,66 @@
+<HEAD>
+<TITLE>Atari 8-Bit Computers: Frequently Asked Questions - 13.10) What is Omnimon?</TITLE>
+</HEAD>
+<BODY>
+Parent document is top of "<A NAME=up HREF="faq.html"><I>Atari 8-Bit Computers: Frequently Asked Questions</I></A>"<BR>
+Previous document is "<A NAME=up HREF="faq-doc-48.html"><I>13.9) Why should I disconnect the 810/1050 power supply before connecting or disconnecting SIO cables?</I></A>"<BR>
+Next document is "<A NAME=up HREF="faq-doc-50.html"><I>13.11) What is the difference between NTSC and PAL machines?</I></A>"<BR>
+<HR>
+<H1>13.10) What is Omnimon?</H1>
+<PRE>
+--This section was written by Scott Charles, mailto:scharles@blast.net
+
+Omnimon is a add in board for the Atari 400/800 series of computers and
+a replacement OS chip for the xl/xe series of computers. The original Omnimon
+board fit onto the OS board in the 800 series and had a switch attached to
+it to disable the board. The 400 series required you to bend the circuit
+board into a right angle for it to fit inside the 400's case. (It was
+designed to do this.). The Xl/Xe version replaces the OS Rom chip inside
+the computer with one that contains the Omnimon code, and a revised OS to
+make the XL more compatible (no translator disks needed).
+
+Omnimon itself is a machine language monitor residing from $C000-$CFFF, with
+a few variations. It was designed in 1981 by David C. Young (who also wrote
+Cartcopy, a copier for the right slot of the 800) of CDY Consulting in Texas.
+The first software revision of Omnimon had a few basic commands and was only
+4K long, only for the 400/800. The second revision required the addition of
+a bank select switch, and was 8K long. Since it was addressed by the 400/800
+as 4K, when you needed to use the code in the other bank, all the text on the
+screen flips upside down, you flip the switch and hit any key. The Xl and Xe
+versions of Omnimon do their bank selecting through the normal XL port for
+this function, so it is seamless.
+
+So what can you use Omnimon for? Its main claim to fame is its ability to
+interupt any running program by pressing and holding the SELECT-OPTION-RESET
+keys. Depending on the sequence you press determines what kind of warm boot
+the Atari does. SELECT+RESET does NO warm boot, preserving the stack and flag
+values of the 6502. OPTION+RESET allows a warm boot (as if you had just
+pressed RESET) and interupts the vector at $C (initialation vector).
+
+I think you can see where we are going with this - Omnimon was developed as
+a machine language developer's tool, much in the same way that the Happy
+modification was developed for legitimate backups. I.E. far more people use
+both products for software piracy. If you have an Omnimon! in your machine
+and you try to boot up an Electronic Arts program, for example, you will get
+a message that says "REMOVE ROM AT $C000", and the program hangs. (Hence,the
+need for the disable switch on the 400/800 version. There is no way to
+disable the xl/xe version, just switch it to an alternative OS.) The 400/800
+version, since the disable switch just deselects the mapping of Omnimon to
+$c000 area, can be switched on and off at will.
+
+I myself did not know what Omnimon was used for until I was using a sector
+editor on a program called Pharaoh's Pyramid, from Master Control Software.
+On it is a sector that reads, "REMOVE OMNIMON YOU DIRTY PIRATE". This got me
+to thinking, what does that mean? After about 5 months of playing around
+with the Omnimon board, I figured out how to use it to pirate software.
+In fact, it can be used to make most boot disks into binary files, and remove
+copy protection from countless more.
+
+At the risk of sounding melodramatic, I can safely say that Omnimon hastened
+the demise of the Atari 8 bit computer by 2-3 years, because of its power.
+</PRE>
+<HR>
+Parent document is top of "<A NAME=up HREF="faq.html"><I>Atari 8-Bit Computers: Frequently Asked Questions</I></A>"<BR>
+Previous document is "<A NAME=up HREF="faq-doc-48.html"><I>13.9) Why should I disconnect the 810/1050 power supply before connecting or disconnecting SIO cables?</I></A>"<BR>
+Next document is "<A NAME=up HREF="faq-doc-50.html"><I>13.11) What is the difference between NTSC and PAL machines?</I></A>"<BR>
+</BODY>

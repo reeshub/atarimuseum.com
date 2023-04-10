@@ -1,0 +1,123 @@
+<HEAD>
+<TITLE>Atari 8-Bit Computers: Frequently Asked Questions - 11.2) Can I read/write 8-bit Atari disks on an IBM-PC?</TITLE>
+</HEAD>
+<BODY>
+Parent document is top of "<A NAME=up HREF="faq.html"><I>Atari 8-Bit Computers: Frequently Asked Questions</I></A>"<BR>
+Previous document is "<A NAME=up HREF="faq-doc-31.html"><I>11.1) What are the best terminal emulators available?</I></A>"<BR>
+Next document is "<A NAME=up HREF="faq-doc-33.html"><I>11.3) Can I read/write MS-DOS disks on an 8-bit Atari?</I></A>"<BR>
+<HR>
+<H1>11.2) Can I read/write 8-bit Atari disks on an IBM-PC?</H1>
+<PRE>
+There are several programs that allow an MS-DOS system to work with an
+Atari-format diskette.  The following require a DOS and disk drive on the
+Atari end capable of the SS/DD 180K format:
+
+ATARIO by Dave Brandman w/ Kevin White - Reads SS/DD 180K Atari disks.
+  filename: Diskutils/atario21.arc
+
+SpartaRead by Oscar Fowler - Reads SS/DD 180K SpartaDOS disks.
+  filename: Diskutils/sr.arc
+
+UTIL by Charles Marslett - Reads/Writes SS/DD 180K Atari disks. Use MyUTIL!
+  filename: Diskutils/dskutil.arc
+     (Older versions are contained in pcxfer.arc, util.arc, and ataridsk.arc)
+
+MyUTIL by Charles Marslett with Mark Vallevand, and
+SpartaDOS disk utility by Mark Vallevand
+  filename: Diskutils/myutil.zip
+     includes best version of UTIL for read/write of SS/DD 180K Atari disks,
+     plus Mark's SpartaDOS disk utility v0.1e to access 180K SpartaDOS disks
+
+MyUTIL and the XF551 - tips from mailto:JTKIRK@urp.edu.pe:
+
+]MyUtil works fine with the XF551. The XF551's speed is 300 rpm (sometimes even
+]up to 303 rpm). I've got two XF551s and can read/write disks written on a PC
+]with MyUtil on both with no problems. MyUtil even can write to a DS/DD disk,
+]for a total of 360 K, BUT: the ATARI disks not only have the bits inverted,
+]the second side is also read BACKWARDS respect to PC disks. That is, when
+]MyUtil on the PC writes to what it thinks is sector 721, it really is writing
+]to sector 1440! Worse, if you take an ATARI disk with a file whose sectors
+]get past sector 720, MyUtil will attempt to read the sector 2161-n instead of
+]'n', and you'll get a 'truncated record' error. The solution is simply to
+]rewrite the code to take into account this (if sec&#62;720 then sec=2161-sec).
+]Let me know if you modify this. You don't know how frustrating it is to have
+]to use only 180 K of a 360 K disk! I'm going to analyze the source code, but
+]I don't know if I will be able to modify it properly. If someone does it
+]before, please email me and send me an uuencoded copy or tell me where to get
+]it.
+
+Here's some advice on using the above utilities from mailto:hans@umd5.umd.edu
+(Hans Breitenlohner):
+
+There are two technical obstacles to interchanging disks between
+DD Atari drives and PC drives.
+
+1. The Atari drive spins slightly slower (288 rpm instead of 300 rpm).
+   If you format a disk on the Atari, then write sectors on the PC, it is
+   possible that the header of the next physical sector will be overwritten,
+   making that sector unreadable.  (The next physical sector is usually
+   the current logical sector+2).  The solution to this is to format all
+   disks on the PC.
+       (Aside:  Does anybody know how this problem is handled on the
+        XF551?  Is it also slowed down?)
+     Konrad Kokoszkiewicz, mailto:draco@mi.com.pl answers:
+     "The XF551 disk drive is not slowed down - these drives are spinning
+     300 rotations per minute. To prevent troubles with read/write disks
+     formatted and written on normal Atari drives (288 rot/min), the main
+     crystal frequency for the floppy disk controller is 8.333 MHz
+     (not 8 MHz, as in 1050, for example)."
+
+2. If the PC drive is a 1.2M drive there is the additional problem of the
+   track width.  The following is generally true in the PC world:
+    - disks written on 360k drives can be read on either drive
+    - blank disk formatted and written on 1.2M drives can be read on
+      either kind
+    - disks written on a 360k drive, and overwritten on a 1.2M drive,
+      can be read reliably only on a 1.2M drive.
+    - disks previously formatted on a 360k drive, or formatted as 1.2MB,
+      and then reformatted on a 1.2M drive to 360k, can be read reliably
+      only on a 1.2M drive.
+    (all this assumes you are using DD media, not HD).
+
+   Solution: Use a 360k drive if you can.  If not, format disks on the
+   Atari for Atari to PC transfers, format truly blank disks on the PC
+   for PC to Atari transfers.
+
+   Jon D. Melbo, mailto:ssilicon@lax.net sums it up this way:
+   So a basic rule of themb when sharing 360KB floppies among 360KB &#38;
+   1.2MB drives is: Never do any writes with a 1.2MB drive to a disk that
+   has been previously written to in a 360KB drive....UNLESS... you only
+   plan on ever using that disk in the 1.2Mb drive from then on out. Of
+   course a disk can be reformated in a particular drive any time for use
+   in that drive.   As long as you follow that rule, you can utilize the
+   backwards compatible 360KB modes that most 1.2MB drives offer.
+
+
+While the above work with SS/DD 180K Atari-format disks, the following
+combination of utilities can be used to work with SS/SD 90K Atari-format
+disks, and is currently the best bet for reading SS/ED 128K Atari-format
+disks.
+
+AnaDisk 2.07, shareware by Sydex - Reads/Writes "any" 5.25" diskette
+  filenames: Xf2/anad207.zip, Xf2/anadisk.txt
+Apparently 2.07 is buggy.
+Anadisk 2.06 is available at: <A NAME=id125 HREF="http://ch.twi.tudelft.nl/~sidney/atari/">http://ch.twi.tudelft.nl/~sidney/atari/</A>
+
+Deana by Nate Monson - converts AnaDisk dump files from Atari format
+  filenames: Xf2/deana.com, Xf2/deana.txt
+
+Explanation --&#62; According to mailto:crow@cs.dartmouth.edu (Preston Crow),
+"As best as I can figure it out, if your PC drive happens to read
+FM disks (I'm not sure what the criteria for that is), then you
+can read single density disks on your PC by dumping the contents
+to a file with AnaDisk, and then using Deana.com to convert the
+dump file into a usable format.
+For enhanced density disks, Anadisk generally only reads the first
+portion of each sector, but it demonstrates that it is possible for
+a PC drive to read enhanced density disks."
+</PRE>
+<HR>
+Parent document is top of "<A NAME=up HREF="faq.html"><I>Atari 8-Bit Computers: Frequently Asked Questions</I></A>"<BR>
+Previous document is "<A NAME=up HREF="faq-doc-31.html"><I>11.1) What are the best terminal emulators available?</I></A>"<BR>
+Next document is "<A NAME=up HREF="faq-doc-33.html"><I>11.3) Can I read/write MS-DOS disks on an 8-bit Atari?</I></A>"<BR>
+</BODY>

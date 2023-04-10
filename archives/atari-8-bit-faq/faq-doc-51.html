@@ -1,0 +1,45 @@
+<HEAD>
+<TITLE>Atari 8-Bit Computers: Frequently Asked Questions - 13.12) Is the software for the Atari 8-bit computers "TV-standard dependent?"</TITLE>
+</HEAD>
+<BODY>
+Parent document is top of "<A NAME=up HREF="faq.html"><I>Atari 8-Bit Computers: Frequently Asked Questions</I></A>"<BR>
+Previous document is "<A NAME=up HREF="faq-doc-50.html"><I>13.11) What is the difference between NTSC and PAL machines?</I></A>"<BR>
+Next document is "<A NAME=up HREF="faq-doc-52.html"><I>13.13) What programming languages are available for the Atari?</I></A>"<BR>
+<HR>
+<H1>13.12) Is the software for the Atari 8-bit computers "TV-standard dependent?"</H1>
+<PRE>
+{some PAL demos flicker, or won't run at all on NTSC machines}
+
+mailto:buesch@srv.net (Brent Buescher, Jr.) writes:
+
+This is because PAL machines have a vertical refresh frequency of 50hz
+(NTSC use 60hz) which translates into more vertical blanking time for
+demos and other computation-intensive graphics software.  So PAL demos
+that won't work on NTSC machines are usually returning from a VBI
+(vertical blanking interrupt) too late.  Some also attempt to use more
+vertical resolution ("longer" display lists) than an NTSC display can
+handle.
+
+mailto:thor@math.tu-berlin.de (Thomas Richter) adds:
+
+Yes, it is. Mostly because the frequency of the vertical blank interrupt
+is different (60Hz for NTSC, 50Hz for PAL). The old OS A was not clever enough
+to notice the difference, so all system timings like the keyboard auto-repeat
+function depend on the TV system. These parts of the OS have been corrected
+with OSB and the XL versions of the OS. However, as most games install a
+VBI, their timing does still depend on the frequency -&#62; they will run
+slightly slower for PAL versions.
+
+Another point is that the popular pseudo-colors used in the Antic-F
+(Graphics 8) mode are not colorful at all when displayed on a PAL TV, because
+of differences in the color encoding for the TV. The schematics of
+the Xl computers include however a hack how to change the PAL version to
+the NTSC version (the PAL versions include two crystals, one with 5/4th of
+the frequency of the other. One is used for the system clock, the other for
+the color clock), but I never dared to apply it.
+</PRE>
+<HR>
+Parent document is top of "<A NAME=up HREF="faq.html"><I>Atari 8-Bit Computers: Frequently Asked Questions</I></A>"<BR>
+Previous document is "<A NAME=up HREF="faq-doc-50.html"><I>13.11) What is the difference between NTSC and PAL machines?</I></A>"<BR>
+Next document is "<A NAME=up HREF="faq-doc-52.html"><I>13.13) What programming languages are available for the Atari?</I></A>"<BR>
+</BODY>

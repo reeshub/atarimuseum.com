@@ -1,0 +1,90 @@
+<HEAD>
+<TITLE>Atari 8-Bit Computers: Frequently Asked Questions - 11.4) How do I transfer files using a null modem cable?</TITLE>
+</HEAD>
+<BODY>
+Parent document is top of "<A NAME=up HREF="faq.html"><I>Atari 8-Bit Computers: Frequently Asked Questions</I></A>"<BR>
+Previous document is "<A NAME=up HREF="faq-doc-33.html"><I>11.3) Can I read/write MS-DOS disks on an 8-bit Atari?</I></A>"<BR>
+Next document is "<A NAME=up HREF="faq-doc-35.html"><I>11.5) What is SIO2PC?</I></A>"<BR>
+<HR>
+<H1>11.4) How do I transfer files using a null modem cable?</H1>
+<PRE>
+This section by mailto:cb541@cleveland.Freenet.Edu (James R. Gilbert)
+
+A:  Simply put, you need a terminal program and an RS 232 port on
+    each computer.  The RS 232 ports need to be connected
+    together using a 'null modem cable'.
+
+    For up to 4800 bps, no flow control lines need be
+    connected.  Just cross the transmit and receive lines
+    and join the grounds together.  (Transmit is pin #2,
+    receive is pin #3 and ground is pin #7 on the 25-pin
+    port.)
+
+    The right hand pin on the 'long' side of a female 'D'
+    connector is #1.  There are 13 holes on this 'long'
+    side, 12 holes on the 'short' side.  The numbers go from
+    #1 on the right to #13 on the left on the 'long' side
+    and from #14 to #25 from right to left on the 'short'
+    side. #25 is closest to being under #13.  A male
+    connector is the mirror image of this.
+
+    Most terminal programs allow a null connection, without a
+    carrier detect.  Notably, '850 Express!' does not.
+
+    A convenient way to make a null modem cable, up to about
+    30 feet long, is to use two female DB25 connectors and
+    some three or more conductor cable.  Using the two DB25
+    female connectors allows unplugging your modem and
+    plugging in the null modem cable.  This also avoids the
+    confusion of the wide variety of serial port jacks on
+    different computers.  Almost all computers connect into
+    the modem via a DB25 connection.
+
+    The SIO port on the Atari cannot be used directly.  An
+    850 Interface Module, P:R:Connection, Multi I/O, Black
+    Box (by Computer Software Services) or similar device
+    that provides an RS232 port must be used.
+
+    On the Atari, the port is a female DB9.  So you need a
+    male DB9 to male DB25 modem cable to connect to your
+    modem. So why not use this cable as your null modem
+    cable as well?
+
+    For higher speed connections, above about 9600 bps on the
+    8-bit, you need the flow control lines.  You also need
+    a Multi I/O or Black Box, which use the PBI (parallel bus),
+    then you can go higher than 9600 bps.
+
+    Following are pin assignments for a DB25 pin RS 232 C
+    port.
+                 13                       1
+                  o o o o o o o o o o o o o
+                   o o o o o o o o o o o o
+                  25                     14
+
+          (Above is female, male is mirror image.)
+
+1.  Protective Ground        12.  Select Alternate Rate
+2.  Transmit Data            15.  Transmit Clock (sync)
+3.  Receive Data             17.  Receive clock (sync)
+4.  RTS (Request to Send)    20.  Data Terminal Ready
+5.  CTS (Clear to Send)      22.  Ring indicator
+6.  Data Set Ready           23.  Select Alternate Rate
+7.  Signal Ground            24.  Transmit Clock
+8.  Carrier Detect
+
+    A high speed cable would need not only pins 2 and 3 crossed
+    but also pins 4 and 5 as well as 6 and 8.  Or better
+    yet, make a true 25 wire, straight through cable and use
+    a commercial null modem.  A commercial null modem is
+    just a small device with the correct lines already
+    crossed.
+
+    (DTE = Data Terminal Equipment, i.e., your computer.
+     DCE = Data Communications Equipment, i.e., your modem.)
+</PRE>
+<HR>
+Parent document is top of "<A NAME=up HREF="faq.html"><I>Atari 8-Bit Computers: Frequently Asked Questions</I></A>"<BR>
+Previous document is "<A NAME=up HREF="faq-doc-33.html"><I>11.3) Can I read/write MS-DOS disks on an 8-bit Atari?</I></A>"<BR>
+Next document is "<A NAME=up HREF="faq-doc-35.html"><I>11.5) What is SIO2PC?</I></A>"<BR>
+</BODY>

@@ -1,0 +1,113 @@
+<HEAD>
+<TITLE>Atari 8-Bit Computers: Frequently Asked Questions - 9.5) How can I make my commercial boot disk (tape, cart) into a load file or disk image?</TITLE>
+</HEAD>
+<BODY>
+Parent document is top of "<A NAME=up HREF="faq.html"><I>Atari 8-Bit Computers: Frequently Asked Questions</I></A>"<BR>
+Previous document is "<A NAME=up HREF="faq-doc-28.html"><I>9.4) What are the .XMO and .BIN file formats?</I></A>"<BR>
+Next document is "<A NAME=up HREF="faq-doc-30.html"><I>9.6) How can I convert my commercial boot tape into a cassette image file?</I></A>"<BR>
+<HR>
+<H1>9.5) How can I make my commercial boot disk (tape, cart) into a load file or disk image?</H1>
+<PRE>
+Russ Gilbert, mailto:russg@en.com writes:
+
+The disk image part is a matter of taking a copyable boot
+disk and making an atr, xfd, dcm or other disk image type
+file out of it, usually for use with an emulator. Before
+emulators, the Bob Puff .dcm format was used to
+store/archive/retrieve boot disk images.
+
+Almost all commercial software for the A8 is/was copy
+protected. For boot disks, this usually involved a large
+number of special formatting that couldn't be copied using
+ordinary sector copiers. Usually the boot process involved
+checking to see if a certain sector error occurred, then
+proceeding. If the error did not occur, the disk was a copy
+and would not work.
+
+For carts, usually the method of protection was to write to
+the cart area of memory and see if the value changed. If the
+value changed, the cart program was in RAM, not ROM and
+would fail to operate.
+
+For tapes, again a fair number of schemes were used. Some
+varied the speed at which the tape loaded. I'm not familiar
+with tape protection schemes.
+
+With all software media (cart, tape, disk), there may be
+program encryption, which must be decrypted before the
+program can run. This to make more difficult disassembly of
+the program.
+
+There were/are a number of products to defeat copy
+protection/allow copying of protected software for the A8.
+The most common way to defeat copy protection was to
+disassemble the software and revise sections of code so that
+the copy protection was defeated. A software with defeated
+copy protection is called a 'cracked' software. The basic
+procedure is to understand how cart/tape/disk software
+initializes, loads and runs. Usually make a file out of the
+software and 'follow the code', starting with loading of
+the program, to decryption to the actual running of the
+program.  Today, it is unnecessary to copy original
+commercial A8 software because it has already been defeated
+and may be found at a few ftp sites. (Note umich archive has
+no commercial/non-shareware software.)
+
+Besides 'cracking' software, there were/are hardware devices
+to copy commercial protected software. The Happy 1050 and
+the Archiver, and probably other modifications to the 810,
+or 1050 allowed 'bit image' copying and reproduction of the
+special formatting that copy protected disks had. Using
+these archiving disk drives, a copy of the original disk,
+including all special formatting and the original code is
+copied, thus making a copy protected copy, not cracked, just
+like the original.
+
+For carts, copying could involve cracking or again there
+were/are products to reproduce the cart and simulate a ROM.
+Or the cart might be copied and burned on the correct type
+of eprom, to make a plug in cart. 'The Impersonator', the
+'Pill' are two cart copy schemes copy the cart to a file,
+then don't change the code, but use a 'dummy cart' to fool
+the software into thinking there is a ROM present.
+
+Basic tools for copying, then cracking, carts and disks are
+a sector editor and disassembler. Carts are usually most
+easily dumped using a special OS, like Omnimon, to interrupt
+the cart and dump memory to disk. There are a few pd cart
+copiers that have the user plug the cart in when the program
+is running, I don't believe these pd cart copiers are very
+good or very wise to use.
+
+So, the basic answer to 'how do I make a copy of my copy
+protected commercial software' is don't bother. Find it on
+the net.
+
+There is one exception, in that this 'solution' involves a
+minimum of effort and is relatively safe. I refer to
+'Chipmunk' and 'Black Patch' software to make cracked boot
+disk copy of commercial disks. HOWEVER, even if you use
+these two commercial archival tools, be sure you write
+protect your originals, and be careful not to accidentally
+write to the original disk.
+
+Finally, I'll mention a very modern (I mean 1997) product.
+The APE Pro system, by Steven Tucker, in the registered
+version of this shareware allows making disk images called
+'Pro' images. APE (Atari Peripheral Emulator) requires a
+cable, called the SIO2PC cable, that connects the A8 13 pin
+serial port to a serial port on the IBM PC clone. To make
+'Pro' images, a special adapter cable is needed, not just
+the 'standard' SIO2PC cable. The 'Pro' image can 'capture'
+the copy protection of an original commercial disk. The
+'Pro' image can then be loaded into an A8 using the APE
+registered version software, thus backing up your original
+disk software. Note the 'Pro' image will only be of use to
+person(s) owning registered APE software and 'Pro' adapter
+cable.
+</PRE>
+<HR>
+Parent document is top of "<A NAME=up HREF="faq.html"><I>Atari 8-Bit Computers: Frequently Asked Questions</I></A>"<BR>
+Previous document is "<A NAME=up HREF="faq-doc-28.html"><I>9.4) What are the .XMO and .BIN file formats?</I></A>"<BR>
+Next document is "<A NAME=up HREF="faq-doc-30.html"><I>9.6) How can I convert my commercial boot tape into a cassette image file?</I></A>"<BR>
+</BODY>

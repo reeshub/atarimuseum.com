@@ -1,0 +1,139 @@
+<HEAD>
+<TITLE>Atari 8-Bit Computers: Frequently Asked Questions - 1.4) What is the internal layout of the 8-bit Atari?</TITLE>
+</HEAD>
+<BODY>
+Parent document is top of "<A NAME=up HREF="faq.html"><I>Atari 8-Bit Computers: Frequently Asked Questions</I></A>"<BR>
+Previous document is "<A NAME=up HREF="faq-doc-4.html"><I>1.3) What are the some of the performance features of the 8-bit Atari?</I></A>"<BR>
+Next document is "<A NAME=up HREF="faq-doc-6.html"><I>1.5) How did Atari get it's name?</I></A>"<BR>
+<HR>
+<H1>1.4) What is the internal layout of the 8-bit Atari?</H1>
+<PRE>
+The following text was written by Chris Crawford and appears in De Re
+Atari (Atari#APX-90008), a book published and copyright by Atari, Inc.,
+1981-1982.  It has been very slightly modified here for generality.
+
+     "The internal layout of the Atari 8-bit computer is very different
+from other systems.  It of course has a microprocessor (a 6502), RAM,
+ROM, and a (PIA).  However, it also has three special-purpose (LSI) chips
+known as ANTIC, GTIA, and POKEY.  These chips were designed by Atari
+engineers primarily to take much of the burden of housekeeping off of the
+6502, thereby freeing the 6502 to concentrate on computations.  While
+they were at it, they designed a great deal of power into these chips.
+Each of these chips is almost as big (in terms of silicon area) as a
+6502, so the three of them together provide a tremendous amount of
+power.  Mastering the Atari 8-bit computers is primarily a matter of
+mastering these three chips.
+
+     ANTIC ("Alpha-Numeric Television Interface Circuit") is a microprocessor
+dedicated to the television display.  It is a true microprocessor; it has an
+instruction set, a program (called the display list), and data.  The display
+list and the display data are written into RAM by the 6502.  ANTIC retrieves
+this information from RAM using direct memory access (DMA).  It processes the
+higher level instructions in the display list and translates these instructions
+into a real-time stream of simple instructions to GTIA.
+
+      CTIA ("Color Television Interface Adapter") / GTIA ("George's Television
+Interface Adapter") is a television interface chip.  ANTIC directly controls
+most of GTIA's operations, but the 6502 can be programmed to intercede and
+control some or all of GTIA's functions.  GTIA converts the digital
+commands from ANTIC (or the 6502) into the signal that goes to the
+television.  GTIA also adds some factors of its own, such as color
+values, player-missle graphics, and collision detection.
+
+     POKEY (means "POT and KEY" as in the paddles and keyboard) is a digital
+input/output (I/O) chip.  It handles such disparate tasks as the serial I/O
+bus, audio generation, keyboard scan, and random number generation.  It also
+digitizes the resistive paddle inputs and controls maskable interrupt (IRQ)
+requests from peripherals.
+
+     All four of these LSI chips function simultaneously.  Careful
+separation of their functions in the design phase has minimized conflicts
+between the chips.  The only hardware level conflict between any two
+chips in the system occurs when ANTIC needs to use the address and data
+buses to fetch its display information.  To do this, it halts the 6502
+and takes control of the buses."
+
+The 130XE and XEGS contain a small additional LSI called FREDDY, a RAM
+address multiplexer.  According to mailto:sup8pdct@mail.cth.com.au
+(James Bradford), "FREDDY is a type of memory controller.  It takes the
+address and clock from the CPU and multiplexes it with the appropriate timings
+and signals to use DYNAMIC memory.  FREDDY also buffers the system clock
+crystal and divides it down then feeds that to GTIA.  The XEGS has a FREDDY
+but it doesn't have the extended RAM.  Even if it did, you would still need
+the chip that does the REAL bank switching.  It is a small 16-pin chip
+(Atari/Best Electronics catalog number CO25953: rev9/page 42).  It gets RAS
+from FREDDY, the bank select bits from PIA, A14, A15 and the 6502 halt signal
+to control which bank of 8 chips RAS goes to.  A14 and A15 then go to FREDDY
+for the address range of the extra memory bank (or normal address range with
+no bank switching).  The ANTIC/6502 select bits in combination with the 6502
+halt line, control the switching of the PIA bank number bits to A14/A15 and
+which bank of memory RAS goes to.  Why people say FREDDY does the bank
+switching is beyond me.  An 800XL can look like a 130XE with that 16-pin chip
+installed (That's right NO FREDDY) and an extra 8 RAM chips."
+
+
+Hardware Arrangement (With thanks to mailto:peter@soemtron.sb.sub.de (Peter))
+
+                  -&#62;
++---------------------------------------+
+|            +------------+             |
+|            | CPU(6502C) |         +-------+
+|            +------------+      &#60;- |  I/O- |
+|                  |     +----------|release|
+|                 +-+    |          +-------+
+| +---------+&#60;-   |p|    |               |
+| |   MMU   |-----| |    | &#60;-+---------+-|----------+----------+
+*-| memory- |     |r|    *---|   PIA   | | (trigger)|Controller|====\
+| |managment|-----|-+--------| (6520)  | |+---------|   Ports  |====/
+| +---------+&#60;-   |o| -&#62; |   +---------+-|-+  &#60;--&#62;  +----------+
+|                 | |    |               |||           |    |
+|   +-----+       |c|    | &#60;-+---------+ |||           |(lightpen)
+|   | RAM |&#60;-A/D  | |    *---|  ANTIC  | |||           |    |
+*---|8-128|-------|e|----|---|(2nd CPU)|---------------+    |
+|   |Kbyte|-&#62;D    | | -&#62; |   +---------+ ||| +---------------
+|   +-----+       |s|    |       ||      ||| |
+|                 | |    | &#60;-+---------+-|||--------+(screen)
+|  +-------+      |s|    *---|  GTIA   |-|+| |      |
+|  | Atari |&#60;-A   | |----|---|  /CTIA  | | | | +----------+   +-----------+
+|  | BASIC |------|o| -&#62; |   +---------+ | | | | summary  |===| modulator |
+*--|8 Kbyte|-&#62;D   | |    |               | | | |connection|===| ^^^^^^^^^ |
+|  |  ROM  |      |r|    | &#60;-+---------+ | | | +----------+   +-----------+
+|  +-------+      | |    +---|  POKEY  |-|-|-+      |(sound)        |
+|                 | |--------|         |-|-|--------+               |
+|  +-------+      |b| -&#62;     +---------+ | +----------+             |
+|  |AtariOS|&#60;-A   | |                 |  |            |             |
+*--|10/16Kb|------|u|                 +--|----------+ |         tv/monitor
+|  |  ROM  |-&#62;D   | +-----------------   |          | |         **********
+|  +-------+      |s|              | |   |          | |
+|                 | |              | |   |          | |
+|                 +-+              +-+   |          | |
+|                  |                |    |          | |
++--------------*---|------------*---|    |          | |
+               |   |            |   |    |          | |
+             +-----------+    +-----------+    +------------+
+             |ParallelBus|    | Cartridge |    |   Serial   |
+             |Interface/ |    |   Slot    |    |Input/Output|
+             | Enhanced  |    |    ROM    |    |    (SIO)   |
+             | Cartridge |    +-----------+    +------------+
+             | Interface |          |                |
+             +-----------+          |                |
+                   |                |                |
+        - memory expansion    -cartridge with   - disk drive
+        - Z80 card             programs         - printer
+        - 80 char card         (games , dos )   - modem
+
+NOTES
+ * RAM: 400/800:8/16/48K,1200XL/800XL/65XE/800XE/XEGS:64K,600XL:16K,130XE:128K
+ * ROM: 400/800:10K OS, 1200XL:16K OS, all others:16K OS + 8K Atari BASIC
+ * CPU: 400/800:6502, all others:6502C
+ * 800 includes two Cartridge Slots, all others include one
+ * early release 400/800 have CTIA instead of GTIA
+ * 400/800 have 4 Controller Ports, all others have 2
+ * PBI is on 600XL/800XL only
+ * ECI is on 130XE/800XE only
+</PRE>
+<HR>
+Parent document is top of "<A NAME=up HREF="faq.html"><I>Atari 8-Bit Computers: Frequently Asked Questions</I></A>"<BR>
+Previous document is "<A NAME=up HREF="faq-doc-4.html"><I>1.3) What are the some of the performance features of the 8-bit Atari?</I></A>"<BR>
+Next document is "<A NAME=up HREF="faq-doc-6.html"><I>1.5) How did Atari get it's name?</I></A>"<BR>
+</BODY>

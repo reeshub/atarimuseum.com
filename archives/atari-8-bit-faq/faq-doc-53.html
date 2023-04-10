@@ -1,0 +1,56 @@
+<HEAD>
+<TITLE>Atari 8-Bit Computers: Frequently Asked Questions - 13.14) What is the Atari XEP80 Interface Module?</TITLE>
+</HEAD>
+<BODY>
+Parent document is top of "<A NAME=up HREF="faq.html"><I>Atari 8-Bit Computers: Frequently Asked Questions</I></A>"<BR>
+Previous document is "<A NAME=up HREF="faq-doc-52.html"><I>13.13) What programming languages are available for the Atari?</I></A>"<BR>
+Next document is "<A NAME=up HREF="faq-doc-54.html"><I>13.15) What makes some XL/XE software incompatible with the 400/800?</I></A>"<BR>
+<HR>
+<H1>13.14) What is the Atari XEP80 Interface Module?</H1>
+<PRE>
+This section written by: mailto:raukamp@dame.de (Thomas Raukamp)
+
+Since the development of  the Atari 8-bit line of computers in 1979, users
+wanted better text displays than the default 40x24. There has been some
+attempts to satisfy this need, like the Austin-Franklin board or the Ace
+80/80xl cartridge. For more informations about these modifications read The
+Atari 8-bit Hardware Upgrade FAQ from David A. Paterson.
+
+The Atari XEP80 Interface Module is Atari's entry to the 80 column field. It
+lets a XL, XE, 400 or 800 computer system display a full 80 columns across
+your monitor screen. The XEP80 provides a 256-character wide by 25-line
+display window. Up to 80 characters are displayed horizontally at once, and
+you can scroll horizontally all the way to the 256th character, depending on
+the application you're running. The XEP80 is connected to your system via a
+joystick port.
+
+The XEP80 Module interprets commands from the computer for screen display or
+output to a printer. The module is supplied with an industry-standard 8-bit
+parallel port  so you can connect a parallel printer to your Atari 8-bit (I
+even use a HP LaserJet IV on my 130XE ;) ).
+
+All programs that use the standard screen call (E:) should be compatible with
+the XEP80 Module. The software provided by Atari supports a 320x200 graphics
+mode - this mode only support direct bit images. Note that you can't use all
+of the standard graphic capabilities of the Atari anymore.
+
+Although Atari recommends a monochrome monitor for usage with the XEP80, it
+runs fine with any type of composite monitor. The output looks great on my
+Commodore 1084 for example.
+
+Along with the module comes a software-package containing an AUTORUN.SYS file,
+which is the XEP80 handler. If you want to use the module with an application
+that is compatible with the XEP80, which has it's own AUTORUN.SYS file, you
+can append the application's AUTORUN.SYS on the module's AUTORUN.SYS.
+***********************
+Editors for the XEP80:
+AtariWriter 80 by Atari
+TurboWord by MicroMiser
+emacs subset by mailto:slackey@slackey-sun.cisco.com (Stan Lackey)
+MAE and its previous standalone editor ED
+</PRE>
+<HR>
+Parent document is top of "<A NAME=up HREF="faq.html"><I>Atari 8-Bit Computers: Frequently Asked Questions</I></A>"<BR>
+Previous document is "<A NAME=up HREF="faq-doc-52.html"><I>13.13) What programming languages are available for the Atari?</I></A>"<BR>
+Next document is "<A NAME=up HREF="faq-doc-54.html"><I>13.15) What makes some XL/XE software incompatible with the 400/800?</I></A>"<BR>
+</BODY>

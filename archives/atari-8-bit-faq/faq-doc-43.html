@@ -1,0 +1,191 @@
+<HEAD>
+<TITLE>Atari 8-Bit Computers: Frequently Asked Questions - 13.4) What are the pinouts for the...?</TITLE>
+</HEAD>
+<BODY>
+Parent document is top of "<A NAME=up HREF="faq.html"><I>Atari 8-Bit Computers: Frequently Asked Questions</I></A>"<BR>
+Previous document is "<A NAME=up HREF="faq-doc-42.html"><I>13.3) What are the power-supply requirements for my Atari components?</I></A>"<BR>
+Next document is "<A NAME=up HREF="faq-doc-44.html"><I>13.5) What BBS software can be used on the Atari?</I></A>"<BR>
+<HR>
+<H1>13.4) What are the pinouts for the...?</H1>
+<PRE>
+Serial I/O (SIO) Port (all machines):
+   2   4   6   8  10  12
+ 1   3   5   7   9  11  13
+1. Clock Input             8. Motor Control
+2. Clock Output            9. Proceed
+3. Data Input             10. +5V/Ready
+4. Ground                 11. Audio Input
+5. Data Output            12. +12V (400,800 only. 1400XL/1450XLD?)
+6. Ground                 13. Interrupt
+7. Command
+
+Cartridge Slot ("Left" slot on all machines; "Right" slot on 800 only):
+A  B  C  D  E  F  H  J  K  L  M  N  P  R  S
+1  2  3  4  5  6  7  8  9 10 11 12 13 14 15
+ 1. ~S4(Left) R/~W late(Right) A. RD4(Left) B02(Right)
+ 2. A3                         B. GND
+ 3. A2                         C. A4
+ 4. A1                         D. A5
+ 5. A0                         E. A6
+ 6. D4                         F. A7
+ 7. D5                         H. A8
+ 8. D2                         J. A9
+ 9. D1                         K. A12
+10. D0                         L. D3
+11. D6                         M. D7
+12. ~S5(Left) ~S4(Right)       N. A11
+13. +5V                       P. A10
+14. RD5(Left) RD4(Right)       R. R/~W
+15. ~CCTL                      S. B02
+
+Enhanced Cartridge Interface (ECI) (130XE and 800XE only):
+A  B  C  D  E  F  H
+1  2  3  4  5  6  7
+A. Reserved   1. ~EXSEL
+B. ~IRQ       2. ~RST
+C. ~HALT      3. ~D1XX
+D. A13        4. ~MPD
+E. A14        5. Audio
+F. A15        6. ~REF
+H. GND        7. +5V
+
+Monitor Jack (all but 400, North American 600XL, XE Game System):
+3       1
+ 5     4
+    2
+1. Composite Luminance  (not on North American 600XL's)
+2. Ground
+3. Audio Output
+4. Composite Video
+5. Composite Chroma (not on 800XL,1200XL; grounded on 600XL)
+
+Power Adapter Plug (all but 400,800,1200XL,1400XL,1450XLD):
+  7   6
+3       1
+ 5     4
+    2
+1. +5V
+2. Shield
+3. Ground
+4. +5V
+5. Ground
+6. +5V
+7. Ground
+
+Controller Port (4 on 400/800, 2 on all others):
+1   2   3   4   5
+  6   7   8   9
+1. (Joystick) Forward Input
+2. (Joystick) Back Input
+3. (Joystick) Left Input
+4. (Joystick) Right Input
+5. B Potentiometer Input
+6. Trigger Input / Light Pen Input. Port 4 only on 400
+7. +5V
+8. Ground
+9. A Potentiometer Input
+
+Parallel Bus Interface (PBI) (600XL and 800XL only):
+ 1  3  5  7  9 11 13 15 17 19 21 23 25 27 29 31 33 35 37 39 41 43 45 47 49
+ 2  4  6  8 10 12 14 16 18 20 22 24 26 28 30 32 34 36 38 40 42 44 46 48 50
+  1. GND ground                2. External select
+  3. A0 Address output         4. A1
+  5. A2                        6. A3
+  7. A4                        8. A5
+  9. A6                       10. GND
+ 11. A7                       12. A8
+ 13. A9                       14. A10
+ 15. A11                      16. A12
+ 17. A13                      18. A14
+ 19. GND                      20. A15
+ 21. D0 Data (bidirectional)  22. D1
+ 23. D2                       24. D3
+ 25. D4                       26. D5
+ 27. D6                       28. D7
+ 29. GND                      30. GND
+ 31. Phase 2 clock output     32. GND
+ 33. NC Reserved              34. Reset output
+ 35. (IRQ) Interrupt request  36. Ready input
+ 37. NC                       38. External decoder output
+ 39. NC                       40. Refresh output
+ 41. Column address output    42. GND
+ 43. Math pack disable input  44. Row addr strobe
+ 45. GND                      46. Latch read/write out
+ 47. NC (+5V on 600XL only)   48. NC (+5V on 600XL only, used to power 1064)
+ 49. Audio input              50. GND
+
+R1: Serial port DB9P (850 Interface Module):
+5   4   3   2   1                      ____________________________
+  9   8   7   6                       / DB25P
+1. DTR - Data Terminal Ready    (out) +  20
+2. CRX - Signal (carrier) Detect (in) +  8
+3. XMT - Transmitted Data       (out) +  2
+4. RCV - Received Data           (in) +  3
+5. GND - Signal Ground                +  7
+6. DSR - Data Set Ready          (in) +  6
+7. RTS - Request to Send        (out) +  4
+8. CTS - Clear to Send           (in) +  5
+No connection to shield               + Frame - to the shield wire
+
+R2: Serial port (850 Interface Module):
+5   4   3   2   1
+  9   8   7   6
+1. DTR
+3. Send Data
+4. Receive Data
+5. Signal Ground
+6. DSR
+
+R3: Serial port (850 Interface Module):
+5   4   3   2   1
+  9   8   7   6
+1. DTR
+3. Send Data
+4. Receive
+5. Signal Ground
+7. RTS
+8. -8 Volts
+
+R4: Serial port (850 Interface Module):
+5   4   3   2   1
+  9   8   7   6
+1. Send Data +
+3. Send Data -
+7. Receive Data +
+9. Receive Data - (20 mA)
+
+P: Parallel port (850 Interface Module) DB15P:
+      8  7  6  5  4  3  2  1  ____________________________
+       15 14 13 12 11 10  9  / 36 pin Centronics (male)
+1. Data Strobe               +   1
+2. D0                        +   2
+3. D1                        +   3
+4. D2                        +   4
+5. D3                        +   5
+6. D4                        +   6
+7. D5                        +   7
+8. D6                        +   8
+9. Data Pull up (+5v)        +
+10. -                        +
+11. Ground                   +  16
+12. Fault                    +  32
+13. Busy                     +  11
+14. -                        +
+15. D7                       +   9
+No connection to shield      + Frame - to the shield wire
+
+P: Parallel port (XEP80 Interface Module):
+    13  12  11  10   9   8   7   6   5   4   3   2   1
+      25  24  23  22  21  20  19  18  17  16  15  14
+    1. Strobe
+  2-9. Parallel Data
+   10. Not Used
+   11. Busy
+12-17. Not Used
+18-25. Ground
+</PRE>
+<HR>
+Parent document is top of "<A NAME=up HREF="faq.html"><I>Atari 8-Bit Computers: Frequently Asked Questions</I></A>"<BR>
+Previous document is "<A NAME=up HREF="faq-doc-42.html"><I>13.3) What are the power-supply requirements for my Atari components?</I></A>"<BR>
+Next document is "<A NAME=up HREF="faq-doc-44.html"><I>13.5) What BBS software can be used on the Atari?</I></A>"<BR>
+</BODY>

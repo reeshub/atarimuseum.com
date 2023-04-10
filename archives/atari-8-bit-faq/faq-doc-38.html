@@ -1,0 +1,80 @@
+<HEAD>
+<TITLE>Atari 8-Bit Computers: Frequently Asked Questions - 12.3) What do I need to connect a hard drive to my 8-bit Atari?</TITLE>
+</HEAD>
+<BODY>
+Parent document is top of "<A NAME=up HREF="faq.html"><I>Atari 8-Bit Computers: Frequently Asked Questions</I></A>"<BR>
+Previous document is "<A NAME=up HREF="faq-doc-37.html"><I>12.2) How can I use 3.5" floppy disks with my 8-bit Atari?</I></A>"<BR>
+Next document is "<A NAME=up HREF="faq-doc-39.html"><I>12.4) What kinds of monitors can I use with my Atari?</I></A>"<BR>
+<HR>
+<H1>12.3) What do I need to connect a hard drive to my 8-bit Atari?</H1>
+<PRE>
+ original by mailto:Krishna@max.tiac.net (Glenn M. Saunders)
+
+For starters, you'll need to obtain one of the following interfaces:
+
+==&#62; Corvus hard drive (10 megabytes)
+Rare.
+Fast but still relatively slow I/O, kludge through joystick ports for 800.
+
+==&#62; KPI Hard Disk Drive Interface (formerly Supra)
+from K-Products (bobkla19@mail.tcd.net - Bob Klaas)
+Some limitations on drive type and size and total number of drives in sys.
+
+==&#62; Multi I/O (MIO) (formerly from ICD)
+from Fine Tooned Engineering (FTe) (ftooned@crl.com - Mike Hohman)
+256 byter per sector restriction.  256K and 1 meg ramdisk models.
+Printer and modem, modem will handle 19.2K bps
+
+==&#62; Black Box
+from Computer Software Services (CSS) (76702.1076@compuserve.com - Bob Puff)
+Will handle all SCSI drives. Allows 9 drive access for MYDOS. Currently the
+only modem interface with CTS/RTS hardware flow control. 19.2K ready.
+
+==&#62; SWP ATR-8000
+Rare daughterboard for hard drives.
+I/O is probably fairly slow on this baby and there may be DOS restrictions.
+
+==&#62; IDE Hard Drive Interface
+from Konrad M. Kokoszkiewicz and Jacek Zuk
+(see <A NAME=id126 HREF="http://www.orient.uw.edu.pl/~conradus/docs/ide_eng.html">http://www.orient.uw.edu.pl/~conradus/docs/ide_eng.html</A> )
+o  Maximum drive capacity: 16777215 physical blocks on each device.
+o  Maximum number of partitions: 16
+o  Maximum capacity of a partition: 16777215 logical sectors
+o  Logical sector length: 256 or 512 bytes
+o  Average speed (in kilobytes per second, WDC 130AB drive):
+   -  Native mode, sequence of sectors (R): 75
+   -  Emulation mode, sequence of sectors (R): 43
+   -  Emulation mode, back sequence (R): 28
+   -  Emulation mode, random sectors (R): 13
+   -  Emulation mode, same sector (R): 29
+   -  Emulation mode, DOS file (W): 7
+   -  Emulation mode, DOS file (R): 36
+o  Booting from any partition (on the standard XL OS)
+o  Write protection capability
+o  8 jumpers to set the device number for the operating system
+o  Sweet 16 compatibility
+
+==&#62; Fine Tooned Engineering Multi I/O II
+An IDE interface.  Released?
+
+==&#62; MSC IDE-Harddisk-Controller
+created by Steve Birmanns and Matthias Belitz in Germany
+mailto:stefan_birmanns@ac.cybercity.de
+mailto:matz@kawo2.rwth-aachen.de
+<A NAME=id127 HREF="http://www.kawo2.rwth-aachen.de/~matz/atari/">http://www.kawo2.rwth-aachen.de/~matz/atari/</A>
+*	real device for the parallel-port of the Atari XL-Series
+*	up to 240 partitions per harddisk supported
+*	emulates D1: until D9: of disk devices (access to 9 partitions at
+one time)
+*	full bootable from any partition (with standard XL-OS)
+*	write protectition capability
+*	supports master/slave configuration
+*	more than 30 KB/s file access with SPARTA-DOS 3.2 gx (reading)
+*	more than 10 KB/s file access with SPARTA-DOS 3.2 gx (writing)
+*	access of ATAPI-CDROM with additional software
+</PRE>
+<HR>
+Parent document is top of "<A NAME=up HREF="faq.html"><I>Atari 8-Bit Computers: Frequently Asked Questions</I></A>"<BR>
+Previous document is "<A NAME=up HREF="faq-doc-37.html"><I>12.2) How can I use 3.5" floppy disks with my 8-bit Atari?</I></A>"<BR>
+Next document is "<A NAME=up HREF="faq-doc-39.html"><I>12.4) What kinds of monitors can I use with my Atari?</I></A>"<BR>
+</BODY>
