@@ -15,7 +15,6 @@ While this is the most complete mirror of this site that I know of, there are st
 - Atari Video Game Systems / Cartridge Consoles / Jaguar / Jaguar File Store: oberon.zip is missing and I have been unable to track it down. From what I can see, this was never uploaded in the first place.
 - Atari Computer Systems / XL / Peripherals & Prototypes: The page for the 1025 printer is missing. As far as I can see, this never existed on either atarimuseum.com nor its predecessor atari-history.com.
 - Atari Documents / Files Archive: "Top" image missing from "Industry Doubts..." article.
-- Atari Documents / Files Archive: "Cloak & Dagger: The Inside Story" article is missing. Whether this was missing originally or not archived due to the "&" in the filename is unknown at this time.
 - Atari Documents / Files Archive / Magazine Archives / Atari Age: Issue v2n5 actually links to v2n6, which doesn't exist. Unfortunately this either never got uploaded or hasn't been crawled due to the broken link, so I can't track it down.
 - Atari Documents / Files Archive / Magazine Archives / Atari I/O: The Wayback machine has been reporting this as a 404 since it first appeared in 2009, so I'm guessing it was never uploaded.
 - Atari Documents / Files Archive / Magazine Archives / Coin Connection: This collection seems *very* incomplete but it appears that it has always been that way.
