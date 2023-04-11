@@ -13,8 +13,6 @@ Rees
 ## Outstanding Issues
 While this is the most complete mirror of this site that I know of, there are still a few bugs for me to iron out.
 - Atari Video Game Systems / Cartridge Consoles / Jaguar / Jaguar File Store: oberon.zip is missing and I have been unable to track it down. From what I can see, this was never uploaded in the first place.
-- Atari Video Game Systems / Cartridge Consoles / Jaguar / Jaguar File Store: jagfiles2.zip is over 100MB and therefore too big for GitHub, so that link is also broken for now.
-- Atari Computer Systems / XL / 1400XL: 1400xl-schems.zip, the schematics for the 1400XL prototype, isn't included as it's over GitHub's 100MB filesize limit.
 - Atari Computer Systems / XL / Peripherals & Prototypes: The page for the 1025 printer is missing. As far as I can see, this never existed on either atarimuseum.com nor its predecessor atari-history.com.
 - Atari Documents / Files Archive: "Top" image missing from "Industry Doubts..." article.
 - Atari Documents / Files Archive: "Cloak & Dagger: The Inside Story" article is missing. Whether this was missing originally or not archived due to the "&" in the filename is unknown at this time.
@@ -22,3 +20,8 @@ While this is the most complete mirror of this site that I know of, there are st
 - Atari Documents / Files Archive / Magazine Archives / Atari I/O: The Wayback machine has been reporting this as a 404 since it first appeared in 2009, so I'm guessing it was never uploaded.
 - Atari Documents / Files Archive / Magazine Archives / Coin Connection: This collection seems *very* incomplete but it appears that it has always been that way.
 - Atari Documents / Files Archive / Video Library: Still working my way through this so should probably be considered incomplete.
+
+## Files Over GitHub's 100MB Limit
+I have linked these to the original mirror on the Wayback Machine for now so at least they're available.
+- Atari Video Game Systems / Cartridge Consoles / Jaguar / Jaguar File Store: "Full Source Files" link (jagfiles2.zip)
+- Atari Computer Systems / XL / 1400XL: "1400XL Schematics" link (1400xl-schems.zip)
